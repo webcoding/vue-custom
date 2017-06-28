@@ -57,3 +57,18 @@ typings/
 # dotenv environment variables file
 .env
 
+# custom
+.DS_Store
+dist/
+test/unit/coverage
+test/e2e/reports
+selenium-debug.log
+*.private.*
+
+# temp
+starter
+packages
+build
+temp/
+config/
+static
