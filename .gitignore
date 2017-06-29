@@ -67,8 +67,8 @@ selenium-debug.log
 
 # temp
 starter
+temp/
+shared
+static
 packages
 build
-temp/
-config/
-static
