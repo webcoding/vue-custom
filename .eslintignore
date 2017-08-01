@@ -1,2 +1,5 @@
+flow
+dist
+
 build/*.js
 config/*.js

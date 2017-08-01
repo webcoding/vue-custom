@@ -1,0 +1,142 @@
+
+// noremalize.css 之上的一些重置样式
+
+// Reset the box-sizing
+
+html {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+img {
+  // By default, `<img>`s are `inline-block`. This assumes that, and vertically
+  // centers them. This won't apply should you reset them to `block` level.
+  vertical-align: middle;
+  // Note: `<img>`s are deliberately not made responsive by default.
+  // For the rationale behind this, see the comments on the `.img-fluid` class.
+}
+
+[role="button"] {
+  cursor: pointer;
+}
+
+a,
+area,
+button,
+[role="button"],
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+//
+// Tables
+//
+
+table {
+  // No longer part of Normalize since v4
+  border-collapse: collapse;
+}
+
+th {
+  // Centered by default, but left-align-ed to match the `td`s below.
+  text-align: left;
+}
+
+
+//
+// Forms
+//
+
+label {
+  // Allow labels to use `margin` for spacing.
+  display: inline-block;
+}
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+input,
+button,
+select,
+textarea {
+  // Remove all `margin`s so our classes don't have to do it themselves.
+  margin: 0;
+  // Normalize includes `font: inherit;`, so `font-family`. `font-size`, etc are
+  // properly inherited. However, `line-height` isn't addressed there. Using this
+  // ensures we don't need to unnecessarily redeclare the global font stack.
+  line-height: inherit;
+  // iOS adds rounded borders by default
+  border-radius: 0;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  // Apply a disabled cursor for radios and checkboxes.
+  //
+  // Note: Neither radios nor checkboxes can be readonly.
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  // Remove the default appearance of temporal inputs to avoid a Mobile Safari
+  // bug where setting a custom line-height prevents text from being vertically
+  // centered within the input.
+  //
+  // Bug report: https://github.com/twbs/bootstrap/issues/11266
+  -webkit-appearance: listbox;
+}
+
+textarea {
+  // Textareas should really only resize vertically so they don't break their (horizontal) containers.
+  resize: vertical;
+}
+
+// Always hide an element with the `hidden` HTML attribute (from PureCSS).
+[hidden] {
+  display: none !important;
+}

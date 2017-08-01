@@ -1,0 +1,76 @@
+<template>
+  <Page>
+    <div class="page-header">Cell 组件</div>
+    <div class="group">
+      <div class="group-header">未读数红点跟在主题信息后，统一在列表左侧</div>
+      <div class="list">
+        <Cell title="简单文本"></Cell>
+        <Cell is-link
+        title="这是标题，字大一点"
+        desc="这里是描述内容，正文字体大小，但内容要多一点，这里是描述内容，正文字体大小，但内容要多一点"
+        ></Cell>
+        <Cell title="标题文字" icon="app" value="带 icon"></Cell>
+        <Cell title="联系人名称">
+          <!-- <img height="36" slot="icon" src="http://lorempixel.com/160/160/people/" alt="头像"> -->
+          <!-- <svg width="40px" height="40px" slot="icon" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="20" fill="#ebebeb"/></svg> -->
+          <svg width="40px" height="40px" slot="icon" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
+          <span>icon 是图片</span>
+        </Cell>
+        <Cell title="标题文字" desc="摘要信息">
+          <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
+          <Badge slot="badge" color="red" text="8"></Badge>
+          <span>带 badge</span>
+          <Badge color="#f60" textColor="#fff" text="28"></Badge>
+        </Cell>
+        <Cell is-link title="我的订单" desc="带链接">
+          <span>查看全部订单</span>
+        </Cell>
+        <Cell title="标题文字">
+          <Badge text="10"></Badge>
+        </Cell>
+        <Cell title="标题文字">
+          <span style="color: green">自定义元素</span>
+        </Cell>
+        <Cell title="标题文字">
+          <Button size="small" type="primary" icon="back">按钮</Button>
+        </Cell>
+      </div>
+      <p>这里有个问题，未引用 group 组件，但使用group-header样式，则样式未加载，这里可以看出，UI组件库没有全加载进来，未使用就未加载</p>
+    </div>
+    <!-- <Cell title="标题" label="描述信息" is-link></Cell> -->
+    <!-- <Cell>
+
+      <div slot="title">这是标题，字大一点 <span class="desc">标题描述或值</span></div>
+      <div slot="after" class="cell-after">After</div>
+    </Cell>
+
+    <Cell class="cell cell-space-around">
+      <span class="entry-cell cell-column iconfont icon-app">待付款</span>
+      <span class="entry-cell cell-column iconfont icon-app">待收货</span>
+      <span class="entry-cell cell-column iconfont icon-app">待评价</span>
+      <span class="entry-cell cell-column iconfont icon-app">售后</span>
+    </Cell>
+    <Cell class="cell cell-sublist">
+      <div class="cell-content">
+        <div class="cell" data-type="">
+          <div class="cell-content">
+            <i class="iconfont icon-group"></i> 一级粉丝
+          </div>
+          <div class="cell-after">10</div>
+        </div>
+      </div>
+    </Cell> -->
+
+  </Page>
+</template>
+
+<script>
+export default {
+  name: 'page-cell',
+  methods: {
+    goBack() {
+      history.go(-1)
+    },
+  },
+}
+</script>

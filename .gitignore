@@ -70,5 +70,5 @@ starter
 temp/
 shared
 static
-packages
+# packages
 build

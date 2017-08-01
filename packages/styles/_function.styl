@@ -1,0 +1,54 @@
+
+
+/// Is It Light?
+/// Checks the lightness of $color, and if it passes the $threshold of lightness, it returns the `$yes` color. Otherwise, it returns the `$no` color. Use this function to dynamically output a foreground color based on a given background color.
+///
+/// @param {color} $color - Color to check the lightness of.
+/// @param {color} $yes - Color to return if $color is light.
+/// @param {color} $no - Color to return if $color is dark.
+/// @param {percentage} $threshold - Threshold of lightness to check against.
+///
+/// @return The $yes color or $no color.
+islight($color, $yes = #333, $no = #fff, $threshold = 60%) {
+  if (lightness($color) > $threshold) {
+    return $yes;
+  } else {
+    return $no;
+  }
+}
+
+// Text overflow
+// Requires inline-block or block for proper styling
+text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Line clamp
+// http://dropshado.ws/post/1015351370/webkit-line-clamp
+line-clamp($lines = 2, $line-height = 1.3em) {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines; // number of lines to show
+  overflow: hidden;
+  line-height: $line-height;
+  max-height: $line-height * $lines;
+}
+
+// CSS image replacement
+text-hide() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+// 动画
+@keyframes cirle-anim {
+  100% {
+    transform: rotate(360deg);
+  }
+}

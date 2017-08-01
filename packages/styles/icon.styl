@@ -1,0 +1,89 @@
+// ICON 图标不使用字体图标，使用 svg，并通过技术实现按需加载
+// 优点，便于增量维护，便于修改，扩展等
+
+// SUI
+// @font-face {
+//   font-family: 'iconfont';
+//   src: url('//at.alicdn.com/t/font_1464419204_8139555.eot'); /* IE9*/
+//   src: url('//at.alicdn.com/t/font_1464419204_8139555.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//   url('//at.alicdn.com/t/font_1464419204_8139555.woff') format('woff'), /* chrome、firefox */
+//   url('//at.alicdn.com/t/font_1464419204_8139555.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+//   url('//at.alicdn.com/t/font_1464419204_8139555.svg#iconfont') format('svg'); /* iOS 4.1- */
+// }
+
+._font-icon {
+  display: inline-block;
+  // font-family: "iconfont", sans-serif !important;
+  font-size: 24px;
+  line-height: 1;
+  font-style: normal !important;  // 去除斜体
+  font-weight: normal !important; // 不要粗体
+  text-decoration: none !important;
+
+  // 对图标样式进行抗锯齿处理
+  -webkit-font-smoothing: antialiased;
+
+  // pc端 chrome 放大出现严重锯齿
+  // 对字体图标的边缘进行模糊；（只支持webkit内核浏览器,参数数值不宜设置得很大，这会带来图标加粗的问题）
+  -webkit-text-stroke-width: 0.2px;
+
+  // grayscale对于图标字体表现更清晰，减轻次像素渲染带来的相邻像素色彩污染问题
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// .iconfont:before,
+// .fonticon:after {
+//   @extend ._font-icon;
+// }
+
+// $icons = {
+//   code: \e600,
+//   menu: \e601,
+//   app: \e602,
+//   cart: \e603,
+//   delete: \e604,
+//   home: \e606,
+//   message: \e607,
+//   share: \e608,
+//   back: \e609,
+//   comment: \e60a,
+//   edit: \e60b,
+//   favorite: \e60c,
+//   help: \e60d,
+//   info: \e60e,
+//   less: \e60f,
+//   detail: \e60f,
+//   more: \e611,
+//   pic: \e612,
+//   refresh: \e613,
+//   search: \e614,
+//   set: \e615,
+//   success: \e616,
+//   warning: \e617,
+//   error: \e618,
+//   clock: \e619,
+//   remind: \e61a,
+//   discount: \e61b,
+//   dift: \e61c,
+//   browse: \e61d,
+//   scanning: \e61e,
+//   pin: \e61f,
+//   link: \e620,
+//   friend: \e621,
+//   download: \e622,
+//   card: \e623,
+//   local: \e624,
+//   person: \e625,
+// };
+
+// for $icon-key, $icon-value in $icons {
+//   .icon-{$icon-key} {
+//     &.iconfont:before {
+//       content: unquote('"{$icon-value}"');
+//     }
+//   }
+// }
+
+.icon-loading {
+  animation: cirle-anim 1s linear infinite;
+}

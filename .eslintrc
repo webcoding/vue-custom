@@ -12,8 +12,9 @@
   ],
   // required to lint *.vue files
   "plugins": [
-    "html",
-    "flowtype"
+    // "flowtype-errors",
+    "flowtype",
+    "html"
   ],
   "env": {
     "mocha": true,
@@ -42,6 +43,7 @@
     "no-useless-escape": 0,
     "flowtype/define-flow-type": 1,
     "flowtype/use-flow-type": 1,
+    // "flowtype-errors/show-errors": 2,
     // don"t require .vue extension when importing
     // "import/extensions": ["error", "always", {
     //   "js": "never",

@@ -3,16 +3,28 @@
     ["env", { "modules": false }],
     "es2015",
     "stage-0",
+    "flow",
     "flow-vue"
   ],
   "plugins": [
+    // [
+    //   "typecheck",
+    //   {
+    //     "disable": {
+    //       "production": true
+    //     }
+    //   }
+    // ],
+    // "syntax-flow",
+    // "transform-flow-strip-types",
     "transform-vue-jsx",
+    // "transform-class-properties",
     "syntax-dynamic-import",
     "transform-runtime"
   ],
   "ignore": [
-    "dist/*.js",
-    "packages/**/*.js"
+    // "packages/**/*.js",
+    "dist/*.js"
   ],
   "comments": false,
   "env": {
