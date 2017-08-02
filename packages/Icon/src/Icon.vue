@@ -8,7 +8,7 @@
 /**
  * Icon
  * @module packages/Icon
- * @desc 按钮
+ * @desc 图标
  * @param {string} type - 显示类型
  * @param {number} [size] - 尺寸
  * @param {color} [color] - 颜色

@@ -27,7 +27,7 @@
           <span v-text="value"></span>
         </slot>
       </div>
-      <Icon class="icon-link" v-if="isLink" width="12" height="12" type="micro_next"></Icon>
+      <Icon class="icon-link" v-if="isLink" size="12" type="micro_next"></Icon>
     </div>
     <!--
     <div class="cell-after">

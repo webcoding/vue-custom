@@ -7,7 +7,7 @@
         <span class="logo-dark flex-center box400">
           <Icon type="devnode_logo" size="280, 70"></Icon>
         </span>
-        <span class="logo-light flex-center box400" style="background: #35405b;">
+        <span class="logo-light flex-center box400" style="background: #35405b; color: #fff;">
           <Icon type="devnode_logo" size="280, 70"></Icon>
         </span>
       </div>
@@ -162,6 +162,12 @@ export default {
 </script>
 
 <style lang="stylus" scope>
+.flex
+  display flex
+.flex-center
+  display flex
+  align-items center
+  justify-content center
 .page-svg
   svg
     margin 10px
@@ -175,7 +181,7 @@ export default {
 
   .box400
     width 400px
-    height 400px
+    height 200px
 
 
 .preloader {
