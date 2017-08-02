@@ -1,4 +1,4 @@
-# vue-elements
+# vue-custom
 
 Vue UI with (vue2 + vue-router + vuex + webpack3)
 
