@@ -1,6 +1,13 @@
 # vue-custom
 
-Vue UI with (vue2 + vue-router + vuex + webpack3)
+Vue custom element with (vue2 + vue-router + vuex + webpack3)
+
+```
+.
+├── vui  组件
+├── vapi 接口
+└── demo
+```
 
 ## Build Setup
 

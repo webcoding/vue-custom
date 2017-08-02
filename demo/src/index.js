@@ -8,7 +8,7 @@ import { createApp } from './createApp'
 import ProgressBar from './components/ProgressBar.vue'
 // import titleMixin from './util/title'
 // import * as filters from './filters'
-import vueUI from '../../vui'
+import vueUI from '../../src'
 
 
 // // mixin for handling title

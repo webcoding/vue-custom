@@ -1,19 +1,25 @@
 <template>
-  <transition>
-    <router-view></router-view>
+  <transition :name="transition">
+    <router-view class="layout-demo"></router-view>
   </transition>
 </template>
 
 
 <script>
 export default {
-
+  name: 'layout-demo',
+  data() {
+    return {
+      transition: 'slide-left',
+    }
+  },
   // watch $route 决定使用哪种过渡
   watch: {
     '$route' (to, from) {
       const toDepth = to.path.split('/').length
       const fromDepth = from.path.split('/').length
-      this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+      this.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+      console.log(this.transition)
     },
   },
 }
@@ -21,7 +27,6 @@ export default {
 
 <style lang="stylus" scope>
 .page-demo {
-  padding-bottom: 50px;
 
   .indexicon {
     font-size: 22px;

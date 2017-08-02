@@ -90,8 +90,9 @@ module.exports = {
     target: 'web',
     api: apiConfig['dev'],
     autoOpenBrowser: true,
+    assetsPath: project.src + '/assets',
     assetsSubDirectory: 'assets',
-    assetsPublicPath: '',
+    assetsPublicPath: '/',
     // https://vuejs-templates.github.io/webpack/proxy.html
     // https://github.com/chimurai/http-proxy-middleware
     proxyTable: {

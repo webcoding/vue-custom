@@ -8,12 +8,14 @@ Vue.use(Router)
 import Layout from './Layout'
 // import Zt from './ZT'
 import Demo from './Demo'
-import Index from '@/views/Index'
+import App from './App'
+import Home from '@/views/Home'
+import Component from '@/views/Component'
+import Api from '@/views/API'
 import navList from '@/navList'
 console.log(navList)
-import packages from '$root/packages'
+import packages from '$root/vui'
 import { camelize, capitalize } from '$root/shared/util'
-console.log(capitalize)
 
 const List = () => System.import('@/views/List')
 // const createListView = id => () => import('../views/CreateListView').then(m => m.default(id))
@@ -30,9 +32,9 @@ const registerRoute = (config) => {
       if (page.status !== 'todo') {
         // console.log(page.link)
         routes.push({
-          path: `${page.link}`,
-          component: isPackage ? require(`$root/packages/${path}/demo/Basic`) : require(`@/views/${path}`),
           name: `demo/${page.link}`,
+          path: `${page.link}`,
+          component: isPackage ? require(`$root/vui/${path}/demo/Basic`) : require(`@/views/${path}`),
           meta: {
             title: `${page.title} ${page.small}`,
             desc: page.desc,
@@ -60,7 +62,15 @@ export function createRouter () {
         path: '/',
         component: Layout,
         children: [
-          { path: '/', component: Index, alias: 'home' },
+          { path: '/', component: Home },
+        ],
+      },
+      {
+        path: '/app',
+        component: App,
+        children: [
+          { path: '/', component: Component, alias: 'component' },
+          { path: '/api', component: Api },
         ],
       },
       {
@@ -71,7 +81,7 @@ export function createRouter () {
           ...demoRoutes,
         ],
       },
-      // { path: '/', redirect: '/home' }
+      // { path: '/', redirect: '/home' },
     ],
   })
 }
