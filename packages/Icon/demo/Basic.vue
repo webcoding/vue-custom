@@ -5,10 +5,10 @@
       <h2>Logo</h2>
       <div class="flex">
         <span class="logo-dark flex-center box400">
-          <Icon type="devnode_logo" width="280" height="70"></Icon>
+          <Icon type="devnode_logo" size="280, 70"></Icon>
         </span>
         <span class="logo-light flex-center box400" style="background: #35405b;">
-          <Icon type="devnode_logo" width="280" height="70"></Icon>
+          <Icon type="devnode_logo" size="280, 70"></Icon>
         </span>
       </div>
     </div>
@@ -19,131 +19,145 @@
           <circle class="preloaderPath" cx="20" cy="20" fill="none" r="12"></circle>
         </svg>
       </span>
-      <Icon type="menu"></Icon>
-      <Icon type="add"></Icon>
-      <Icon type="arrow_alt">层级</Icon>
-      <Icon type="inbox">收件箱</Icon>
-      <Icon type="inbox_active">收件箱</Icon>
-      <Icon type="duplicates">重复的</Icon>
-      <Icon type="duplicates_active"></Icon>
-      <Icon type="trash">废纸篓</Icon>
-      <Icon type="trash_active"></Icon>
-      <br>
-      <Icon type="default_collection"></Icon>
-      <Icon type="default_collection_active"></Icon>
-      <Icon type="16_default_collection"></Icon>
-      <Icon type="new_collection">新的收藏集</Icon>
-      <Icon type="new_collection_active"></Icon>
-      <Icon type="tag">标签</Icon>
-      <Icon type="tag_active"></Icon>
-      <Icon type="cloud">全部</Icon>
-      <Icon type="cloud_active"></Icon>
-      <Icon type="like">最喜爱的</Icon>
-      <Icon type="like_active">从最喜爱的删除</Icon>
-      <Icon type="like_outline">添加到最喜爱的</Icon>
-      <Icon type="micro_tag"></Icon>
-      <Icon type="micro_next"></Icon>
-      <Icon type="micro_link"></Icon>
-      <Icon type="micro_article"></Icon>
-      <Icon type="micro_dropdown"></Icon>
-      <Icon type="micro_important"></Icon>
-      <Icon type="micro_video"></Icon>
-      <br>
-      <Icon type="check_active">选择</Icon>
-      <Icon type="select_all">选择所有</Icon>
-      <Icon type="upload">上传照片</Icon>
-      <Icon type="upload_active"></Icon>
-      <Icon type="close"></Icon>
-      <Icon type="fonts"></Icon>
-      <Icon type="search"></Icon>
-      <Icon type="share"></Icon>
-      <Icon type="arrow"></Icon>
-      <Icon type="lock"></Icon>
-      <Icon type="move_to"></Icon>
-      <br>
-      <Icon type="open">在浏览器中打开</Icon>
-      <Icon type="more_horizontal">右键点击书签或集合文件夹以获得更多功能</Icon>
-      <Icon type="view_simple">List</Icon>
-      <Icon type="view_list">Headlines</Icon>
-      <Icon type="view_grid">Cards</Icon>
-      <Icon type="view_gallery">Moodboard</Icon>
-
-      <h4>tabBar</h4>
-      <Icon type="24_home"></Icon>
-      <Icon type="24_home_active"></Icon>
-      <Icon type="24_install"></Icon>
-      <Icon type="24_install_active"></Icon>
-      <Icon type="24_settings"></Icon>
-      <Icon type="24_settings_active"></Icon>
-
-      <h4>install/extension</h4>
-      <Icon type="mobile">移动应用</Icon>
-      <Icon type="extension">浏览器扩展</Icon>
-      <Icon type="extension_active"></Icon>
-      <Icon type="apple">macOS | iPhone & iPad</Icon>
-      <Icon type="apple_active"></Icon>
-      <Icon type="microsoft">Windows</Icon>
-      <Icon type="microsoft_active"></Icon>
-      <Icon type="android">Android</Icon>
-      <Icon type="android_active"></Icon>
-
-      <h4>settings/upgrade</h4>
-      <Icon type="diamond">专业版账号</Icon>
-      <Icon type="diamond_active"></Icon>
-      <Icon type="settings">设置</Icon>
-      <Icon type="settings_active"></Icon>
-      <Icon type="profile">配置</Icon>
-      <Icon type="profile_active"></Icon>
-      <Icon type="import">导入书签</Icon>
-      <Icon type="import_active"></Icon>
-      <Icon type="export">导出书签</Icon>
-      <Icon type="export_active"></Icon>
-      <Icon type="dropbox">Dropbox备份</Icon>
-      <Icon type="dropbox_active"></Icon>
-      <Icon type="dev">开发者支持</Icon>
-      <Icon type="tools">为下一步要开发的新功能投票</Icon>
-      <Icon type="history">帮助</Icon>
-      <Icon type="cloud">关于我们</Icon>
-      <Icon type="cloud_active"></Icon>
-      <Icon type="exit">注销</Icon>
-      <Icon type="import_pocket">pocket</Icon>
-      <Icon type="import_instapaper">instapaper</Icon>
-      <Icon type="import_readability">readability</Icon>
-      <h4>排序</h4>
-      <Icon type="sort_lastUpdate">按日期</Icon>
-      <Icon type="sort_lastUpdate_active"></Icon>
-      <Icon type="sort_title">按名称</Icon>
-      <Icon type="sort_title_active"></Icon>
-      <Icon type="sort_rating">按受欢迎程度</Icon>
-      <Icon type="sort_rating_active"></Icon>
-      <Icon type="sort_domain">网站</Icon>
-      <Icon type="sort_domain_active"></Icon>
-      <h4>编辑</h4>
-      <Icon type="back"></Icon>
-      <Icon type="fullscreen_active"></Icon>
-      <Icon type="article"></Icon>
-      <Icon type="article_active"></Icon>
-      <Icon type="web"></Icon>
-      <Icon type="web_active"></Icon>
-      <Icon type="info"></Icon>
-      <Icon type="info_active"></Icon>
-      <h4>register/login</h4>
-      <Icon type="email"></Icon>
-      <Icon type="user"></Icon>
-      <Icon type="lock"></Icon>
-      <Icon type="keyword"></Icon>
-      <Icon type="qq"></Icon>
-      <Icon type="wechat"></Icon>
-      <Icon type="github"></Icon>
-      <!--<Icon type="title"></Icon>-->
+      <template v-for="item in list" >
+        <br v-if="item[0] === 'title'">
+        <Icon v-else :type="item[0]" :key="item.type" />
+      </template>
     </div>
     <p>跟设置的字体颜色一致</p>
   </div>
 </template>
 
 <script>
-export default {
+const iconList = [
+  ['add', ''],
+  ['arrow_alt', '层级'],
+  ['inbox', '收件箱'],
+  ['inbox_active', '收件箱'],
+  ['duplicates', '重复的'],
+  ['duplicates_active', ''],
+  ['trash', '废纸篓'],
+  ['trash_active', ''],
 
+  ['title', ''],
+  ['default_collection', ''],
+  ['default_collection_active', ''],
+  ['16_default_collection', ''],
+  ['new_collection', '新的收藏集'],
+  ['new_collection_active', ''],
+  ['tag', '标签'],
+  ['tag_active', ''],
+  ['cloud', '全部'],
+  ['cloud_active', ''],
+  ['like', '最喜爱的'],
+  ['like_active', '从最喜爱的删除'],
+  ['like_outline', '添加到最喜爱的'],
+  ['micro_tag', ''],
+  ['micro_next', ''],
+  ['micro_link', ''],
+  ['micro_article', ''],
+  ['micro_dropdown', ''],
+  ['micro_important', ''],
+  ['micro_video', ''],
+
+  ['title', ''],
+  ['check_active', '选择'],
+  ['select_all', '选择所有'],
+  ['upload', '上传照片'],
+  ['upload_active', ''],
+  ['close', ''],
+  ['fonts', ''],
+  ['search', ''],
+  ['share', ''],
+  ['arrow', ''],
+  ['lock', ''],
+  ['move_to', ''],
+
+  ['title', ''],
+  ['open', '在浏览器中打开'],
+  ['more_horizontal', '右键点击书签或集合文件夹以获得更多功能'],
+  ['view_simple', 'List'],
+  ['view_list', 'Headlines'],
+  ['view_grid', 'Cards'],
+  ['view_gallery', 'Moodboard'],
+
+  ['title', 'tabBar'],
+  ['24_home', ''],
+  ['24_home_active', ''],
+  ['24_install', ''],
+  ['24_install_active', ''],
+  ['24_settings', ''],
+  ['24_settings_active', ''],
+
+  ['title', 'install/extension'],
+  ['mobile', '移动应用'],
+  ['extension', '浏览器扩展'],
+  ['extension_active', ''],
+  ['apple', 'macOS | iPhone & iPad'],
+  ['apple_active', ''],
+  ['microsoft', 'Windows'],
+  ['microsoft_active', ''],
+  ['android', 'Android'],
+  ['android_active', ''],
+
+  ['title', 'settings/upgrade'],
+  ['diamond', '专业版账号'],
+  ['diamond_active', ''],
+  ['settings', '设置'],
+  ['settings_active', ''],
+  ['profile', '配置'],
+  ['profile_active', ''],
+  ['import', '导入书签'],
+  ['import_active', ''],
+  ['export', '导出书签'],
+  ['export_active', ''],
+  ['dropbox', 'Dropbox备份'],
+  ['dropbox_active', ''],
+  ['dev', '开发者支持'],
+  ['tools', '为下一步要开发的新功能投票'],
+  ['history', '帮助'],
+  ['cloud', '关于我们'],
+  ['cloud_active', ''],
+  ['exit', '注销'],
+  ['import_pocket', 'pocket'],
+  ['import_instapaper', 'instapaper'],
+  ['import_readability', 'readability'],
+
+  ['title', '排序'],
+  ['sort_lastUpdate', '按日期'],
+  ['sort_lastUpdate_active', ''],
+  ['sort_title', '按名称'],
+  ['sort_title_active', ''],
+  ['sort_rating', '按受欢迎程度'],
+  ['sort_rating_active', ''],
+  ['sort_domain', '网站'],
+  ['sort_domain_active', ''],
+
+  ['title', '编辑'],
+  ['back', ''],
+  ['fullscreen_active', ''],
+  ['article', ''],
+  ['article_active', ''],
+  ['web', ''],
+  ['web_active', ''],
+  ['info', ''],
+  ['info_active', ''],
+
+  ['title', 'register/login'],
+  ['email', ''],
+  ['user', ''],
+  ['lock', ''],
+  ['keyword', ''],
+  ['qq', ''],
+  ['wechat', ''],
+  ['github', ''],
+]
+export default {
+  data() {
+    return {
+      list: iconList,
+    }
+  },
 }
 </script>
 

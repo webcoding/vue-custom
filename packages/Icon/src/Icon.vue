@@ -5,6 +5,17 @@
 </template>
 
 <script>
+/**
+ * Icon
+ * @module packages/Icon
+ * @desc 按钮
+ * @param {string} type - 显示类型
+ * @param {number} [size] - 尺寸
+ * @param {color} [color] - 颜色
+ *
+ * @example
+ * <Icon type="String" size="Number" color="Color" />
+ */
 export default {
   name: 'Icon',
   data() {
@@ -12,25 +23,31 @@ export default {
       // preloader,
     }
   },
-  props: [
-    'type',
-    'width',
-    'height',
-    'fill',
-    'less',
-  ],
+  props: {
+    type: {
+      type: String,
+      required: true,
+    },
+    size: [Number, String],
+    color: String,
+  },
 
   computed: {
-    // 目前单位暂时用的 px
+    // 目前单位用 px
     wrapStyles() {
+      const { size } = this
+      if (!size) return {}
+      // var size = '280, 70'
+      // console.log(size.split(/\s*,\s*| +/))
+      const [width, height = width] = size.split(/\s*,\s*| +/)
       return [
-        this.width ? { width: this.width } : {},
-        this.height ? { height: this.height } : {},
+        { width: width },
+        { height: height },
       ]
     },
     styles() {
       return [
-        this.fill ? { fill: this.fill } : { fill: 'currentColor' },
+        this.color ? { fill: this.color } : { },
       ]
     },
   },
@@ -41,5 +58,6 @@ export default {
 .svg-icon {
   width: 20px;
   height: 20px;
+  fill: currentColor;
 }
 </style>
