@@ -1,7 +1,7 @@
 {
   "name": "vue-custom",
-  "version": "0.0.1",
-  "description": "Vue UI",
+  "version": "0.0.2",
+  "description": "Vue Custom",
   "author": "jack <1395093509@qq.com>",
   "scripts": {
     "dev": "node build/dev-server.js",
