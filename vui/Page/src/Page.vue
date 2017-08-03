@@ -44,11 +44,13 @@ export default {
 @import "../../styles/fn";
 /* @import "./style"; */
 
-.transition-box{
-  position: absolute;
-  z-index: 0;
-  width: 100%;
-  /*height: 100%;*/
-  transition: all .3s cubic-bezier(.55,0,.1,1);
-}
+.transition-box
+  position absolute
+  z-index 0
+  width 100%
+  height 100%
+  overflow-x hidden
+  overflow-y scroll
+  transition all .3s cubic-bezier(.55,0,.1,1)
+
 </style>

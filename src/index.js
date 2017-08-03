@@ -21,6 +21,7 @@ import Field from '../vui/Field'
 // import Navbar from '../vui/Navbar'
 // import Tabbar from '../vui/Tabbar'
 import SearchBar from '../vui/SearchBar'
+import Flex from '../vui/Flex'
 // import Spinner from '../vui/Spinner'
 // import TabItem from '../vui/TabItem'
 // import TabContainerItem from '../vui/TabContainerItem'
@@ -64,6 +65,8 @@ const vui = {
   // Navbar,
   Field,
   SearchBar,
+  Flex,
+  FlexItem: Flex.Item,
   // Spinner,
   // TabItem,
   // TabContainerItem,

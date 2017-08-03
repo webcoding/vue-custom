@@ -14,5 +14,6 @@ export default [
   'XSwitch',
   'Field',
   'Tabs',
+  'Flex',
   // 'XTag',
 ]

@@ -4,20 +4,20 @@
 
 <script>
 /**
- * abc
- * @module packages/abc
- * @desc 用于生成指定的 html 标签容器
+ * Grid
+ * @module packages/Grid
+ * @desc 网格布局
  * @param {string} [tag] - 指定html标签
  * @help 参看 router-link
  * @help https://github.com/vuejs/vue-router/blob/dev/src/components/link.js
  *
  * @example
- * <abc tag="div">
+ * <Grid tag="div">
  *   ...
- * </abc>
+ * </Grid>
  */
 export default {
-  name: 'Abc',
+  name: 'Grid',
   props: {
     // tag: {
     //   type: String,
