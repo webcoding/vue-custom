@@ -144,7 +144,7 @@ button-style($background, $color = $white, $border = transparent) {
 
 // Core
 // -----------------------------------------------------------------------------
-.btn {
+.{$ns}btn {
   @extend .__button;
 
   // button-size();
@@ -160,8 +160,8 @@ button-style($background, $color = $white, $border = transparent) {
 
 
 // // Future-proof disabling of clicks on `<a>` elements
-// a.btn.disabled,
-// fieldset[disabled] a.btn {
+// a.{$ns}btn.disabled,
+// fieldset[disabled] a.{$ns}btn {
 //   pointer-events: none;
 // }
 
@@ -170,23 +170,23 @@ button-style($background, $color = $white, $border = transparent) {
 // 主题按钮样式 (空心、虚边框单独处理，可被覆盖)
 // -----------------------------------------------------------------------------
 // primary info success warning danger ghost
-.btn-dashed {
+.{$ns}btn-dashed {
   border-style: dashed;
 }
-.btn-ghost {
+.{$ns}btn-ghost {
   button-style($btn-ghost-color, $btn-ghost-background, $btn-ghost-border);
 }
 for $color-key, $color in $theme-colors {
-  .btn-{$color-key} {
+  .{$ns}btn-{$color-key} {
     button-style($color);
   }
 }
 
 // 加载中
-.btn-loading {
+.{$ns}btn-loading {
 
 }
-.btn-clicked {
+.{$ns}btn-clicked {
   &:after{
     content: '';
     position: absolute;
@@ -205,7 +205,7 @@ for $color-key, $color in $theme-colors {
 // 按钮尺寸
 // -----------------------------------------------------------------------------
 for $size-key, $size-size in $button-padding-sizes {
-  .btn-{$size-key} {
+  .{$ns}btn-{$size-key} {
     button-size($size-size);
   }
 }
@@ -218,14 +218,14 @@ for $size-key, $size-size in $button-padding-sizes {
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  &.btn.block,
-  &.btn.is-block {
+  &.{$ns}btn.block,
+  &.{$ns}btn.is-block {
     width: 100%;
   }
 }
 
-.btn.block + .btn.block,
-.btn.is-block + .btn.is-block {
+.{$ns}btn.block + .{$ns}btn.block,
+.{$ns}btn.is-block + .{$ns}btn.is-block {
   margin-top: 8px;
 }
 
@@ -233,7 +233,7 @@ input[type="button"] {
 
 /*
 // Button with loading spinner
-.btn.btn-loading {
+.{$ns}btn.{$ns}btn-loading {
   .icon-spin {
     margin-right: 5px;
   }

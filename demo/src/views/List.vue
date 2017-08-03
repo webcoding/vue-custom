@@ -13,31 +13,31 @@
         </Cell>
       </div>
     </div>
+    <BackTop />
   </Page>
 </template>
 
 <script>
-  import navs from '../navList'
+import navs from '../navList'
 
-  export default {
-    data() {
-      return {
-        navs: [],
-      }
-    },
+export default {
+  data() {
+    return {
+      navs: [],
+    }
+  },
 
-    created() {
-      this.navs = navs
-    },
+  created() {
+    this.navs = navs
+  },
 
-    methods: {
-      // 修改 item 中某个数据的显示？
-      // itemTitle(item) {
-      //   return item.title + ' ' + item.small.toString()[0].toUpperCase() + item.small.toString().slice(1)
-      // },
-    },
-  }
-
+  methods: {
+    // 修改 item 中某个数据的显示？
+    // itemTitle(item) {
+    //   return item.title + ' ' + item.small.toString()[0].toUpperCase() + item.small.toString().slice(1)
+    // },
+  },
+}
 </script>
 
 <style lang="stylus">

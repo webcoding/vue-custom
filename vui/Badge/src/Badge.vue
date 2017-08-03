@@ -20,9 +20,9 @@
 //  * @param {string} [type] - 设置 Badge 类型
  * @param {string} [status] - 设置 Badge 状态，如 success processing(进行中，如呼吸灯) error
  * @param { string|number } [text] 展示的数字或文案，当为数字时候，大于 max 时显示为 ${max}+，为 0 时隐藏
- * @param { number } [max=999] 展示封顶的数字值
- * @param {boolean} [isDot] - 是否为点样式，不展示内容，只有一个小红点
- * @param {string} [size=xs] - 尺寸，接受 xs, lg
+ * @param { number } [max = 999] 展示封顶的数字值
+ * @param {boolean} [dot] - 是否为点样式，不展示内容，只有一个小红点
+ * @param {string} [size = xs] - 尺寸，接受 xs, lg
  *
  * @param {string} [shape] - 形状，圆的还是方的或点
  * @param {string} [color] - 传入背景颜色值
@@ -52,7 +52,7 @@ export default {
       //   return max === max;
       // },
     },
-    isDot: Boolean,
+    dot: Boolean,
     hidden: Boolean,
     color: String,
     textColor: String,
@@ -96,11 +96,11 @@ export default {
     classes () {
       return [
         {
-          'is-dot': this.isDot,
+          'is-dot': this.dot,
           // 'badge-single': this.text && this.text.length === 1,
         },
         this.status ? `badge-${this.status}` : '',
-        (!this.isDot && this.shape) ? `is-${this.shape}` : '',
+        (!this.dot && this.shape) ? `is-${this.shape}` : '',
       ]
     },
   },

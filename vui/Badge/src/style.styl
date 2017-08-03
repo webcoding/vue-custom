@@ -41,14 +41,14 @@ badge($bg = $badge-bg, $color = $badge-color, $radius = $badge-radius, $fontsize
   badge-style($bg, $color, $radius);
 }
 
-.badge {
+.{$ns}badge {
   badge()
 }
 
 // modifiers: colors
 // -----------------------------------------------------------------------------
 for $color-key, $color in $theme-colors {
-  .badge-{$color-key} {
+  .{$ns}badge-{$color-key} {
     badge-style($color, auto);
   }
 }
@@ -56,16 +56,16 @@ for $color-key, $color in $theme-colors {
 // // modifiers: radius
 // // -----------------------------------------------------------------------------
 for $radius-key, $radius in $theme-radius {
-  .badge-{$radius-key} {
+  .{$ns}badge-{$radius-key} {
     border-radius: $radius;
   }
 }
 
 // modifiers: status
 // -----------------------------------------------------------------------------
-.badge:empty,
-.badge.is-point,
-.badge.is-dot {
+.{$ns}badge:empty,
+.{$ns}badge.is-point,
+.{$ns}badge.is-dot {
   padding: 4px;
   min-width: initial;
   border-radius: 1000px;

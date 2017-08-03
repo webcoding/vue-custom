@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-align-middle" :class="classes" >
+  <div :class="classes" >
     <slot></slot>
   </div>
 </template>
@@ -35,10 +35,12 @@ export default {
     //   ]
     // },
     classes() {
-      const { direction, wrap, justify, align, alignContent, prefixCls = 'flex' } = this
+      const { direction, wrap, justify, align, alignContent, prefixCls = 'flex' } = this.$props
       return {
         // [prefixCls as string]: true,
         // [className as string]: className,
+        [`${prefixCls}`]: true,
+        [`${prefixCls}-align-middle`]: true,
         [`${prefixCls}-dir-row`]: direction === 'row',
         [`${prefixCls}-dir-row-reverse`]: direction === 'row-reverse',
         [`${prefixCls}-dir-column`]: direction === 'column',

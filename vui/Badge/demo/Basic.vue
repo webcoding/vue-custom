@@ -31,7 +31,7 @@
       <Badge status="todo" shape="square" text="1"></Badge>
       <Badge status="doing" shape="radius" text="2"></Badge>
       <Badge status="done" shape="circle" text="3"></Badge>
-      <Badge isDot>2</Badge>
+      <Badge dot>2</Badge>
       <h4>Size 尺寸大小？</h4>
       <p>这个暂时无必要</p>
     </Group>
@@ -40,7 +40,7 @@
       <div class="list">
         <Cell title="社交中的群消息通知" desc="当用户只需知道大致有内容更新时，应该使用红点型">
           <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
-          <Badge slot="badge" v-show="isShow" text="3" isDot></Badge>
+          <Badge slot="badge" v-show="isShow" text="3" dot></Badge>
           <span><XSwitch v-model="isShow"></XSwitch></span>
         </Cell>
         <Cell title="社交中的一对一的消息通知" desc="当用户有必要知晓每条更新时，应该使用数字型">
@@ -60,7 +60,7 @@
       <div class="list">
         <Cell title="单行列表">
           <span>有新消息</span>
-          <Badge isDot></Badge>
+          <Badge dot></Badge>
         </Cell>
         <Cell title="我的订单">
           <span>未评价</span>

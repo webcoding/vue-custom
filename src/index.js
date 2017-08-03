@@ -2,6 +2,7 @@
 import XTag from '../vui/XTag'
 // import vDebug from '../vui/Debug'
 import Page from '../vui/Page'
+import BackTop from '../vui/BackTop'
 import Group from '../vui/Group'
 import Icon from '../vui/Icon'
 import Button from '../vui/Button'
@@ -61,6 +62,7 @@ const vui = {
   XSwitch,
   Cell,
   // CellSwipe,
+  BackTop,
   XHeader,
   // Navbar,
   Field,
