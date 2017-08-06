@@ -28,6 +28,8 @@ text-overflow() {
 // Line clamp
 // http://dropshado.ws/post/1015351370/webkit-line-clamp
 line-clamp($lines = 2, $line-height = 1.3em) {
+  word-break: break-all;
+  white-space: normal;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
