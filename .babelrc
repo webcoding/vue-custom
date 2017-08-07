@@ -18,7 +18,8 @@
     // "syntax-flow",
     // "transform-flow-strip-types",
     "transform-vue-jsx",
-    // "transform-class-properties",
+    "transform-decorators-legacy", // vue-class-component
+    "transform-class-properties",
     "syntax-dynamic-import",
     "transform-runtime"
   ],
