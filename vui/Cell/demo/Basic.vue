@@ -32,7 +32,7 @@
           <span style="color: green">自定义元素</span>
         </Cell>
         <Cell title="标题文字">
-          <Button size="small" type="primary" icon="back">按钮</Button>
+          <Button size="sm" type="primary" icon="back">按钮</Button>
         </Cell>
       </div>
       <p>这里有个问题，未引用 group 组件，但使用group-header样式，则样式未加载，这里可以看出，UI组件库没有全加载进来，未使用就未加载</p>

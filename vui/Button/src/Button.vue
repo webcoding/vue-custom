@@ -66,11 +66,11 @@ export default {
       default: '',
       validator(value) {
         return value ? [
-          'xs', 'x-small',
-          'sm', 'small',
-          'md', 'middle',
-          'lg', 'large',
-          'xl', 'x-large',
+          'xs',
+          'sm',
+          'md',
+          'lg',
+          'xl',
         ].indexOf(value) > -1 : true
       },
     },
