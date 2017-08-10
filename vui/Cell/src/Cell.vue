@@ -4,7 +4,7 @@
 <!-- TODO: 还需要控制 Cell 的大小间距 8/16-->
 
 <template>
-  <XTag class="cell" :href="href" :tag="tag">
+  <XTag :class="classes" :href="href" :tag="tag">
     <!-- <span class="cell-mask" v-if="isLink"></span> -->
     <div class="cell-wrapper" :class="{ 'cell-link' : isLink }" >
       <div class="cell-media">
@@ -92,20 +92,32 @@ export default {
       // return 'div';
       return this.isLink ? 'a' : 'div'
     },
+    classes () {
+      const {
+        size,
+        prefixCls = 'cell'
+      } = this.$props
+
+      return {
+        [`${prefixCls}`]: true,
+        [`${prefixCls}-${size}`]: size,
+      }
+    },
     href() {
       let href
+      const { $router, to } = this
 
-      if (this.$router && this.to) {
-        const base = this.$router.history.base
-        const resolved = this.$router.match(this.to)
+      if ($router && to) {
+        const base = $router.history.base
+        const resolved = $router.match(to)
         const fullPath = resolved.redirectedFrom || resolved.fullPath
 
         href = base ? cleanPath(base + fullPath) : fullPath
       } else {
-        href = this.to
+        href = to
       }
 
-      if (href && !this.added && this.$router) {
+      if (href && !this.added && $router) {
         this.$nextTick(() => {
           this.added = true
           this.$el.addEventListener('click', this.handleClick)

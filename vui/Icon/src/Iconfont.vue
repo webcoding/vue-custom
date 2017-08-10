@@ -1,7 +1,7 @@
 <template>
-  <span class="iconfont" :style="styles" :class="classes">
+  <i :class="classes" :style="styles">
     <slot></slot>
-  </span>
+  </i>
 </template>
 
 <script>
@@ -17,34 +17,50 @@
  * <Icon color="error">错误</Icon>
  * <Icon color="#333">30</Icon>
 **/
+import PropTypes from 'vue-types';
 export default {
   name: 'Iconfont',
 
   props: {
-    bg: String,
-    color: String,
-    type: {
-      type: String,
-      required: true,
-    },
-    size: [Number, String],
+    prefixCls: PropTypes.string.def('icon'),
+    type: PropTypes.string.isRequired,
+    size: PropTypes.oneOfType([
+      String,
+      Number,
+    ]),
+    shape: PropTypes.oneOf([
+      'dot',
+      'circle',
+      'radius',
+      'square',
+    ]),
+    bg: PropTypes.string,
+    color: PropTypes.string,
   },
 
   computed: {
+    classes () {
+      const {
+        prefixCls,
+        type,
+        size,
+        shape,
+        reverse,
+      } = this.$props
+
+      return {
+        [`${prefixCls}`]: true,
+        [`${prefixCls}-font`]: true,
+        [`${prefixCls}-${type}`]: type,
+        [`${prefixCls}-${size}`]: size,
+        [`${prefixCls}-${reverse}`]: reverse,
+        [`is-${shape}`]: shape,
+      }
+    },
     styles() {
       return [
         { color: this.color },
         { backgroundColor: this.bg },
-      ]
-    },
-    classes() {
-      return [
-        {
-          radius: this.radius,
-          round: this.round,
-        },
-        // this.size ? `size-${this.size}` : '',
-        this.type ? `icon-${this.type}` : '',
       ]
     },
   },

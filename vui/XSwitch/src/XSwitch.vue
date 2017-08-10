@@ -1,5 +1,5 @@
 <template>
-  <label class="switch">
+  <label :class="classes">
     <input class="switch-input" :disabled="disabled" @change="$emit('change', currentValue)" type="checkbox" v-model="currentValue">
     <span class="switch-core" :style="styles" :disabled="disabled"><span v-if="text" class="switch-text" v-text="currentValue ? texts[0] : texts[1]"></span><span class="switch-blank"></span></span>
     <div class="switch-label"><slot></slot></div>
@@ -26,37 +26,29 @@
  * @example
  * <XSwitch v-model="value"></XSwitch>
  */
+import PropTypes from 'vue-types';
 export default {
   name: 'XSwitch',
 
   props: {
-    name: String,
-    text: {
-      type: String,
-      default: '', // on/off 开/关 ABC/··· 等
-      validator: function (value) {
-        // 开关提示，有值则必须成对
-        return value.length > 0 ? value.indexOf('/') > -1 : true
-      },
-    },
+    prefixCls: PropTypes.string.def('switch'),
+    // name: PropTypes.string,
+    text: PropTypes.string,
+    // text: {
+    //   type: String,
+    //   default: '', // on/off 开/关 ABC/··· 等
+    //   validator: function (value) {
+    //     // 开关提示，有值则必须成对
+    //     return value.length > 0 ? value.indexOf('/') > -1 : true
+    //   },
+    // },
     complex: String,
-    width: {
-      type: String,
-      default: '', // Number
-      validator: function (value) {
-        return value ? value > 0 : true
-      },
-    },
-    checked: Boolean,
-    value: {
-      // 这里能使用一个属性 checked 来做么，可以更简化使用
-      type: Boolean,
-      default: false,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+    width: PropTypes.string,
+    hollow: PropTypes.boolean,
+    block: PropTypes.boolean,
+    checked: PropTypes.boolean,
+    value: PropTypes.boolean,
+    disabled: PropTypes.boolean,
   },
 
   data() {
@@ -67,19 +59,31 @@ export default {
   },
 
   computed: {
+    classes () {
+      const {
+        prefixCls,
+        type,
+        size,
+        hollow,
+        disabled,
+      } = this.$props
+
+      return {
+        [`${prefixCls}`]: true,
+        [`${prefixCls}-${size}`]: size,
+        // 'is-hollow': hollow,
+        'is-disabled': disabled,
+      }
+    },
     styles() {
+      const {
+        width,
+      } = this.$props
+
       return [
-        this.width ? { width: this.width + 'px' } : {},
+        width > 0 ? {width: `${width}px`} : {},
       ]
     },
-    // classes () {
-    //   return [
-    //     {
-    //       'is-disabled': this.disabled,
-    //       'is-plain': this.plain,
-    //     },
-    //   ]
-    // }
   },
 
   watch: {
@@ -94,7 +98,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scope>
+<style lang="stylus">
 @import "../../styles/fn";
 @import "./style";
 

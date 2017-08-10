@@ -10,10 +10,11 @@
       <Button>默认次按钮</Button>
       <Button type="ghost">空心按钮</Button>
       <Button type="dashed">虚线按钮</Button>
+      <Button hollow>镂空</Button>
 
       <p>要避免并列过多操作让用户选择，在不得不并列多个操作时，需区分操作主次，减轻用户的选择难度。</p>
-      <Button type="primary" is-block>主要操作</Button>
-      <Button type="default" is-block>次要操作</Button>
+      <Button type="primary" block>主要操作</Button>
+      <Button block>次要操作</Button>
 
       <h4>尺寸大小</h4>
       <Button size="xs">超小按钮</Button>

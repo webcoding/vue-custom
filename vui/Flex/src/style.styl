@@ -1,3 +1,71 @@
-// package: Abc
+// package: Flex
 // =============================================================================
 
+.{$ns}flex
+  display flex
+  align-items center
+  overflow-y hidden
+  text-align left
+
+  .{$ns}flex-item
+    flex 1
+    box-sizing border-box
+    min-width 10px
+    margin-left 8px
+
+    &:first-child
+      margin-left 0
+
+  &.{$ns}flex-align-middle
+    align-items center
+
+  &.{$ns}flex-dir-row
+    flex-direction row
+  &.{$ns}flex-dir-row-reverse
+    flex-direction row-reverse
+  &.{$ns}flex-dir-column
+    flex-direction column
+  &.{$ns}flex-dir-column-reverse
+    flex-direction column-reverse
+
+  &.{$ns}flex-nowrap
+    flex-wrap nowrap
+  &.{$ns}flex-wrap
+    flex-wrap wrap
+  &.{$ns}flex-wrap-reverse
+    flex-wrap wrap-reverse
+
+  &.{$ns}flex-justify-start
+    justify-content flex-start
+  &.{$ns}flex-justify-end
+    justify-content flex-end
+  &.{$ns}flex-justify-center
+    justify-content center
+  &.{$ns}flex-justify-between
+    justify-content space-between
+  &.{$ns}flex-justify-around
+    justify-content space-around
+
+  &.{$ns}flex-align-start
+    align-items flex-start
+  &.{$ns}flex-align-center
+    align-items center
+  &.{$ns}flex-align-end
+    align-items flex-end
+  &.{$ns}flex-align-baseline
+    align-items baseline
+  &.{$ns}flex-align-stretch
+    align-items stretch
+
+  &.{$ns}flex-align-content-start
+    align-content flex-start
+  &.{$ns}flex-align-content-end
+    align-content flex-end
+  &.{$ns}flex-align-content-center
+    align-content center
+  &.{$ns}flex-align-content-between
+    align-content space-between
+  &.{$ns}flex-align-content-around
+    align-content space-around
+  &.{$ns}flex-align-content-stretch
+    align-content stretch

@@ -1,5 +1,7 @@
 <template>
-  <i class="icons icon-after" :class="classes"><slot></slot></i>
+  <i :class="classes" :style="styles">
+    <slot></slot>
+  </i>
 </template>
 
 <script>
@@ -14,6 +16,7 @@
  * @example
  * <Icon type="String" size="Number" color="Color" />
  */
+import PropTypes from 'vue-types';
 export default {
   name: 'Icon',
   data() {
@@ -21,18 +24,45 @@ export default {
       // preloader,
     }
   },
+
   props: {
-    type: {
-      type: String,
-      required: true,
-    },
-    // size: [Number, String],
-    // color: String,
+    prefixCls: PropTypes.string.def('icon'),
+    type: PropTypes.string.isRequired,
+    size: PropTypes.oneOfType([
+      String,
+      Number,
+    ]),
+    shape: PropTypes.oneOf([
+      'dot',
+      'circle',
+      'radius',
+      'square',
+    ]),
+    bg: PropTypes.string,
+    color: PropTypes.string,
   },
 
   computed: {
+    classes () {
+      const {
+        prefixCls,
+        type,
+        size,
+        shape,
+        reverse,
+      } = this.$props
+
+      return {
+        [`${prefixCls}`]: true,
+        [`${prefixCls}-svg`]: true,
+        [`${prefixCls}-${type}`]: type,
+        [`${prefixCls}-${size}`]: size,
+        [`${prefixCls}-${reverse}`]: reverse,
+        [`is-${shape}`]: shape,
+      }
+    },
+    styles() {
     // 目前单位用 px
-    // styles() {
     //   const { size } = this
     //   if (!size) return {}
     //   // var size = '280, 70'
@@ -43,10 +73,9 @@ export default {
     //     { height: height },
     //     this.color ? { color: this.color } : { },
     //   ]
-    // },
-    classes() {
       return [
-        this.type ? `icon-${this.type}` : '',
+        { color: this.color },
+        { backgroundColor: this.bg },
       ]
     },
   },

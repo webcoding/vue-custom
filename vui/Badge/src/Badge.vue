@@ -1,9 +1,9 @@
 <template>
   <span
-    class="badge"
-    v-show="!hidden && badgeText"
+    :class="classes"
     :style="styles"
-    :class="classes">
+    v-show="!hidden && text"
+    >
     <span v-if="text" class="badge-text">{{badgeText}}</span>
   </span>
 </template>
@@ -35,51 +35,46 @@
  * <Badge color="error">错误</Badge>
  * <Badge color="#333">30</Badge>
 **/
+
+import PropTypes from 'vue-types';
 export default {
   name: 'Badge',
 
   props: {
-    type: String,
-    status: String,
-    text: [String, Number],
-    max: {
-      type: Number,
-      default: 99,
-      // validator(value) {
-      //   // 必须为数字，可以直接传入 xxx=number，传入为string 类型，
-      //   // 或使用 v-bind:xxx=number 传入为 number 类型
-      //   let max = Number(value);
-      //   return max === max;
-      // },
-    },
-    dot: Boolean,
-    hidden: Boolean,
-    color: String,
-    textColor: String,
-    shape: {
-      type: String,
-      default: 'circle',
-      validator(value) {
-        return [
-          'dot',
-          'radius',
-          'circle',
-          'square',
-        ].indexOf(value) > -1
-      },
-    },
-    size: {
-      type: String,
-      default: '',
-    },
+    prefixCls: PropTypes.string.def('badge'),
+    type: PropTypes.string,
+    size: PropTypes.string,
+    status: PropTypes.string,
+    text: PropTypes.oneOfType([
+      String,
+      Number,
+    ]),
+    max: PropTypes.number.def(99),
+    dot: PropTypes.boolean,
+    hidden: PropTypes.boolean,
+    color: PropTypes.string,
+    textColor: PropTypes.string,
+    shape: PropTypes.oneOf([
+      'dot',
+      'circle',
+      'radius',
+      'square',
+    ]).def('circle'),
   },
+
   ready: function () {
     console.log(this.text)
   },
+
+  filters: {
+    // overflow(value) {
+    //   debugger
+    // },
+  },
+
   computed: {
-    badgeText () {
-      const { text, max } = this
-      // debugger;
+    badgeText() {
+      const { text, max } = this.$props
       const overflowCount = Number(max)
       const textNum = Number(text)
       // text 展示的数字或文案，当为数字时候，大于 max 时显示为 ${max}+，为 0 时隐藏
@@ -94,20 +89,20 @@ export default {
       ]
     },
     classes () {
-      return [
-        {
-          'is-dot': this.dot,
-          // 'badge-single': this.text && this.text.length === 1,
-        },
-        this.status ? `badge-${this.status}` : '',
-        (!this.dot && this.shape) ? `is-${this.shape}` : '',
-      ]
+      const { prefixCls, status, shape, dot } = this.$props
+      return {
+        [`${prefixCls}`]: true,
+        'is-dot': dot,
+        // 'badge-single': this.text && this.text.length === 1,
+        [`${prefixCls}-${status}`]: status,
+        [`is-${shape}`]: !dot && shape,
+      }
     },
   },
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scope>
 @import "../../styles/fn";
 @import "./style";
 

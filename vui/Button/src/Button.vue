@@ -1,6 +1,5 @@
 <template>
   <button
-    class="btn"
     :class="classes"
     :type="nativeType"
     :disabled="disabled"
@@ -27,7 +26,7 @@
  * @param {boolean} [disabled=false] - 禁用
  * @param {boolean} [plain=false] - 幽灵按钮
  * @param {string} [size=normal] - 尺寸，接受 normal, small, large
- * @param {string} [native-type] - 原生 type 属性，接受 button, reset, submit, menu
+ * @param {string} [nativeType] - 原生 type 属性，接受 button, reset, submit, menu
  * @param {string} [icon] - 图标，提供 more, back，或者自定义的图标（传入不带前缀的图标类名，最后拼接成 .mintui-xxx）
  * @param {slot} - 显示文本
  * @param {slot} [icon] 显示图标
@@ -35,8 +34,42 @@
  * @example
  * <Button size="large" icon="back" type="primary">按钮</Button>
  */
+import PropTypes from 'vue-types';
 export default {
   name: 'Button',
+
+  props: {
+    prefixCls: PropTypes.string.def('btn'),
+    icon: PropTypes.string,
+    type: PropTypes.oneOf([
+      'primary',
+      'ghost',
+      'dashed',
+    ]),
+    size: PropTypes.oneOf([
+      'xs',
+      'sm',
+      'md',
+      'lg',
+      'xl',
+    ]),
+    disabled: PropTypes.boolean,
+    loading: PropTypes.boolean,
+    hollow: PropTypes.boolean,
+    block: PropTypes.boolean,
+    shape: PropTypes.oneOf([
+      'circle',
+      'round',
+      'radius',
+      'square',
+    ]).def('radius'),
+    nativeType: PropTypes.oneOf([
+      'button',
+      'reset',
+      'submit',
+      'menu',
+    ]).def('button'),
+  },
 
   methods: {
     handleClick(e) {
@@ -44,81 +77,35 @@ export default {
     },
   },
 
-  props: {
-    icon: String,
-    disabled: Boolean,
-    loading: Boolean,
-    plain: Boolean,
-    isBlock: Boolean,
-    type: {
-      type: String,
-      default: '',
-      validator(value) {
-        return value ? [
-          'primary',
-          'ghost',
-          'dashed',
-        ].indexOf(value) > -1 : true
-      },
-    },
-    size: {
-      type: String,
-      default: '',
-      validator(value) {
-        return value ? [
-          'xs',
-          'sm',
-          'md',
-          'lg',
-          'xl',
-        ].indexOf(value) > -1 : true
-      },
-    },
-    shape: {
-      type: String,
-      default: 'radius',
-      validator(value) {
-        return [
-          'radius',
-          'circle',
-          'round',
-          'square',
-        ].indexOf(value) > -1
-      },
-    },
-    nativeType: {
-      type: String,
-      default: 'button',
-      validator(value) {
-        return [
-          'button',
-          'reset',
-          'submit',
-          'menu',
-        ].indexOf(value) > -1
-      },
-    },
-  },
 
   computed: {
-    // style () {
+    classes () {
+      const {
+        prefixCls,
+        type,
+        size,
+        shape,
+        block,
+        hollow,
+        disabled,
+      } = this.$props
+
+      return {
+        [`${prefixCls}`]: true,
+        [`${prefixCls}-${type}`]: type,
+        [`${prefixCls}-${size}`]: size,
+        [`is-${shape}`]: shape,
+        'is-hollow': hollow,
+        'is-block': block,
+        'disabled': disabled,
+      }
+    },
+    // styles () {
     //   return [
     //     this.color ? {color: this.color} : {},
     //     this.bg ? {backgroundColor: this.bg} : {},
     //   ]
     // },
-    classes () {
-      return [
-        this.type ? `btn-${this.type}` : '',
-        this.size ? `btn-${this.size}` : '',
-        this.shape ? `is-${this.shape}` : '',
-        {
-          'disabled': this.disabled,
-          'plain': this.plain,
-          'is-block': this.isBlock,
-        },
-      ]
-    },
   },
 
 }
