@@ -2,7 +2,7 @@
   <router-link
     class="x-header-item"
     :to="link"
-    @click.prevent="handleClick"
+    @click="handleClick($event)"
     :tag="tag">
     <i v-if="icon" :class="['iconfont', `icon-${icon}`]"></i>
     <Badge :status="status"></Badge>
@@ -53,8 +53,11 @@ export default {
   },
 
   methods: {
-    handleClick() {
-      return this.callback ? this.callback : noop
+    handleClick(e) {
+      e.preventDefault()
+      debugger
+      const fn = this.callback || noop
+      return fn.bind($event)
     },
   },
 }

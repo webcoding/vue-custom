@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Env from '$root/src/setting/env'
+// import Env from '@root/src/setting/env'
 
 Vue.use(Router)
 
@@ -14,8 +14,8 @@ import Component from '@/views/Component'
 import Api from '@/views/API'
 import navList from '@/navList'
 console.log(navList)
-import packages from '$root/vui'
-import { camelize, capitalize } from '$root/shared/util'
+import packages from '@root/vui'
+import { camelize, capitalize } from '@root/shared/util'
 
 const List = () => System.import('@/views/List')
 // const createListView = id => () => import('../views/CreateListView').then(m => m.default(id))
@@ -34,7 +34,7 @@ const registerRoute = (config) => {
         routes.push({
           name: `demo/${page.link}`,
           path: `${page.link}`,
-          component: isPackage ? require(`$root/vui/${path}/demo/Basic`) : require(`@/views/${path}`),
+          component: isPackage ? require(`@root/vui/${path}/demo/Basic`) : require(`@/views/${path}`),
           meta: {
             title: `${page.title} ${page.small}`,
             desc: page.desc,

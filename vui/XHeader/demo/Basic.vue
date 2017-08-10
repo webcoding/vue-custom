@@ -64,7 +64,20 @@ export default {
 </script>
 
 <style lang="stylus" scope>
-.page-xheader .x-header{
-  margin-bottom: 1rem;
+.page-xheader {
+  .x-header{
+    position: static;
+    margin-bottom: 16px;
+    background: #ddd;
+
+    &-left,
+    &-right{
+      background: #eee;
+    }
+
+    &-item{
+      background: #ccc;
+    }
+  }
 }
 </style>

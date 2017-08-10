@@ -13,7 +13,6 @@
         </Cell>
       </div>
     </div>
-    <BackTop />
   </Page>
 </template>
 

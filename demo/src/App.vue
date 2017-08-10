@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- <BackTop /> -->
     <svg-icons></svg-icons>
     <router-view></router-view>
   </div>

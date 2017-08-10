@@ -1,21 +1,21 @@
 <template>
   <header
-    class="XHeader"
+    class="x-header"
     :class="classes">
-    <div class="XHeader-left">
+    <div class="x-header-left">
       <slot name="left">
         <template v-if="header.left" v-for="item in header.left">
           <XHeaderItem :text="item.text" :link="item.link" :status="item.status" :icon="item.icon" :tag="item.tag" :callback="item.callback"></XHeaderItem>
         </template>
       </slot>
     </div>
-    <div class="XHeader-center ">
+    <div class="x-header-center ">
       <slot>
-        <div class="XHeader-title" v-text="title"></div>
-        <div class="XHeader-subtitle" v-if="subTitle" v-text="subTitle"></div>
+        <div class="x-header-title" v-text="title"></div>
+        <div class="x-header-subtitle" v-if="subTitle" v-text="subTitle"></div>
       </slot>
     </div>
-    <div class="XHeader-right">
+    <div class="x-header-right">
       <slot name="right">
         <template v-if="header.right" v-for="item in header.right">
           <XHeaderItem :info="header.right" :link="item.link" :status="item.status" :icon="item.icon" :tag="item.tag" :callback="item.callback"></XHeaderItem>
@@ -45,6 +45,7 @@ import XHeaderItem from './XHeaderItem.vue'
  *   <div solt="right"></div>
  * </XHeader>
  */
+
 export default {
   name: 'XHeader',
 
@@ -56,7 +57,20 @@ export default {
     header: {
       type: Object,
       default: function () {
-        return { }
+        return {
+          left: [
+            {
+              text: '返回',
+              link: '/',
+              callback(e) {
+                // 没起效
+                debugger
+                e.preventDefault()
+                this.goBack()
+              },
+            },
+          ],
+        }
       },
     },
     fixed: Boolean,
@@ -81,18 +95,26 @@ export default {
 </script>
 
 <style lang="stylus">
-/*@import "../../../src/style/var.css";*/
+@import "../../styles/fn";
 /* @modifier 角色  @descendent 下级元素  @when 状态 */
 /* 如果使用扩展，就要支持并写 @modifier left,@modifier right{} */
-.XHeader {
+.x-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ddd;
+  background: #fff;
   height: 44px;
 
+  &.line-bottom {
+    // @extend line1px()
+  }
+
   &.is-fixed {
-    position: fixed 0 0 * 0;
+    position: fixed;
     z-index: 10;
   }
   &-center {
@@ -105,7 +127,7 @@ export default {
   &-right {
     width: 88px;
     overflow: hidden;
-    background: #eee;
+    // background: #eee;
     flex-shrink: 0;
     height: 100%;
     display: flex;
@@ -123,9 +145,10 @@ export default {
   }
   &-item {
     width: 42px;
-    background: #ccc;
+    // background: #ccc;
     text-align: center;
-    line-height: 4;
+    line-height: 42px;
+    text-decoration: none;
   }
   &-title,
   &-subtitle {
@@ -135,6 +158,7 @@ export default {
     font-size: inherit;
     font-weight: normal;
     font-size: 16px;
+    text-decoration: none;
   }
   &-subtitle {
     margin-top: -2px;

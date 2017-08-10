@@ -1,9 +1,11 @@
 <template>
-  <transition :name="transition">
-    <router-view class="layout-demo"></router-view>
-  </transition>
+  <section class="layout-demo">
+    <XHeader fixed></XHeader>
+    <transition :name="transition">
+      <router-view class="page-demo"></router-view>
+    </transition>
+  </section>
 </template>
-
 
 <script>
 export default {

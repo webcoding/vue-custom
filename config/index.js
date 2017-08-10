@@ -19,9 +19,11 @@ function resolve (dir) {
 }
 var useCdn = true
 
+// console.log(process.env)
 // 默认应该是当前文件夹下的 src，如果传入路径
-var appPath = process.env.npm_config_path || './'
-var appName = process.env.npm_config_path || 'app'
+const inputPath = process.env.npm_config_path
+const appPath = inputPath || './'
+const appName = inputPath || 'app'
 const project = {
   name: appName,
   dir: appName,

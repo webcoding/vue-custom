@@ -6,18 +6,18 @@ import App from './App'
 // import 'es6-promise/auto'
 import { createApp } from './createApp'
 import ProgressBar from './components/ProgressBar.vue'
-// import titleMixin from './util/title'
-// import * as filters from './filters'
+import util from './util'
+import * as filters from './util/filters'
 import vueUI from '../../src'
+// import '@root/shared/rem'
 
+// mixin for handling uitl
+Vue.mixin(util)
 
-// // mixin for handling title
-// Vue.mixin(titleMixin)
-
-// // register global utility filters.
-// Object.keys(filters).forEach(key => {
-//   Vue.filter(key, filters[key])
-// })
+// register global utility filters.
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
 
 // 注入组件库
 Vue.use(vueUI)
