@@ -7,7 +7,7 @@
 <script>
 /**
  * Icon
- * @module packages/Icon
+ * @module packages/Iconfont
  * @desc 徽章
  * @param {string} [type=primary] 组件样式，可选 primary, error, success, warning
  * @param {string} [color] - 传入颜色值
@@ -17,7 +17,7 @@
  * <Icon color="error">错误</Icon>
  * <Icon color="#333">30</Icon>
 **/
-import PropTypes from 'vue-types';
+import PropTypes from 'vue-types'
 export default {
   name: 'Iconfont',
 

@@ -34,7 +34,7 @@
  * @example
  * <Button size="large" icon="back" type="primary">按钮</Button>
  */
-import PropTypes from 'vue-types';
+import PropTypes from 'vue-types'
 export default {
   name: 'Button',
 

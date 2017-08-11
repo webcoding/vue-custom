@@ -11,12 +11,12 @@
  * @desc 图标
  * @param {string} type - 显示类型
  * @param {number} [size] - 尺寸
- * @param {color} [color] - 颜色
+ * @param {color} [color] - 传入颜色值
  *
  * @example
  * <Icon type="String" size="Number" color="Color" />
  */
-import PropTypes from 'vue-types';
+import PropTypes from 'vue-types'
 export default {
   name: 'Icon',
   data() {

@@ -26,14 +26,18 @@
  * @example
  * <XSwitch v-model="value"></XSwitch>
  */
-import PropTypes from 'vue-types';
+import PropTypes from 'vue-types'
 export default {
   name: 'XSwitch',
 
   props: {
     prefixCls: PropTypes.string.def('switch'),
     // name: PropTypes.string,
-    text: PropTypes.string,
+    text: PropTypes.custom((value) => {
+      // 开关提示，有值则必须成对(on/off 开/关 ABC/··· 等)
+      // 使用 custom 还必须验证类型，反而不如原生的强大了
+      return value.length > 0 ? value.indexOf('/') > -1 : true
+    }),
     // text: {
     //   type: String,
     //   default: '', // on/off 开/关 ABC/··· 等
@@ -42,7 +46,7 @@ export default {
     //     return value.length > 0 ? value.indexOf('/') > -1 : true
     //   },
     // },
-    complex: String,
+    complex: PropTypes.string,
     width: PropTypes.string,
     hollow: PropTypes.boolean,
     block: PropTypes.boolean,
@@ -62,9 +66,8 @@ export default {
     classes () {
       const {
         prefixCls,
-        type,
+        // type,
         size,
-        hollow,
         disabled,
       } = this.$props
 
@@ -72,7 +75,7 @@ export default {
         [`${prefixCls}`]: true,
         [`${prefixCls}-${size}`]: size,
         // 'is-hollow': hollow,
-        'is-disabled': disabled,
+        'disabled': disabled,
       }
     },
     styles() {
@@ -81,7 +84,7 @@ export default {
       } = this.$props
 
       return [
-        width > 0 ? {width: `${width}px`} : {},
+        width > 0 ? { width: `${width}px` } : {},
       ]
     },
   },

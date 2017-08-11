@@ -36,7 +36,7 @@
  * <Badge color="#333">30</Badge>
 **/
 
-import PropTypes from 'vue-types';
+import PropTypes from 'vue-types'
 export default {
   name: 'Badge',
 
