@@ -64,7 +64,7 @@ export default {
       'round',
       'radius',
       'square',
-    ]).def(),
+    ]),
     nativeType: PropTypes.oneOf([
       'button',
       'reset',
