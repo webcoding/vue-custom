@@ -102,8 +102,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scope>
-@import "../../styles/fn";
+<style lang="stylus">
 @import "./style";
 
 // .doc-content {

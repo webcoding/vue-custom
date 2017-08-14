@@ -152,9 +152,7 @@ export default {
   }
   &-title,
   &-subtitle {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    textOverflow()
     font-size: inherit;
     font-weight: normal;
     font-size: 16px;

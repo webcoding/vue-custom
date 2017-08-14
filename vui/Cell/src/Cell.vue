@@ -94,8 +94,8 @@ export default {
     },
     classes () {
       const {
+        prefixCls = 'cell',
         size,
-        prefixCls = 'cell'
       } = this.$props
 
       return {
@@ -137,7 +137,6 @@ export default {
 </script>
 
 <style lang="stylus">
-@import "../../styles/fn";
 @import "./style";
 
 </style>

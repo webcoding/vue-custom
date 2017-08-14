@@ -25,12 +25,6 @@ export default {
     // },
   },
   computed: {
-    // styles() {
-    //   return [
-    //     this.color ? {color: this.color} : {},
-    //     this.bg ? {backgroundColor: this.bg} : {},
-    //   ]
-    // },
     // classes() {
     //   return [
     //     {
@@ -42,12 +36,17 @@ export default {
     //     this.type ? `badge-${this.type}` : '',
     //   ]
     // },
+    // styles() {
+    //   return [
+    //     this.color ? {color: this.color} : {},
+    //     this.bg ? {backgroundColor: this.bg} : {},
+    //   ]
+    // },
   },
 }
 </script>
 
 <style lang="stylus">
-@import "../../styles/fn";
-/* @import "./style"; */
+@import "./style";
 
 </style>

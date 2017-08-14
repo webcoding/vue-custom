@@ -9,7 +9,7 @@
 /// @param {percentage} $threshold - Threshold of lightness to check against.
 ///
 /// @return The $yes color or $no color.
-islight($color, $yes = #333, $no = #fff, $threshold = 60%) {
+isLight($color, $yes = #333, $no = #fff, $threshold = 60%) {
   if (lightness($color) > $threshold) {
     return $yes;
   } else {
@@ -19,15 +19,16 @@ islight($color, $yes = #333, $no = #fff, $threshold = 60%) {
 
 // Text overflow
 // Requires inline-block or block for proper styling
-text-overflow() {
+textOverflow() {
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  word-wrap: break-word;
 }
 
 // Line clamp
 // http://dropshado.ws/post/1015351370/webkit-line-clamp
-line-clamp($lines = 2, $line-height = 1.3em) {
+lineMax($lines = 2, $line-height = 1.3em) {
   word-break: break-all;
   white-space: normal;
   text-overflow: ellipsis;
@@ -37,10 +38,13 @@ line-clamp($lines = 2, $line-height = 1.3em) {
   overflow: hidden;
   line-height: $line-height;
   max-height: $line-height * $lines;
+
+  // 不要使用 text-align: justify; 会导致文字和...重叠
+  // 默认左对齐，不要这里写死
 }
 
 // CSS image replacement
-text-hide() {
+textHide() {
   font: 0/0 a;
   color: transparent;
   text-shadow: none;

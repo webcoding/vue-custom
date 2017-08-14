@@ -41,8 +41,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import "../../styles/fn";
-/* @import "./style"; */
+@import "./style";
 
 .transition-box
   position absolute
