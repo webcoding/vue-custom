@@ -42,18 +42,18 @@ export default {
 
   props: {
     prefixCls: PropTypes.string.def('badge'),
-    type: PropTypes.string,
-    size: PropTypes.string,
-    status: PropTypes.string,
+    type: String,
+    size: String,
+    status: String,
     text: PropTypes.oneOfType([
       String,
       Number,
     ]),
     max: PropTypes.number.def(99),
-    dot: PropTypes.boolean,
-    hidden: PropTypes.boolean,
-    color: PropTypes.string,
-    textColor: PropTypes.string,
+    dot: Boolean,
+    hidden: Boolean,
+    color: String,
+    textColor: String,
     shape: PropTypes.oneOf([
       'dot',
       'circle',

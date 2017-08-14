@@ -140,7 +140,7 @@ $color-sub                = lighten($color-primary, 15%);
 $color-info               = #5bc0de;
 $color-success            = #5cb85c;
 $color-warning            = #F37B1D;
-$color-danger             = #d9534f;
+$color-danger             = #f04134;
 $color-gray               = lighten($black, 87.5%);
 $color-dark               = #393939;
 // 备选颜色
@@ -174,10 +174,13 @@ $theme-colors = {
 
 // Diffirent border-radius styles
 $global-radius  = 4px;
-$global-rounded = 1000px;
-$theme-radius = {
+$global-round = 1600px;
+$shapes = {
   radius: $global-radius,
-  rounded: $global-rounded,
+  dot: $global-round,
+  circle: $global-round,
+  round: $global-round,
+  square: initial,
 };
 
 // Disabled cursor for form controls and buttons.

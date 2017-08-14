@@ -20,19 +20,12 @@
 
 }
 
-// 小圆角
-.radius,
-.is-radius {
-  border-radius: 4px;
-}
-// 大圆角
-.round,
-.is-round,
-.is-circle {
-  border-radius: 4000px;
-}
-.is-square {
-  border-radius: 0;
+
+// 形状 shape，全局使用
+for $shape-key, $shape-value in $shapes {
+  .is-{$shape-key} {
+    border-radius: $shape-value;
+  }
 }
 
 // 链接状态

@@ -34,8 +34,8 @@ export default {
       'radius',
       'square',
     ]),
-    bg: PropTypes.string,
-    color: PropTypes.string,
+    bg: String,
+    color: String,
   },
 
   computed: {

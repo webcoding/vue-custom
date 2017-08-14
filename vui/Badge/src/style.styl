@@ -1,76 +1,77 @@
 @import "../../styles/fn";
+// 实现力求精简，精简到只保留 core 部分同样 OK
 
 // Package: Badge
 // =============================================================================
 // badge 一般为多彩色，所以默认字体用亮色
 // 组件支持自定义颜色
 
+// Custom
+// -----------------------------------------------------------------------------
+// 推荐配置
 
-// $test = {
-//
-// }
-
-$badge-fontsize = 12px;  //75%; ???
+$badge-font-size = 12px;  //75%; ???
 $badge-padding = 0.25em 0.5em;//($spacer-y * 0.25) ($spacer-x * 0.4); //.25 .625 em ???
 $badge-radius = 0;
 $badge-bg = red;
-$badge-color = islight($badge-bg);
+$badge-color = isLight($badge-bg);
 
-badge-layout($fontsize = $badge-fontsize, $padding = $badge-padding) {
-  font-size: $fontsize;
+
+// mixin
+// -----------------------------------------------------------------------------
+
+badgeSize($font-size = $badge-font-size, $padding = $badge-padding) {
+  font-size: $font-size;
   padding: $padding;
 }
 
-badge-style($bg = $badge-bg, $color = $badge-color, $radius = $badge-radius) {
+badgeColor($bg = $badge-bg, $color = $badge-color, $radius = $badge-radius) {
   background: $bg;
 
   if ($color == auto) {
-    color: islight($bg);
+    color: isLight($bg);
   } else {
     color: $color;
   }
 }
 
-badge($bg = $badge-bg, $color = $badge-color, $radius = $badge-radius, $fontsize = $badge-fontsize, $padding = $badge-padding) {
+// Core
+// -----------------------------------------------------------------------------
+// 核心实现，每个属性的设置都要明白为什么
+
+.{$ns}badge {
   line-height: 1;
   white-space: nowrap;
   display: inline-block;
   cursor: default;
-  // min-width: 1.5rem; //注释此行，就可以支持点样式，且默认会是圆
+  // min-width: 1.5rem; // 注释此行，就可以支持点样式，且默认会是圆
   text-align: center;
 
-  badge-layout($fontsize, $padding);
-  badge-style($bg, $color, $radius);
+  badgeSize();
+  badgeColor();
 }
 
-.{$ns}badge {
-  badge()
-}
-
-// modifiers: colors
+// 扩展样式（主题、形状、尺寸等）
 // -----------------------------------------------------------------------------
 for $color-key, $color in $theme-colors {
   .{$ns}badge-{$color-key} {
-    badge-style($color, auto);
+    badgeColor($color, auto);
   }
 }
 
-// // modifiers: radius
-// // -----------------------------------------------------------------------------
-for $radius-key, $radius in $theme-radius {
-  .{$ns}badge-{$radius-key} {
-    border-radius: $radius;
-  }
-}
+// shape，使用全局的
+// for $shape-key, $shape-value in $shapes {
+//   .{$ns}badge.is-{$shape-key} {
+//     border-radius: $shape-value;
+//   }
+// }
 
-// modifiers: status
-// -----------------------------------------------------------------------------
+// 特殊处理
 .{$ns}badge:empty,
-.{$ns}badge.is-point,
 .{$ns}badge.is-dot {
   padding: 4px;
   min-width: initial;
-  border-radius: 1000px;
+  border-radius: $global-round;
   font-size: 0;
   width: 0;
   height: 0;

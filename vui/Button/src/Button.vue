@@ -9,7 +9,7 @@
         <i v-if="icon" class="iconfont" :class="'icon-' + icon"></i>
       </slot>
     </span>
-    <label class="btn-text"><slot></slot></label>
+    <span class="btn-text"><slot></slot></span>
   </button>
 </template>
 
@@ -40,11 +40,13 @@ export default {
 
   props: {
     prefixCls: PropTypes.string.def('btn'),
-    icon: PropTypes.string,
+    icon: String,
     type: PropTypes.oneOf([
+      'normal',
       'primary',
-      'ghost',
       'dashed',
+      'warn',
+      'danger',
     ]),
     size: PropTypes.oneOf([
       'xs',
@@ -53,16 +55,16 @@ export default {
       'lg',
       'xl',
     ]),
-    disabled: PropTypes.boolean,
-    loading: PropTypes.boolean,
-    hollow: PropTypes.boolean,
-    block: PropTypes.boolean,
+    disabled: Boolean,
+    loading: Boolean,
+    hollow: Boolean,
+    block: Boolean,
     shape: PropTypes.oneOf([
       'circle',
       'round',
       'radius',
       'square',
-    ]).def('radius'),
+    ]).def(),
     nativeType: PropTypes.oneOf([
       'button',
       'reset',
