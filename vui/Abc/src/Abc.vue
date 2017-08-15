@@ -4,39 +4,47 @@
 
 <script>
 /**
- * abc
- * @module packages/abc
- * @desc 用于生成指定的 html 标签容器
- * @param {string} [tag] - 指定html标签
- * @help 参看 router-link
- * @help https://github.com/vuejs/vue-router/blob/dev/src/components/link.js
+  * Abc 名称
+ * @module packages/Button
+ * @desc 猫叔
+ * @rules
+ *   - 使用规则
+ * @param {string} [type] - 显示类型，primary, danger
  *
  * @example
- * <abc tag="div">
- *   ...
- * </abc>
+ * <Button type="primary" size="large" iconfont="back">按钮</Button>
  */
+import PropTypes from 'vue-types'
 export default {
   name: 'Abc',
   props: {
-    // tag: {
-    //   type: String,
-    //   default: 'div'
-    // },
+    props: {
+      prefixCls: PropTypes.string.def('btn'),
+    },
   },
   computed: {
-    // classes() {
-    //   return [
-    //     {
-    //       'badge-point': this.point,
-    //       'badge-single': this.text && this.text.length === 1,
-    //       radius: this.radius,
-    //       round: this.round,
-    //     },
-    //     this.type ? `badge-${this.type}` : '',
-    //   ]
-    // },
-    // styles() {
+    classes () {
+      const {
+        prefixCls,
+        type,
+        size,
+        shape,
+        block,
+        hollow,
+        disabled,
+      } = this.$props
+
+      return {
+        [`${prefixCls}`]: true,
+        [`${prefixCls}-${type}`]: type,
+        [`${prefixCls}-${size}`]: size,
+        [`is-${shape}`]: shape,
+        'is-hollow': hollow,
+        'is-block': block,
+        'disabled': disabled,
+      }
+    },
+    // styles () {
     //   return [
     //     this.color ? {color: this.color} : {},
     //     this.bg ? {backgroundColor: this.bg} : {},

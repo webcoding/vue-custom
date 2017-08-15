@@ -4,9 +4,9 @@
     :type="nativeType"
     :disabled="disabled"
     @click="handleClick">
-    <span class="btn-icon" v-if="icon || $slots.icon">
-      <slot name="icon">
-        <i v-if="icon" class="iconfont" :class="'icon-' + icon"></i>
+    <span class="btn-icon" v-if="iconfont || $slots.iconfont">
+      <slot name="iconfont">
+        <i v-if="icon" class="iconfont" :class="'iconfont-' + iconfont"></i>
       </slot>
     </span>
     <span class="btn-text"><slot></slot></span>
@@ -19,20 +19,22 @@
 // }
 
 /**
- * Button
+ * Button 按钮
  * @module packages/Button
- * @desc 按钮
- * @param {string} [type=default] - 显示类型，接受 default, primary, danger
- * @param {boolean} [disabled=false] - 禁用
- * @param {boolean} [plain=false] - 幽灵按钮
- * @param {string} [size=normal] - 尺寸，接受 normal, small, large
- * @param {string} [nativeType] - 原生 type 属性，接受 button, reset, submit, menu
- * @param {string} [icon] - 图标，提供 more, back，或者自定义的图标（传入不带前缀的图标类名，最后拼接成 .mintui-xxx）
+ * @desc 按钮用于开始一个即时操作
+ * @rules
+ *   - 标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
+ * @param {string} [type] - 显示类型，primary, danger
+ * @param {boolean} [disabled] - 禁用
+ * @param {boolean} [ghost] - 幽灵按钮
+ * @param {string} [size] - 尺寸，xs sm md lg
+ * @param {string} [nativeType] - 原生 type 属性，button, reset, submit, menu
+ * @param {string} [iconfont] - 图标，提供 more, back，或者自定义的图标（传入不带前缀的图标类名，最后拼接成 .iconfont-xxx）
  * @param {slot} - 显示文本
- * @param {slot} [icon] 显示图标
+ * @param {slot} [iconfont] 显示图标
  *
  * @example
- * <Button size="large" icon="back" type="primary">按钮</Button>
+ * <Button type="primary" size="large" iconfont="back">按钮</Button>
  */
 import PropTypes from 'vue-types'
 export default {
@@ -40,7 +42,7 @@ export default {
 
   props: {
     prefixCls: PropTypes.string.def('btn'),
-    icon: String,
+    iconfont: String,
     type: PropTypes.oneOf([
       'normal',
       'primary',

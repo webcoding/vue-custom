@@ -38,11 +38,11 @@
 
     </Group>
     <Group padded title="带图标的按钮">
-      <Button icon="home">按钮</Button>
-      <Button icon="search" shape="circle"></Button>
-      <Button icon="search">搜索</Button>
-      <Button icon="plus">按钮</Button>
-      <Button icon="del">按钮</Button>
+      <Button iconfont="home">按钮</Button>
+      <Button iconfont="search" shape="circle"></Button>
+      <Button iconfont="search">搜索</Button>
+      <Button iconfont="plus">按钮</Button>
+      <Button iconfont="del">按钮</Button>
     </Group>
     <Group padded title="带数字的按钮">
 
