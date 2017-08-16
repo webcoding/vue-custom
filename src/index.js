@@ -58,6 +58,8 @@ const vui = {
   Group,
   Button,
   Icon,
+  Iconfont: Icon.Font,
+  Iconsvg: Icon.Svg,
   Badge,
   XSwitch,
   Cell,

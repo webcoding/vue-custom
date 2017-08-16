@@ -20,8 +20,8 @@
         </svg>
       </span>
       <template v-for="item in list" >
-        <br v-if="item[0] === 'title'">
-        <Icon v-else :type="item[0]" :key="item.type" />
+        <br v-if="item[0] === 'title'" />
+        <Icon v-else use="svg" :type="item[0]" :key="item.type"><span class="svg-text">{{ item[1] }}</span></Icon>
       </template>
     </div>
     <p>跟设置的字体颜色一致</p>
@@ -162,6 +162,19 @@ export default {
 </script>
 
 <style lang="stylus" scope>
+.iconsvg
+  display inline-block
+  margin-bottom 16px
+  width 80px
+  height 80px
+  text-align center
+  vertical-align top
+
+  .svg-text
+    font-size 12px
+    line-height 1.3
+    display block
+
 .flex
   display flex
 .flex-center

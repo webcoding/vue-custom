@@ -24,12 +24,12 @@
  * @desc 按钮用于开始一个即时操作
  * @rules
  *   - 标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
- * @param {string} [type] - 显示类型，primary, danger
+ * @param {string} [type] - 显示类型，normal, primary, danger
  * @param {boolean} [disabled] - 禁用
  * @param {boolean} [ghost] - 幽灵按钮
  * @param {string} [size] - 尺寸，xs sm md lg
  * @param {string} [nativeType] - 原生 type 属性，button, reset, submit, menu
- * @param {string} [iconfont] - 图标，提供 more, back，或者自定义的图标（传入不带前缀的图标类名，最后拼接成 .iconfont-xxx）
+ * @param {string} [iconfont] - 图标，提供 more、back，或者自定义的图标（传入不带前缀的图标类名，最后拼接成 .iconfont-xxx）
  * @param {slot} - 显示文本
  * @param {slot} [iconfont] 显示图标
  *

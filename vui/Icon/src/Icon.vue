@@ -1,9 +1,3 @@
-<template>
-  <i :class="classes" :style="styles">
-    <slot></slot>
-  </i>
-</template>
-
 <script>
 /**
  * Icon
@@ -12,72 +6,60 @@
  * @param {string} type - 显示类型
  * @param {number} [size] - 尺寸
  * @param {color} [color] - 传入颜色值
+ * @param {string} [use] - 传入图标类型[font, svg, canvas, custom]
  *
  * @example
- * <Icon type="String" size="Number" color="Color" />
+ * <Icon type="String" size="Number" color="Color" use="font" />
  */
 import PropTypes from 'vue-types'
 export default {
   name: 'Icon',
-  data() {
-    return {
-      // preloader,
-    }
-  },
 
   props: {
-    prefixCls: PropTypes.string.def('icon'),
+    prefixCls: String,
     type: PropTypes.string.isRequired,
-    size: PropTypes.oneOfType([
-      String,
-      Number,
-    ]),
+    spin: Boolean,
+    size: [String, Number],
+    use: PropTypes.oneOf([
+      'font',
+      'svg',
+      'canvas',
+      'custom',
+    ]).def('font'),
     shape: PropTypes.oneOf([
-      'dot',
       'circle',
       'radius',
       'square',
     ]),
     bg: String,
     color: String,
+    fill: String,
   },
 
-  computed: {
-    classes () {
-      const {
-        prefixCls,
-        type,
-        size,
-        shape,
-        reverse,
-      } = this.$props
+  render(createElement) {
+    const $default = this.$slots.default
+    // const $data = this.$data
+    // const { use } = this.$props
+    const { use, ...props } = this.$props
 
-      return {
-        [`${prefixCls}`]: true,
-        [`${prefixCls}-svg`]: true,
-        [`${prefixCls}-${type}`]: type,
-        [`${prefixCls}-${size}`]: size,
-        [`${prefixCls}-${reverse}`]: reverse,
-        [`is-${shape}`]: shape,
-      }
-    },
-    styles() {
-    // 目前单位用 px
-    //   const { size } = this
-    //   if (!size) return {}
-    //   // var size = '280, 70'
-    //   // console.log(size.split(/\s*,\s*| +/))
-    //   const [width, height = width] = size.split(/\s*,\s*| +/)
-    //   return [
-    //     { width: width },
-    //     { height: height },
-    //     this.color ? { color: this.color } : { },
-    //   ]
-      return [
-        { color: this.color },
-        { backgroundColor: this.bg },
-      ]
-    },
+    var componentTag
+    switch (use) {
+      case 'svg':
+        componentTag = 'svg'
+        break
+      case 'font':
+      case 'canvas':
+      case 'custom':
+      default:
+        componentTag = 'font'
+    }
+    return createElement(
+      `Icon${componentTag}`,
+      {
+        props: props,
+      },
+      $default
+    )
   },
 }
 </script>

@@ -1,35 +1,34 @@
 <template>
-  <i :class="classes" :style="styles">
-    <slot></slot>
-  </i>
+  <i :class="classes" :style="styles"><slot></slot></i>
 </template>
 
 <script>
 /**
- * Icon
+ * Iconfont 图标字体
  * @module packages/Iconfont
- * @desc 徽章
- * @param {string} [type=primary] 组件样式，可选 primary, error, success, warning
+ * @desc 语义化的矢量字体图标。
+ * @rules 每个图标请使用语义化的命名，部分规则如下
+ *   - 实心和描线图标保持同名，用 -o 来区分，比如 question-circle（实心） 和 question-circle-o（描线）；
+ *   - 命名顺序：[图标名]-[形状?]-[描线?]-[方向?]。
+ * @note ? 为可选
+ * @param {string} [type] 组件样式，可选 primary, error, success, warning
  * @param {string} [color] - 传入颜色值
- * @param {string} [size=normal] - 尺寸，接受 normal, small, large
+ * @param {string} [size] - 尺寸，接受 normal, small, large
  *
  * @example
- * <Icon color="error">错误</Icon>
- * <Icon color="#333">30</Icon>
+ * <Iconfont type="link" />
+ * <Iconfont type="string" color="red" />
 **/
 import PropTypes from 'vue-types'
 export default {
   name: 'Iconfont',
 
   props: {
-    prefixCls: PropTypes.string.def('icon'),
+    prefixCls: PropTypes.string.def('iconfont'),
     type: PropTypes.string.isRequired,
-    size: PropTypes.oneOfType([
-      String,
-      Number,
-    ]),
+    spin: Boolean,
+    size: [Number, String],
     shape: PropTypes.oneOf([
-      'dot',
       'circle',
       'radius',
       'square',
@@ -43,30 +42,37 @@ export default {
       const {
         prefixCls,
         type,
-        size,
         shape,
         reverse,
       } = this.$props
 
       return {
+        [`icon`]: true,
         [`${prefixCls}`]: true,
-        [`${prefixCls}-font`]: true,
         [`${prefixCls}-${type}`]: type,
-        [`${prefixCls}-${size}`]: size,
         [`${prefixCls}-${reverse}`]: reverse,
         [`is-${shape}`]: shape,
       }
     },
     styles() {
-      return [
-        { color: this.color },
-        { backgroundColor: this.bg },
-      ]
+      const {
+        size,
+        color,
+        bg,
+      } = this.$props
+
+      return {
+        fontSize: `${size}px`,
+        bg: bg,
+        color: color,
+      }
     },
   },
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scope>
+@import "../../styles/fn";
+
 
 </style>
