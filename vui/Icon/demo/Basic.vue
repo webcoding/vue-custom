@@ -12,7 +12,7 @@
         </span>
       </div>
     </div>
-    <div class="panel hover">
+    <div class="panel">
       <h2>fontIcons</h2>
       <div class="icons">
         <span class="icon" v-for="item in fontIcons" :key="item">
@@ -71,6 +71,11 @@ export default {
     &:hover {
       background-color: #108ee9;
       color: #fff;
+
+      .iconfont,
+      .iconsvg {
+        transform: scale(1.4);
+      }
     }
   }
   .iconfont,
