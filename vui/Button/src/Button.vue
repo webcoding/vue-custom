@@ -3,12 +3,9 @@
     :class="classes"
     :type="nativeType"
     :disabled="disabled"
-    @click="handleClick">
-    <span class="btn-icon" v-if="iconfont || $slots.iconfont">
-      <slot name="iconfont">
-        <i v-if="icon" class="iconfont" :class="'iconfont-' + iconfont"></i>
-      </slot>
-    </span>
+    @click="handleClick"
+    >
+    <Icon v-if="iconType" :type="iconType" />
     <span class="btn-text"><slot></slot></span>
   </button>
 </template>
@@ -34,7 +31,7 @@
  * @param {slot} [iconfont] 显示图标
  *
  * @example
- * <Button type="primary" size="large" iconfont="back">按钮</Button>
+ * <Button type="primary" size="large">按钮</Button>
  */
 import PropTypes from 'vue-types'
 export default {
@@ -42,7 +39,6 @@ export default {
 
   props: {
     prefixCls: PropTypes.string.def('btn'),
-    iconfont: String,
     type: PropTypes.oneOf([
       'normal',
       'primary',
@@ -58,7 +54,6 @@ export default {
       'xl',
     ]),
     disabled: Boolean,
-    loading: Boolean,
     hollow: Boolean,
     block: Boolean,
     shape: PropTypes.oneOf([
@@ -69,10 +64,12 @@ export default {
     ]),
     nativeType: PropTypes.oneOf([
       'button',
+      'menu',
       'reset',
       'submit',
-      'menu',
     ]).def('button'),
+    loading: Boolean,
+    icon: String,
   },
 
   methods: {
@@ -83,6 +80,9 @@ export default {
 
 
   computed: {
+    iconType() {
+      return this.loading ? 'loading' : this.icon
+    },
     classes () {
       const {
         prefixCls,
@@ -92,12 +92,17 @@ export default {
         block,
         hollow,
         disabled,
+        loading,
+        icon,
       } = this.$props
+
+      const $default = this.$slots.default
 
       return {
         [`${prefixCls}`]: true,
         [`${prefixCls}-${type}`]: type,
         [`${prefixCls}-${size}`]: size,
+        [`${prefixCls}-only-icon`]: !$default && icon && !loading,
         [`is-${shape}`]: shape,
         'is-hollow': hollow,
         'is-block': block,

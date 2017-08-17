@@ -33,6 +33,7 @@ export default {
   props: {
     prefixCls: PropTypes.string.def('switch'),
     // name: String,
+    checked: Boolean,
     text: PropTypes.custom((value) => {
       // 开关提示，有值则必须成对(on/off 开/关 ABC/··· 等)
       // 使用 custom 还必须验证类型，反而不如原生的强大了
@@ -50,7 +51,6 @@ export default {
     width: String,
     hollow: Boolean,
     block: Boolean,
-    checked: Boolean,
     value: Boolean,
     disabled: Boolean,
   },

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'layout-zt',
+  name: 'tpl-zt',
 }
 </script>
 

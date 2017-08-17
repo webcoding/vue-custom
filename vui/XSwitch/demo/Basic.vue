@@ -43,7 +43,7 @@
 
     <Group class="help" padded>
       <h3>还需要什么?</h3>
-      <p></p>
+      <p>使用了 v-model，感觉不够独立</p>
     </Group>
   </Page>
 </template>

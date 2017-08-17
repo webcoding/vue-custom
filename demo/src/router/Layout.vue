@@ -1,5 +1,5 @@
 <template>
-  <section class="layout">
+  <section class="tpl-layout">
     <v-header></v-header>
     <router-view class="page"></router-view>
   </section>
@@ -8,7 +8,7 @@
 <script>
 import vHeader from '@/components/vHeader'
 export default {
-  name: 'layout',
+  name: 'tpl-layout',
   components: {
     vHeader,
   },

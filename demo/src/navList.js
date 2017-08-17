@@ -44,6 +44,15 @@ const navList = [
       //   type: 'base',
       //   status: 'doing',
       // },
+      {
+        icon: '',
+        link: 'layout',
+        title: '布局',
+        small: 'layout',
+        desc: '',
+        type: 'base',
+        status: 'doing',
+      },
       // {
       //   icon: '',
       //   link: 'grid',

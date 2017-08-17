@@ -4,23 +4,36 @@
 
 <script>
 /**
-  * Abc 名称
- * @module packages/Button
- * @desc 猫叔
+ * Abc 名称
+ * @module packages/Abc
+ * @desc 描述
  * @rules
  *   - 使用规则
- * @param {string} [type] - 显示类型，primary, danger
+ * @param {string} [type] - 显示类型
  *
  * @example
- * <Button type="primary" size="large" iconfont="back">按钮</Button>
+ * <Abc>xxx</Abc>
  */
 import PropTypes from 'vue-types'
 export default {
   name: 'Abc',
   props: {
-    props: {
-      prefixCls: PropTypes.string.def('btn'),
-    },
+    prefixCls: PropTypes.string.def('abc'),
+    text: PropTypes.oneOfType([
+      String,
+      Number,
+    ]),
+    max: PropTypes.number.def(99),
+    dot: Boolean,
+    hidden: Boolean,
+    color: String,
+    textColor: String,
+    shape: PropTypes.oneOf([
+      'dot',
+      'circle',
+      'radius',
+      'square',
+    ]).def('circle'),
   },
   computed: {
     classes () {

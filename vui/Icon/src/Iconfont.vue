@@ -47,7 +47,7 @@ export default {
       } = this.$props
 
       return {
-        [`icon`]: true,
+        // icon: true,
         [`${prefixCls}`]: true,
         [`${prefixCls}-${type}`]: type,
         [`${prefixCls}-${reverse}`]: reverse,
@@ -74,5 +74,5 @@ export default {
 <style lang="stylus" scope>
 @import "../../styles/fn";
 
-
+// 使用 iconfont 字体，可覆盖自定义
 </style>

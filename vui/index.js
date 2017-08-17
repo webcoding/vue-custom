@@ -4,6 +4,7 @@ export default [
   'Badge',
   'Button',
   'Cell',
+  'Layout',
   // 'Debug',
   'IndexList',
   'Group',

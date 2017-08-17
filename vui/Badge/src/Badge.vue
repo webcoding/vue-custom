@@ -17,7 +17,7 @@
  *   - 当用户有必要知晓每条更新时，应该使用数字型，eg：社交中的一对一的消息通知。
  *   - 当用户只需知道大致有内容更新时，应该使用红点型，eg：社交中的群消息通知。
  * @API
-//  * @param {string} [type] - 设置 Badge 类型
+ * @param {string} [type] - 设置 Badge 类型
  * @param {string} [status] - 设置 Badge 状态，如 success processing(进行中，如呼吸灯) error
  * @param { string|number } [text] 展示的数字或文案，当为数字时候，大于 max 时显示为 ${max}+，为 0 时隐藏
  * @param { number } [max = 999] 展示封顶的数字值

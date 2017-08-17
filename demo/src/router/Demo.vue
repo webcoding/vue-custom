@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'layout-demo',
+  name: 'tpl-demo',
   data() {
     return {
       transition: 'slide-left',

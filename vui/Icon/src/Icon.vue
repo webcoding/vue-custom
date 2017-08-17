@@ -2,14 +2,16 @@
 /**
  * Icon
  * @module packages/Icon
- * @desc 图标
+ * @desc 图标集，支持字体图标以及svg图标
+ * @rules
+ *   - 图标集合，自动生成对应的自定义图标引用，除 use 外，其他 props 会自动传递到内部
+ * @param {string} [use] - 传入图标类型 [font, svg, canvas, custom]
  * @param {string} type - 显示类型
  * @param {number} [size] - 尺寸
  * @param {color} [color] - 传入颜色值
- * @param {string} [use] - 传入图标类型[font, svg, canvas, custom]
  *
  * @example
- * <Icon type="String" size="Number" color="Color" use="font" />
+ * <Icon use="font" type="String" />
  */
 import PropTypes from 'vue-types'
 export default {
@@ -37,8 +39,8 @@ export default {
   },
 
   render(createElement) {
-    const $default = this.$slots.default
-    // const $data = this.$data
+    // const $default = this.$slots.default
+    // const $data = $default.$data
     // const { use } = this.$props
     const { use, ...props } = this.$props
 
@@ -58,7 +60,7 @@ export default {
       {
         props: props,
       },
-      $default
+      this.$slots.default
     )
   },
 }

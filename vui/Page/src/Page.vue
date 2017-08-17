@@ -1,8 +1,6 @@
 <template>
-  <section class="transition-box">
-    <article class="page">
-      <slot></slot>
-    </article>
+  <section class="transition-box page">
+    <slot></slot>
   </section>
 </template>
 
