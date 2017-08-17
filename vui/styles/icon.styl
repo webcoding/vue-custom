@@ -1,71 +1,94 @@
 // ICON 图标不使用字体图标，使用 svg，并通过技术实现按需加载
 // 优点，便于增量维护，便于修改，扩展等
 
+// and-design
+// http://www.iconfont.cn/collections/detail?cid=790
+@font-face {
+  font-family: 'iconfont';
+  src: url("https://at.alicdn.com/t/font_zck90zmlh7hf47vi.eot");
+  src: url("https://at.alicdn.com/t/font_zck90zmlh7hf47vi.eot?#iefix") format("embedded-opentype"),url("https://at.alicdn.com/t/font_zck90zmlh7hf47vi.woff") format("woff"),url("https://at.alicdn.com/t/font_zck90zmlh7hf47vi.ttf") format("truetype"),url("https://at.alicdn.com/t/font_zck90zmlh7hf47vi.svg#iconfont") format("svg")
+}
+
 $defaultIconFont = "iconfont";
 
-// SUI
-// @font-face {
-//   font-family: 'iconfont';
-//   src: url('//at.alicdn.com/t/font_1464419204_8139555.eot'); /* IE9*/
-//   src: url('//at.alicdn.com/t/font_1464419204_8139555.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-//   url('//at.alicdn.com/t/font_1464419204_8139555.woff') format('woff'), /* chrome、firefox */
-//   url('//at.alicdn.com/t/font_1464419204_8139555.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-//   url('//at.alicdn.com/t/font_1464419204_8139555.svg#iconfont') format('svg'); /* iOS 4.1- */
+.{$ns}iconfont {
+  iconFontBase();
+  iconFontFamily($defaultIconFont);
+}
+
+.{$ns}icon-svg {
+  /* 通过设置 font-size 来改变图标大小 */
+  width: 1em;
+  height: 1em;
+  /* 图标和文字相邻时，垂直对齐 */
+  vertical-align: -0.15em;
+  /* 通过设置 color 来改变 SVG 的颜色/fill */
+  fill: currentColor;
+  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+      normalize.css 中也包含这行 */
+  overflow: hidden;
+}
+
+// $unicode($type, args...) {
+//   {$type}:
 // }
 
-// .{$ns}iconfont {
-//   iconFontBase();
-
-//   iconFontFamily($defaultIconFont);
-// }
+$suggestedIcons = {
+  // 疑问
+  question: '\e63a',
+  question-circle: '\e63b',
+  question-circle-o: '\e63c',
+  // 暂停
+  pause: '\e63d',
+  pause-circle: '\e63e',
+  pause-circle-o: '\e63f',
+  // 加减
+  plus: '\e600',
+  plus-circle: '\e601',
+  plus-circle-o: '\e601',
+  plus-square: '\e601',
+  plus-square-o: '\e6c0',
+  minus: '\e624',
+  minus-circle: '\e623',
+  minus-circle-o: '\e622',
+  minus-square: '\e621',
+  minus-square-o: '\e6c1',
+  // info
+  info: '\e62a',
+  info-circle: '\e628',
+  info-circle-o: '\e629',
+  // 感叹号 警告（三角形框）
+  warning: '\e62b',
+  warning-circle: '\e62c',
+  warning-circle-o: '\e62d',
+  // 关闭 or 错误
+  close: '\e633',
+  close-circle: '\e62e',
+  close-circle-o: '\e62f',
+  close-square: '\e6c2',
+  close-square-o: '\e6c3',
+  // 选择 or 成功
+  check: '\e632',
+  check-circle: '\e630',
+  check-circle-o: '\e631',
+  check-square: '\e6c4',
+  check-square-o: '\e6c5',
+  // clock
+  clock-circle: '\e640',
+  clock-circle-o: '\e641',
+}
 
 // $icons = {
-//   code: \e600,
-//   menu: \e601,
-//   app: \e602,
-//   cart: \e603,
-//   delete: \e604,
-//   home: \e606,
-//   message: \e607,
-//   share: \e608,
-//   back: \e609,
-//   comment: \e60a,
-//   edit: \e60b,
-//   favorite: \e60c,
-//   help: \e60d,
-//   info: \e60e,
-//   less: \e60f,
-//   detail: \e60f,
-//   more: \e611,
-//   pic: \e612,
-//   refresh: \e613,
-//   search: \e614,
-//   set: \e615,
-//   success: \e616,
-//   warning: \e617,
-//   error: \e618,
-//   clock: \e619,
-//   remind: \e61a,
-//   discount: \e61b,
-//   dift: \e61c,
-//   browse: \e61d,
-//   scanning: \e61e,
-//   pin: \e61f,
-//   link: \e620,
-//   friend: \e621,
-//   download: \e622,
-//   card: \e623,
-//   local: \e624,
-//   person: \e625,
+//   // ...$suggestIcons,
 // };
 
-// for $icon-key, $icon-value in $icons {
-//   .iconfont-{$icon-key} {
-//     &.iconfont:before {
-//       content: unquote('"{$icon-value}"');
-//     }
-//   }
-// }
+for $icon-key, $icon-value in $suggestedIcons {
+  .iconfont-{$icon-key} {
+    &::before {
+      content: $icon-value;
+    }
+  }
+}
 
 .iconfont-loading {
   animation: spin 1s linear infinite;

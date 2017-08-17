@@ -32,13 +32,12 @@ iconFontBase() {
 
 iconFontFamily($iconfont = 'iconfont') {
   &::before {
-    display: block;
     font-family: $iconfont !important;
+    display: block;
   }
 }
 
 iconFontContent($content) {
-  font-family: $defaultIconFont;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

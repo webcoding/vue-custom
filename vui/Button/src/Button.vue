@@ -83,7 +83,7 @@ export default {
     iconType() {
       return this.loading ? 'loading' : this.icon
     },
-    classes () {
+    classes() {
       const {
         prefixCls,
         type,
