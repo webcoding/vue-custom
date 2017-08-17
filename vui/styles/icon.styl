@@ -1,6 +1,8 @@
 // ICON 图标不使用字体图标，使用 svg，并通过技术实现按需加载
 // 优点，便于增量维护，便于修改，扩展等
 
+$defaultIconFont = "iconfont";
+
 // SUI
 // @font-face {
 //   font-family: 'iconfont';
@@ -11,29 +13,10 @@
 //   url('//at.alicdn.com/t/font_1464419204_8139555.svg#iconfont') format('svg'); /* iOS 4.1- */
 // }
 
-._font-icon {
-  display: inline-block;
-  // font-family: "iconfont", sans-serif !important;
-  font-size: 24px;
-  line-height: 1;
-  font-style: normal !important;  // 去除斜体
-  font-weight: normal !important; // 不要粗体
-  text-decoration: none !important;
+// .{$ns}iconfont {
+//   iconFontBase();
 
-  // 对图标样式进行抗锯齿处理
-  -webkit-font-smoothing: antialiased;
-
-  // pc端 chrome 放大出现严重锯齿
-  // 对字体图标的边缘进行模糊；（只支持webkit内核浏览器,参数数值不宜设置得很大，这会带来图标加粗的问题）
-  -webkit-text-stroke-width: 0.2px;
-
-  // grayscale对于图标字体表现更清晰，减轻次像素渲染带来的相邻像素色彩污染问题
-  -moz-osx-font-smoothing: grayscale;
-}
-
-// .iconfont:before,
-// .fonticon:after {
-//   @extend ._font-icon;
+//   iconFontFamily($defaultIconFont);
 // }
 
 // $icons = {
@@ -77,13 +60,13 @@
 // };
 
 // for $icon-key, $icon-value in $icons {
-//   .icon-{$icon-key} {
+//   .iconfont-{$icon-key} {
 //     &.iconfont:before {
 //       content: unquote('"{$icon-value}"');
 //     }
 //   }
 // }
 
-.icon-loading {
-  animation: cirle-anim 1s linear infinite;
+.iconfont-loading {
+  animation: spin 1s linear infinite;
 }
