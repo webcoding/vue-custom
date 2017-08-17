@@ -5,10 +5,10 @@
       <h2>Logo</h2>
       <div class="flex">
         <span class="logo-dark flex-center box400">
-          <Icon type="devnode_logo" size="280, 70"></Icon>
+          <Icon use="svg" type="devnode_logo" size="280, 70"></Icon>
         </span>
         <span class="logo-light flex-center box400" style="background: #35405b; color: #fff;">
-          <Icon type="devnode_logo" size="280, 70"></Icon>
+          <Icon use="svg" type="devnode_logo" size="280, 70"></Icon>
         </span>
       </div>
     </div>

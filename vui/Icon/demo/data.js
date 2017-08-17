@@ -8,6 +8,14 @@ const fontIcons = [
   'pause',
   'pause-circle',
   'pause-circle-o',
+  // info
+  'info',
+  'info-circle',
+  'info-circle-o',
+  // 感叹号 警告（三角形框）
+  'warning',
+  'warning-circle',
+  'warning-circle-o',
   // 加减
   'plus',
   'plus-circle',
@@ -19,14 +27,6 @@ const fontIcons = [
   'minus-circle-o',
   'minus-square',
   'minus-square-o',
-  // info
-  'info',
-  'info-circle',
-  'info-circle-o',
-  // 感叹号 警告（三角形框）
-  'warning',
-  'warning-circle',
-  'warning-circle-o',
   // 关闭 or 错误
   'close',
   'close-circle',
