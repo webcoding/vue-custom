@@ -1,16 +1,9 @@
 // mixins for clearfix
 clearfix() {
-  zoom: 1;
-  &:before,
-  &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
+  &::after {
+    display: block;
     clear: both;
-    visibility: hidden;
-    font-size: 0;
-    height: 0;
+    content: "";
   }
 }
 
