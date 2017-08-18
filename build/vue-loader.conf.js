@@ -2,6 +2,7 @@ var utils = require('./utils')
 var config = require('../config')
 var isProduction = process.env.NODE_ENV === 'production'
 var px2rem = require('postcss-plugin-px2rem')
+// var nib = require('nib')
 
 module.exports = {
   loaders: utils.cssLoaders({
@@ -23,4 +24,5 @@ module.exports = {
     // mediaQuery: false,
     minPixelValue: 0,
   })],
+  // nib: nib(),
 }

@@ -20,29 +20,33 @@ export default {
 </script>
 
 <style lang="stylus">
-@import "../../vui/styles/base";
+@import "../../vui/styles/index";
 
 html,
 body,
 #app
-.tpl-layout
+.tpl-layout {
   width 100%
   height 100%
   overflow hidden
+}
 
-body
+body {
   font-family -apple-system-font, "Helvetica Neue", sans-serif
   user-select none
   line-height 1.6
   font-size 16px
   background-color #F8F8F8
-.page
+}
+.page {
   width 100%
   overflow-x hidden
   padding-top 40px
-
-.icons
+}
+.iconfont {
   vertical-align middle
+  // position absolute 0 0 0 0
+}
 
 .fade-enter-active,
 .fade-leave-active{

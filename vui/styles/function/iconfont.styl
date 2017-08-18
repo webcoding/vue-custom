@@ -1,5 +1,5 @@
 
-iconFontBase() {
+iconfontBase() {
   display: inline-block;
   // font-family: "iconfont", sans-serif !important;
   font-size: 24px;
@@ -30,14 +30,14 @@ iconFontBase() {
   -moz-osx-font-smoothing: grayscale;
 }
 
-iconFontFamily($iconfont = 'iconfont') {
+iconfontFamily($iconfont = 'iconfont') {
   &::before {
     font-family: $iconfont !important;
     display: block;
   }
 }
 
-iconFontContent($content) {
+iconfontContent($content) {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

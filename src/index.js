@@ -3,10 +3,11 @@ import XTag from '../vui/XTag'
 // import vDebug from '../vui/Debug'
 import Page from '../vui/Page'
 import Layout from '../vui/Layout'
+import Icon from '../vui/Icon'
 import Flex from '../vui/Flex'
+import Alert from '../vui/Alert'
 import BackTop from '../vui/BackTop'
 import Group from '../vui/Group'
-import Icon from '../vui/Icon'
 import Button from '../vui/Button'
 // import Box from '../vui/Box'
 import Cell from '../vui/Cell'
@@ -57,6 +58,7 @@ const vui = {
   // vDebug,
   Page,
   Flex,
+  Alert,
   FlexItem: Flex.Item,
   Layout,
   Group,

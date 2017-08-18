@@ -486,7 +486,7 @@ const navList = [
         small: 'alert',
         desc: '',
         type: 'extend',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',

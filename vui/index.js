@@ -1,14 +1,15 @@
 
 export default [
   // 'Abc',
+  'Icon',
+  'Layout',
   'Badge',
   'Button',
   'Cell',
-  'Layout',
+  'Alert',
   // 'Debug',
   'IndexList',
   'Group',
-  'Icon',
   'Page',
   'XHeader',
   'SearchBar',
