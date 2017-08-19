@@ -1,5 +1,6 @@
 var path = require('path')
 // var flowWebpackPlugin = require('flow-webpack-plugin')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
@@ -51,8 +52,28 @@ module.exports = {
         exclude: /node_modules/,
         include: [resolve('src'), resolve('test')],
       },
+      // images from img/flags goes to flags-sprite.svg
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        include: path.resolve('./img/system'),
+        options: {
+          extract: true,
+          spriteFilename: 'system-sprite.svg'
+        }
+      },
+      // // images from img/icons goes to icons-sprite.svg
+      // {
+      //   test: /\.svg$/,
+      //   loader: 'svg-sprite-loader',
+      //   include: path.resolve('./img/icons'),
+      //   options: {
+      //     extract: true,
+      //     spriteFilename: 'icons-sprite.svg'
+      //   }
+      // },
+      {
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
@@ -70,6 +91,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new SpriteLoaderPlugin(),
     // new flowWebpackPlugin(),
   ],
 }
