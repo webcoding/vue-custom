@@ -1,5 +1,5 @@
+import tinyColor from 'tinycolor2'
 import bezierEasing from './bezierEasing'
-import tinyColor from './tinyColor'
 
 const colorEasing = bezierEasing(0.26, 0.09, 0.37, 0.18)
 

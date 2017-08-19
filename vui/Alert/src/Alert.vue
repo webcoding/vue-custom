@@ -2,8 +2,8 @@
   <transition>
     <div v-show="closing" :class="classes" :style="styles">
       <Icon v-if="icon" :type="icon" />
-      <span class="`${prefixCls}-message`">{{ message }}</span>
-      <span class="`${prefixCls}-desc`">{{ desc }}</span>
+      <span :class="`${prefixCls}-message`">{{ message }}</span>
+      <span :class="`${prefixCls}-desc`">{{ desc }}</span>
     </div>
   </transition>
 </template>
@@ -143,6 +143,6 @@ export default {
 </script>
 
 <style lang="stylus">
-// @import "./style";
+@import "./style";
 
 </style>

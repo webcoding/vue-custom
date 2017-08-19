@@ -1,15 +1,13 @@
-$import "../../styles/fn";
+@import "../../styles/fn";
 
 // package: Alert
 // =============================================================================
 
 
-$alert = {$ns}-alert;
-
 $alert-message-color = $color-heading;
 $alert-text-color = $color-text;
 
-.{$alert} {
+.{$ns}alert {
   position: relative;
   padding: 8px 48px 8px 38px;
   border-radius: $border-radius-base;
@@ -17,7 +15,7 @@ $alert-text-color = $color-text;
   font-size: $font-size-base;
   line-height: $line-height-base;
 
-  &&-no-icon {
+  &-no-icon {
     padding: 8px 48px 8px 16px;
   }
 
@@ -37,7 +35,7 @@ $alert-text-color = $color-text;
   &-success {
     border: $border-width-base $border-style-base $green-2;
     background-color: $green-1;
-    .{$alert}-icon {
+    .{$ns}alert-icon {
       color: $color-success;
     }
   }
@@ -45,7 +43,7 @@ $alert-text-color = $color-text;
   &-info {
     border: $border-width-base $border-style-base $primary-2;
     background-color: $primary-1;
-    .{$alert}-icon {
+    .{$ns}alert-icon {
       color: $color-info;
     }
   }
@@ -53,7 +51,7 @@ $alert-text-color = $color-text;
   &-warning {
     border: $border-width-base $border-style-base $yellow-2;
     background-color: $yellow-1;
-    .{$alert}-icon {
+    .{$ns}alert-icon {
       color: $color-warning;
     }
   }
@@ -61,7 +59,7 @@ $alert-text-color = $color-text;
   &-error {
     border: $border-width-base $border-style-base $red-2;
     background-color: $red-1;
-    .{$alert}-icon {
+    .{$ns}alert-icon {
       color: $color-error;
     }
   }
@@ -98,7 +96,7 @@ $alert-text-color = $color-text;
     line-height: 1.5;
   }
 
-  &-with-desc&-no-icon {
+  &-with-desc &-no-icon {
     padding: 16px;
   }
 
@@ -128,7 +126,7 @@ $alert-text-color = $color-text;
     display: block;
   }
 
-  &&-close {
+  &-close {
     height: 0 !important;
     margin: 0;
     padding-top: 0;
