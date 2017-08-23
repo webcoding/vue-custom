@@ -1,7 +1,7 @@
 <template>
   <Page class="page-svg">
     <h1>SVG 图标集</h1>
-    <div class="panel">
+    <!-- <div class="panel">
       <h2>Logo</h2>
       <div class="flex">
         <span class="logo-dark flex-center box400">
@@ -11,25 +11,25 @@
           <Icon use="svg" type="devnode_logo" size="280, 70"></Icon>
         </span>
       </div>
-    </div>
+    </div> -->
     <div class="panel">
-      <h2>fontIcons</h2>
+      <h2>iconfont</h2>
       <div class="icons">
         <span class="icon" v-for="item in fontIcons" :key="item">
-          <Icon :type="item" :key="item" />
+          <Icon :type="item" />
           <span class="icon-text">{{item}}</span>
         </span>
       </div>
-      <h2>svgIcons</h2>
+      <h2>iconsvg</h2>
       <span class="preloader">
         <svg viewBox="0 0 40 40" class="preloaderCircular">
           <circle class="preloaderPath" cx="20" cy="20" fill="none" r="12"></circle>
         </svg>
       </span>
       <div class="icons">
-        <span class="icon" v-for="item in svgIcons" :key="item.key">
-          <Icon use="svg" :type="item[0]" />
-          <span class="icon-text">{{item[1]}}</span>
+        <span class="icon" v-for="item in svgIcons" :key="item">
+          <Icon use="svg" :type="item" />
+          <span class="icon-text">{{item}}</span>
         </span>
       </div>
     </div>
@@ -38,12 +38,13 @@
 </template>
 
 <script>
-import { fontIcons, svgIcons } from './data'
+import { systemIcons, customIcons } from './data'
 export default {
   data() {
     return {
-      fontIcons: fontIcons,
-      svgIcons: svgIcons,
+      fontIcons: systemIcons,
+      svgIcons: systemIcons,
+      customIcons: customIcons,
     }
   },
 }
@@ -64,7 +65,7 @@ export default {
     text-align: center;
     cursor: pointer;
     height: 100px;
-    color: #555;
+    color: #666;
     transition: all .3s;
     border-radius: 4px;
     background-color: #fff;

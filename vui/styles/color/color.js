@@ -1,5 +1,5 @@
-// import colorPalette from 'colour-palette'
-import colorPalette from './colorPalette'
+import colorPalette from 'colour-palette'
+// import colorPalette from './colorPalette'
 // console.log(colorPalette('#108ee9', 1))
 
 console.log(colorPalette)

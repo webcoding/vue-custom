@@ -12,6 +12,15 @@
       url($iconfontUrl + ".svg#iconfont") format("svg")
 }
 
+// @font-face {
+//   font-family: 'iconfont';  /* project id 388226 */
+//   src: url('//at.alicdn.com/t/font_388226_ydua5m3sx8y0t3xr.eot');
+//   src: url('//at.alicdn.com/t/font_388226_ydua5m3sx8y0t3xr.eot?#iefix') format('embedded-opentype'),
+//   url('//at.alicdn.com/t/font_388226_ydua5m3sx8y0t3xr.woff') format('woff'),
+//   url('//at.alicdn.com/t/font_388226_ydua5m3sx8y0t3xr.ttf') format('truetype'),
+//   url('//at.alicdn.com/t/font_388226_ydua5m3sx8y0t3xr.svg#iconfont') format('svg');
+// }
+
 .{$ns}iconfont {
   iconfontBase();
   iconfontFamily($iconfontName);
@@ -63,11 +72,11 @@ $suggestedIcons = {
   minus-square: '\e621',
   minus-square-o: '\e6c1',
   // 关闭 or 错误
-  close: '\e633',
-  close-circle: '\e62e',
-  close-circle-o: '\e62f',
-  close-square: '\e6c2',
-  close-square-o: '\e6c3',
+  cross: '\e633',
+  cross-circle: '\e62e',
+  cross-circle-o: '\e62f',
+  cross-square: '\e6c2',
+  cross-square-o: '\e6c3',
   // 选择 or 成功
   check: '\e632',
   check-circle: '\e630',
@@ -91,7 +100,13 @@ for $icon-key, $icon-value in $suggestedIcons {
   }
 }
 
-.iconfont-spin,
-.iconfont-loading {
+// 动画 Spin
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.is-spin {
   animation: spin 1s linear infinite;
 }

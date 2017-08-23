@@ -10,7 +10,12 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
+const svgDirs = [
+  // require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
+  // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 2. 自己私人的 svg 存放目录
+];
 module.exports = {
+  target: 'web',
   entry: {
     app: config.appSrc,
   },
@@ -26,7 +31,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@root': resolve('./'),  // build 所在项目的根目录（整体项目根目录）
-      '@': config.appSrc,       // 当前运行项目的 src 目录
+      '@': config.appSrc,      // 当前运行项目的 src 目录
     },
   },
   module: {
@@ -53,25 +58,19 @@ module.exports = {
         include: [resolve('src'), resolve('test')],
       },
       // images from img/flags goes to flags-sprite.svg
+      // 把 svgDirs 路径下的所有 svg 文件交给 svg-sprite-loader 插件处理
       {
-        test: /\.svg$/,
+        test: /\.svg$/i,
         loader: 'svg-sprite-loader',
-        include: path.resolve('./img/system'),
+        // include: svgDirs,
+        // include: path.resolve('./img/system'),
         options: {
-          extract: true,
-          spriteFilename: 'system-sprite.svg'
-        }
+          runtimeCompat: true
+          // 不要提取成一个外部独立文件使用，这样与按需加载理念冲突
+          // extract: true,
+          // spriteFilename: 'svg-sprite.[hash:6].svg'
+        },
       },
-      // // images from img/icons goes to icons-sprite.svg
-      // {
-      //   test: /\.svg$/,
-      //   loader: 'svg-sprite-loader',
-      //   include: path.resolve('./img/icons'),
-      //   options: {
-      //     extract: true,
-      //     spriteFilename: 'icons-sprite.svg'
-      //   }
-      // },
       {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'url-loader',
@@ -91,6 +90,7 @@ module.exports = {
     ]
   },
   plugins: [
+    // 不需要提取配置
     new SpriteLoaderPlugin(),
     // new flowWebpackPlugin(),
   ],

@@ -1,5 +1,5 @@
 
-const fontIcons = [
+const systemIcons = [
   // 疑问
   'question',
   'question-circle',
@@ -27,23 +27,23 @@ const fontIcons = [
   'minus-circle-o',
   'minus-square',
   'minus-square-o',
-  // 关闭 or 错误
-  'close',
-  'close-circle',
-  'close-circle-o',
-  'close-square',
-  'close-square-o',
-  // 选择 or 成功
+  // 选择 正确 or 成功
   'check',
   'check-circle',
   'check-circle-o',
   'check-square',
   'check-square-o',
+  // 关闭 错误 or 失败
+  'cross',
+  'cross-circle',
+  'cross-circle-o',
+  'cross-square',
+  'cross-square-o',
   // clock
   'clock-circle',
   'clock-circle-o',
 ]
-const svgIcons = [
+const customIcons = [
   ['add', ''],
   ['arrow_alt', '层级'],
   ['inbox', '收件箱'],
@@ -168,6 +168,6 @@ const svgIcons = [
 ]
 
 export {
-  fontIcons,
-  svgIcons,
+  systemIcons,
+  customIcons,
 }

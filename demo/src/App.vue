@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <!-- <BackTop /> -->
-    <svg-icons></svg-icons>
+    <!-- <svg-icons></svg-icons> -->
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import SvgIcons from '@/components/SvgIcons'
+// import SvgIcons from '@/components/SvgIcons'
 export default {
   data() {
     return {
     }
   },
   components: {
-    SvgIcons,
+    // SvgIcons,
   },
 }
 </script>
