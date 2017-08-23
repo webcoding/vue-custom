@@ -12,14 +12,8 @@
         </span>
       </div>
     </div> -->
+    <p>跟设置的字体颜色一致，默认使用 svg</p>
     <div class="panel">
-      <h2>iconfont</h2>
-      <div class="icons">
-        <span class="icon" v-for="item in fontIcons" :key="item">
-          <Icon :type="item" />
-          <span class="icon-text">{{item}}</span>
-        </span>
-      </div>
       <h2>iconsvg</h2>
       <span class="preloader">
         <svg viewBox="0 0 40 40" class="preloaderCircular">
@@ -28,12 +22,18 @@
       </span>
       <div class="icons">
         <span class="icon" v-for="item in svgIcons" :key="item">
-          <Icon use="svg" :type="item" />
+          <Icon mode="svg" :type="item" />
+          <span class="icon-text">{{item}}</span>
+        </span>
+      </div>
+      <h2>iconfont</h2>
+      <div class="icons">
+        <span class="icon" v-for="item in fontIcons" :key="item">
+          <Icon mode="font" :type="item" />
           <span class="icon-text">{{item}}</span>
         </span>
       </div>
     </div>
-    <p>跟设置的字体颜色一致</p>
   </Page>
 </template>
 
@@ -65,7 +65,7 @@ export default {
     text-align: center;
     cursor: pointer;
     height: 100px;
-    color: #666;
+    color: $grey-8;
     transition: all .3s;
     border-radius: 4px;
     background-color: #fff;

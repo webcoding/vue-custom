@@ -4,14 +4,16 @@
  * @module packages/Icon
  * @desc 图标集，支持字体图标以及svg图标
  * @rules
- *   - 图标集合，自动生成对应的自定义图标引用，除 use 外，其他 props 会自动传递到内部
- * @param {string} [use] - 传入图标类型 [font, svg, canvas, custom]
+ *   - 图标集合，自动生成对应的自定义图标引用，除 mode 外，其他 props 会自动传递到内部
+ * @param {string} [mode] - 传入图标类型 [font, svg, canvas, custom]
  * @param {string} type - 显示类型
  * @param {number} [size] - 尺寸
  * @param {color} [color] - 传入颜色值
  *
  * @example
- * <Icon use="font" type="String" />
+ * <Icon mode="svg" type="String" />
+ * <Icon mode="font" type="String" />
+ * <Icon mode="custom" type="String" />
  */
 import PropTypes from 'vue-types'
 export default {
@@ -22,12 +24,12 @@ export default {
     type: PropTypes.string.isRequired,
     spin: Boolean,
     size: [String, Number],
-    use: PropTypes.oneOf([
+    mode: PropTypes.oneOf([
       'font',
       'svg',
       'canvas',
       'custom',
-    ]).def('font'),
+    ]).def('svg'),
     shape: PropTypes.oneOf([
       'circle',
       'radius',
@@ -41,22 +43,26 @@ export default {
   render(createElement) {
     // const $default = this.$slots.default
     // const $data = $default.$data
-    // const { use } = this.$props
-    const { use, ...props } = this.$props
+    // const { mode } = this.$props
+    const { mode, ...props } = this.$props
 
     var componentTag
-    switch (use) {
-      case 'svg':
-        componentTag = 'svg'
-        break
+    switch (mode) {
       case 'font':
+        componentTag = 'Iconfont'
+        break
       case 'canvas':
+        componentTag = 'Iconcanvas'
+        break
       case 'custom':
+        componentTag = 'span'
+        break
+      case 'svg':
       default:
-        componentTag = 'font'
+        componentTag = 'Iconsvg'
     }
     return createElement(
-      `Icon${componentTag}`,
+      `${componentTag}`,
       {
         props: props,
       },
@@ -70,20 +76,20 @@ export default {
 .icons
   color #888888
 
-.icon-after::after,
-.icon-before::before
-  content ''
-  display inline-block
-  width 12px
-  height 12px
-  color inherit
+// .icon-after::after,
+// .icon-before::before
+//   content ''
+//   display inline-block
+//   width 12px
+//   height 12px
+//   color inherit
 
-.icon-arrow::after
-  width 9px
-  height 9px
-  border-width 1px 1px 0 0
-  border-color currentColor
-  border-style solid
-  transform matrix(0.71, 0.71, -0.71, 0.71, 0, 0)
+// .icon-arrow::after
+//   width 9px
+//   height 9px
+//   border-width 1px 1px 0 0
+//   border-color currentColor
+//   border-style solid
+//   transform matrix(0.71, 0.71, -0.71, 0.71, 0, 0)
 
 </style>

@@ -77,18 +77,19 @@
     transform: translate3d(100%, 0, 0);
   }
 
-  .cell-link {
-    .icon-link {
-      margin-left: 4px;
-      margin-right: -8px;
-      font-size: 16px;
-      color: $gray-silver;
+  .cell-arrow-right {
+    color: $gray-silver;
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      color inherit
+      border-width: 1px 1px 0 0;
+      border-color: currentColor;
+      border-style: solid;
+      transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
     }
-    // &:after{
-    //   @extend ._font-icon;
-
-    //   content: '\e611';
-    // }
   }
   // .cell {
   //   .icon-arrow-right{

@@ -11,6 +11,7 @@ console.log(colorPalette)
 // $red-6      = #f04134;
 // $orange-6   = #f56a00;
 // $yellow-6   = #ffbf00;
+// $gray-6     = #bfbfbf;
 
 /* eslint key-spacing: 0 */
 const colors = {
