@@ -20,7 +20,7 @@ import PropTypes from 'vue-types'
 
 const warnMsg = 'Icon $props.type is invalid, have you set svg-sprite-loader correctly? see https://github.com/kisenka/svg-sprite-loader'
 export default {
-  name: 'Iconsvg',
+  name: 'IconSvg',
 
   props: {
     prefixCls: PropTypes.string.def('iconsvg'),
@@ -78,7 +78,7 @@ export default {
       } else {
         xlinkHref = `#${type}`
       }
-      console.log(xlinkHref)
+      // console.log(xlinkHref)
       return xlinkHref
     },
     // 目前单位用 px
@@ -168,5 +168,6 @@ export default {
   width: 1em;
   height: 1em;
   fill: currentColor;
+  transform: inherit;
 }
 </style>

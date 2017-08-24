@@ -1,9 +1,11 @@
 
 import Icon from './src/Icon'
-import Iconfont from './src/Iconfont'
-import Iconsvg from './src/Iconsvg'
+import IconFont from './src/IconFont'
+import IconSvg from './src/IconSvg'
+import IconCustom from './src/IconCustom'
 
-Icon.Font = Iconfont
-Icon.Svg = Iconsvg
+Icon.Font = IconFont
+Icon.Svg = IconSvg
+Icon.Custom = IconCustom
 
 export default Icon

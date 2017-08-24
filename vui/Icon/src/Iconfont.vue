@@ -27,6 +27,7 @@ export default {
     prefixCls: PropTypes.string.def('iconfont'),
     type: PropTypes.string.isRequired,
     spin: Boolean,
+    loading: Boolean,
     size: [Number, String],
     shape: PropTypes.oneOf([
       'circle',
@@ -42,6 +43,7 @@ export default {
       const {
         prefixCls,
         type,
+        spin,
         shape,
         reverse,
       } = this.$props
@@ -52,6 +54,7 @@ export default {
         [`${prefixCls}-${type}`]: type,
         [`${prefixCls}-${reverse}`]: reverse,
         [`is-${shape}`]: shape,
+        [`is-spin`]: spin || type === 'loading',
       }
     },
     styles() {

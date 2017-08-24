@@ -40,7 +40,7 @@ export default {
     fill: String,
   },
 
-  render(createElement) {
+  render(h) {
     // const $default = this.$slots.default
     // const $data = $default.$data
     // const { mode } = this.$props
@@ -49,19 +49,20 @@ export default {
     var componentTag
     switch (mode) {
       case 'font':
-        componentTag = 'Iconfont'
+        componentTag = 'IconFont'
         break
       case 'canvas':
-        componentTag = 'Iconcanvas'
+        componentTag = 'IconCanvas'
         break
       case 'custom':
-        componentTag = 'span'
+        // 自己输入对应的样式
+        componentTag = 'IconCustom'
         break
       case 'svg':
       default:
-        componentTag = 'Iconsvg'
+        componentTag = 'IconSvg'
     }
-    return createElement(
+    return h(
       `${componentTag}`,
       {
         props: props,

@@ -3,7 +3,8 @@
 // package: Alert
 // =============================================================================
 
-
+$alert-font-size = 12px
+$alert-font-size-lg = $alert-font-size + 2
 $alert-message-color = $color-heading;
 $alert-text-color = $color-text;
 
@@ -12,22 +13,22 @@ $alert-text-color = $color-text;
   padding: 8px 48px 8px 38px;
   border-radius: $border-radius-base;
   color: $alert-text-color;
-  font-size: $font-size-base;
+  font-size: $alert-font-size;
   line-height: $line-height-base;
 
-  &-no-icon {
+  &&-no-icon {
     padding: 8px 48px 8px 16px;
   }
 
   &-icon {
-    font-size: $font-size-lg;
-    top: 8px + $font-size-base * $line-height-base / 2 - $font-size-lg / 2;
+    // font-size: $alert-font-size-lg;
+    top: 8px + ($alert-font-size * $line-height-base / 2 - $alert-font-size-lg / 2);
     left: 16px;
     position: absolute;
   }
 
   &-desc {
-    font-size: $font-size-base;
+    font-size: $alert-font-size;
     line-height: 21px;
     display: none;
   }
@@ -65,7 +66,7 @@ $alert-text-color = $color-text;
   }
 
   &-close-icon {
-    font-size: $font-size-base;
+    font-size: $alert-font-size;
     position: absolute;
     right: 16px;
     top: 10px;
@@ -74,7 +75,7 @@ $alert-text-color = $color-text;
     overflow: hidden;
     cursor: pointer;
 
-    .iconfont-cross {
+    .iconsvg-cross {
       color: $color-text-secondary;
       transition: color .3s ease;
       &:hover {
@@ -96,7 +97,7 @@ $alert-text-color = $color-text;
     line-height: 1.5;
   }
 
-  &-with-desc &-no-icon {
+  &-with-desc&-no-icon {
     padding: 16px;
   }
 
@@ -112,11 +113,11 @@ $alert-text-color = $color-text;
     top: 16px;
     right: 16px;
     cursor: pointer;
-    font-size: $font-size-base;
+    font-size: $alert-font-size;
   }
 
   &-with-desc &-message {
-    font-size: $font-size-lg;
+    font-size: $alert-font-size-lg;
     color: $alert-message-color;
     display: block;
     margin-bottom: 4px;
@@ -126,24 +127,35 @@ $alert-text-color = $color-text;
     display: block;
   }
 
-  &-close {
+  &-banner {
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 0;
+  }
+
+  // 这里动画，多理解下细节
+
+  // &-slide-up-enter,
+  // &-slide-up-leave,
+  &-slide-up-enter-active,
+  &-slide-up-leave-active {
+    transition: all .3s $ease-in-out-circ;
+  }
+  &-slide-up-enter-active {
+    animation: alertSlideUpIn .3s $ease-in-out-circ;
+    animation-fill-mode: both;
+  }
+  &-slide-up-leave-active {
+    animation: alertSlideUpOut .3s $ease-in-out-circ;
+    animation-fill-mode: both;
+  }
+  &&-slide-up-leave-to {
     height: 0 !important;
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
     transition: all .3s $ease-in-out-circ;
     transform-origin: 50% 0;
-  }
-
-  &-slide-up-leave {
-    animation: alertSlideUpOut .3s $ease-in-out-circ;
-    animation-fill-mode: both;
-  }
-
-  &-banner {
-    border-radius: 0;
-    border: 0;
-    margin-bottom: 0;
   }
 }
 

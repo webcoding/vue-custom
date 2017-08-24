@@ -15,9 +15,10 @@
     //     }
     //   }
     // ],
-    // "syntax-flow",
+    "syntax-flow", // 支持解析 flow
     // "transform-flow-strip-types",
-    "transform-vue-jsx",
+    "syntax-jsx",  // 支持解析 jsx
+    "transform-vue-jsx",  // 支持 vue 直接 render JSX 语法
     "transform-decorators-legacy", // vue-class-component
     "transform-class-properties",
     "syntax-dynamic-import",

@@ -42,6 +42,8 @@ const systemIcons = [
   // clock
   'clock-circle',
   'clock-circle-o',
+  // 其他常用 icon
+  'loading',
 ]
 const customIcons = [
   ['add', ''],

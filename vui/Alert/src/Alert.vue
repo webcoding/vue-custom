@@ -1,9 +1,13 @@
 <template>
-  <transition>
+  <transition :name="`${prefixCls}-slide-up`">
     <div v-show="closing" :class="classes" :style="styles">
-      <Icon v-if="icon" :type="icon" />
+      <Icon v-if="showIcon" mode="svg" :type="iconType" :class="`${prefixCls}-icon`" />
       <span :class="`${prefixCls}-message`">{{ message }}</span>
-      <span :class="`${prefixCls}-desc`">{{ desc }}</span>
+      <span v-if="desc" :class="`${prefixCls}-desc`">{{ desc }}</span>
+      <closeIcon v-if="closable" :prefixCls="prefixCls" :handleClose="handleClose">
+        <template v-if="closeText">{{ closeText }}</template>
+        <Icon v-else mode='svg' type='cross' />
+      </closeIcon>
     </div>
   </transition>
 </template>
@@ -22,7 +26,7 @@
  * @param {boolean} [showIcon] - 是否显示辅助图标
  * @param {boolean} [closable] - 默认不显示关闭按钮
  * @param {string} [closeText] - 自定义关闭按钮
- * @param {boolean} [top] - 是否用作顶部公告(默认有图标且 type 为 "warning" 样式)
+ * @param {boolean} [banner] - 是否用作顶部公告(默认有图标且 type 为 "warning" 样式)
  * @param {function} [onClose] - 关闭时触发的回调函数
  *
  * @example
@@ -31,11 +35,22 @@
  */
 import PropTypes from 'vue-types'
 function noop() { }
+const typeMap = {
+  info: `info-circle`,
+  success: `check-circle`,
+  warning: `warning-circle`,
+  error: `cross-circle`,
+}
+var closeIcon = {
+  template: '<a @click="handleClose($event)" :class="`${prefixCls}-close-icon`"><slot></slot></a>',
+  props: ['prefixCls', 'handleClose'],
+}
 export default {
   name: 'Alert',
 
   props: {
     prefixCls: PropTypes.string.def('alert'),
+    // type: String,
     type: PropTypes.oneOf([
       'success',
       'info',
@@ -49,7 +64,7 @@ export default {
     icon: String,
     onClose: PropTypes.func.def(noop),
     showIcon: Boolean,
-    top: Boolean,
+    banner: Boolean,
   },
 
   data() {
@@ -59,65 +74,50 @@ export default {
     }
   },
 
+  components: {
+    closeIcon,
+  },
+
   computed: {
     iconType() {
       const {
         type,
         desc,
-        top,
+        banner,
       } = this.$props
-      // top 模式默认为警告
-      this.type = top && type === undefined ? 'warning' : type || 'info'
-      let iconType = ''
-      switch (type) {
-        case 'success':
-          iconType = 'check-circle'
-          break
-        case 'info':
-          iconType = 'info-circle'
-          break
-        case 'error':
-          iconType = 'cross-circle'
-          break
-        case 'warning':
-          iconType = 'warning-circle'
-          break
-        default:
-          iconType = 'default'
-      }
+      // banner 模式默认为警告
+      this.type = banner && type === undefined ? 'warning' : type || 'info'
+      let iconType = typeMap[type] || 'default'
       // use outline icon in alert with description
       if (desc) {
         iconType += '-o'
       }
       return iconType
     },
-    closeIcon() {
-      // const closeIcon = this.closable ? (
-      //   <a @click="handleClose($event)" class="`${prefixCls}-close-icon`">
-      //     {closeText || <Icon type="cross" />}
-      //   </a>
-      // ) : null;
-    },
+    // closeIcon() {
+    //   const closeIcon = this.closable ? (
+    //     `<a @click="handleClose($event)" class="${this.prefixCls}-close-icon">
+    //       {closeText || <Icon mode="svg" type="cross" />}
+    //     </a>`
+    //   ) : null
+    // },
     classes() {
       const {
         prefixCls,
         type,
         desc,
         showIcon,
-        top,
+        banner,
       } = this.$props
 
-      const { closing } = this.$data
-
-      // top 模式默认有 Icon
-      const isShowIcon = (top && showIcon === undefined) ? true : showIcon
+      // banner 模式默认有 Icon
+      const isShowIcon = (banner && showIcon === undefined) ? true : showIcon
       return {
         [`${prefixCls}`]: true,
         [`${prefixCls}-${type}`]: type,
-        [`${prefixCls}-close`]: !closing,
         [`${prefixCls}-with-desc`]: !!desc,
         [`${prefixCls}-no-icon`]: !isShowIcon,
-        [`${prefixCls}-banner`]: !!top,
+        [`${prefixCls}-banner`]: !!banner,
       }
     },
     styles() {
@@ -129,15 +129,20 @@ export default {
   methods: {
     handleClose(e) {
       e.preventDefault()
-      // let dom = xxx
-      // dom.style.height = `${dom.offsetHeight}px`
-      // // Magic code
-      // // 重复一次后才能正确设置 height
-      // dom.style.height = `${dom.offsetHeight}px`
-
-      this.closeing = false
-      // (this.onClose || noop)(e)
+      const dom = this.$el
+      dom.style.height = `${dom.offsetHeight}px`
+      this.closing = false
+      ;(this.onClose || noop)(e, this)
     },
+  },
+
+  render(h) {
+    console.log('custom render')
+    // return this.closable ? (
+    //   <a onClick={this.handleClose} class={{ [`${this.prefixCls}-close-icon`]: true }}>
+    //     {this.closeText || <Icon mode='svg' type='cross' />}
+    //   </a>
+    // ) : null
   },
 }
 </script>

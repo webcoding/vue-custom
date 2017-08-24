@@ -10,7 +10,7 @@ animate($name, $duration = $animate-duration, $delay = 0, $iterate = 1) {
   $delay = $delay + '';
 
   if (str-index($delay, s) == null) {
-    $delay = unquote($delay + 's');
+    $delay = $delay + 's';
   }
 
   animation: $name $duration $delay $iterate;
@@ -27,11 +27,11 @@ makeAnimate($className, $keyframeName) {
   // .{$className}-appear.{$className}-appear-active,
   // 这里只激活时拥有-active，才有效果
   .{$className}-enter.{$className}-enter-active {
-    animation-name: if($keyframeName, unquote("{$keyframeName}"), unquote("{$className}-in"));
+    animation-name: $keyframeName ? $keyframeName : $className + '-in';
     animation-play-state: running;
   }
   .{$className}-leave.{$className}-leave-active {
-    animation-name: if($keyframeName, unquote("{$keyframeName}"), unquote("{$className}-out"));
+    animation-name: $keyframeName ? $keyframeName : $className + '-out';
     animation-play-state: running;
   }
 }
