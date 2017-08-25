@@ -13,7 +13,7 @@
   $costheta: `Math.cos("{$radians}")`;
   $sintheta: `Math.sin("{$radians}")`;
   $negsintheta: `"{sintheta}" * -1`;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11={$costheta}, M12={$negsintheta}, M21={$sintheta}, M22={$costheta})";
+  -ms-filter: unquote("progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11={$costheta}, M12={$negsintheta}, M21={$sintheta}, M22={$costheta})");
   zoom: 1;
 
   :root & {

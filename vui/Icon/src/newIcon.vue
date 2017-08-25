@@ -46,30 +46,6 @@ export default {
   },
 
   computed: {
-    iconType() {
-      const { mode, type } = this.$props
-      if (mode !== 'svg') {
-        return null
-      }
-      if (!type || typeof type !== 'string') {
-        console.error(warnMsg)
-        return null
-      }
-
-      let xlinkHref = this.renderSvg()
-      if (!/^#/.test(xlinkHref || type)) {
-        console.error(warnMsg)
-      }
-      // let outerIcon
-      if (!xlinkHref) {
-        // outerIcon = true
-        xlinkHref = type
-      } else {
-        xlinkHref = `#${type}`
-      }
-      // console.log(xlinkHref)
-      return xlinkHref
-    },
     classes () {
       const {
         mode,
@@ -91,6 +67,40 @@ export default {
         [`is-spin`]: spin || type === 'loading',
       }
     },
+    styles() {
+      const {
+        size,
+        color,
+        bg,
+      } = this.$props
+      return {
+        fontSize: `${size}px`,
+        bg: !!bg,
+        color: !!color,
+      }
+    },
+    iconType() {
+      const { mode, type } = this.$props
+      if (mode !== 'svg') return
+      if (!type || typeof type !== 'string') {
+        console.error(warnMsg)
+        return null
+      }
+
+      let xlinkHref = this.renderSvg()
+      if (!/^#/.test(xlinkHref || type)) {
+        console.error(warnMsg)
+      }
+      // let outerIcon
+      if (!xlinkHref) {
+        // outerIcon = true
+        xlinkHref = type
+      } else {
+        xlinkHref = `#${type}`
+      }
+      // console.log(xlinkHref)
+      return xlinkHref
+    },
     // 目前单位用 px
     svgStyles() {
       const { size, fill } = this.$props
@@ -109,24 +119,13 @@ export default {
         ...sizeStyle,
       }
     },
-    styles() {
-      const {
-        size,
-        color,
-        bg,
-      } = this.$props
 
-      return {
-        fontSize: `${size}px`,
-        bg: !!bg,
-        color: !!color,
-      }
-    },
   },
 
   methods: {
     renderSvg() {
-      const { type } = this.$props
+      const { type, mode } = this.$props
+      if (mode !== 'svg') return
       let svg
       try {
         svg = require(`@root/vui/Icon/src/assets/${type}.svg`)
