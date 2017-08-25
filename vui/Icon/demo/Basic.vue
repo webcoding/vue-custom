@@ -29,7 +29,7 @@
       <h2>iconfont</h2>
       <div class="icons">
         <span class="icon" v-for="item in fontIcons" :key="item">
-          <Icon mode="font" :type="item" />
+          <Icon mode="font" :type="item">{{item}}</Icon>
           <span class="icon-text">{{item}}</span>
         </span>
       </div>
@@ -73,14 +73,14 @@ export default {
       background-color: #108ee9;
       color: #fff;
 
-      .iconfont,
-      .iconsvg {
+      .icon-font,
+      .icon-svg {
         transform: scale(1.4);
       }
     }
   }
-  .iconfont,
-  .iconsvg {
+  .icon-font,
+  .icon-svg {
     font-size: 24px;
     margin: 12px 0 16px;
     transition: all .3s;

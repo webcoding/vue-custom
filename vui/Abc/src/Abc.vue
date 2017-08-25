@@ -28,6 +28,13 @@ export default {
     hidden: Boolean,
     color: String,
     textColor: String,
+    size: PropTypes.oneOf([
+      'xs',
+      'sm',
+      'md',
+      'lg',
+      'xl',
+    ]),
     shape: PropTypes.oneOf([
       'dot',
       'circle',

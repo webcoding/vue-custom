@@ -13,7 +13,7 @@
  * @note ? 为可选
  * @param {string} [type] 组件样式，可选 primary, error, success, warning
  * @param {string} [color] - 传入颜色值
- * @param {string} [size] - 尺寸
+ * @param {string} [size] - 尺寸，接受 normal, small, large
  *
  * @example
  * <Iconfont type="link" />
@@ -21,21 +21,18 @@
 **/
 import PropTypes from 'vue-types'
 export default {
-  name: 'Iconfont',
+  name: 'IconFont',
 
   props: {
-    prefixCls: PropTypes.string.def('icon-font'),
+    prefixCls: PropTypes.string.def('icon-custom'),
     type: PropTypes.string.isRequired,
     spin: Boolean,
-    loading: Boolean,
     size: [Number, String],
     shape: PropTypes.oneOf([
       'circle',
       'radius',
       'square',
     ]),
-    bg: String,
-    color: String,
   },
 
   computed: {
@@ -54,7 +51,7 @@ export default {
         [`${prefixCls}-${type}`]: type,
         [`${prefixCls}-${reverse}`]: reverse,
         [`is-${shape}`]: shape,
-        [`is-spin`]: spin || type === 'loading',
+        [`is-spin`]: spin,
       }
     },
     styles() {

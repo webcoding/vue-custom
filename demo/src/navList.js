@@ -485,7 +485,16 @@ const navList = [
         title: '弹窗',
         small: 'alert',
         desc: '',
-        type: 'extend',
+        type: ' Feedback',
+        status: 'doing',
+      },
+      {
+        icon: '',
+        link: 'spin',
+        title: '弹窗',
+        small: '加载中',
+        desc: '',
+        type: 'Feedback',
         status: 'doing',
       },
       {
@@ -494,7 +503,7 @@ const navList = [
         title: '确认框',
         small: 'confirm',
         desc: '',
-        type: 'extend',
+        type: 'Feedback',
         status: 'todo',
       },
       {
@@ -503,7 +512,7 @@ const navList = [
         title: '对话框',
         small: 'modal',
         desc: '用作显示系统的重要信息，并请求用户进行操作反馈，eg：删除某个重要内容时，弹出 Modal 进行二次确认。',
-        type: 'extend',
+        type: 'Feedback',
         status: 'todo',
       },
       // {
@@ -521,7 +530,7 @@ const navList = [
         title: '轻提示',
         small: 'toast',
         desc: '一种轻量级反馈/提示，可以用来显示不会打断用户操作的内容，适合用于页面转场、数据交互的等场景中。',
-        type: 'extend',
+        type: 'Feedback',
         status: 'todo',
       },
       {
@@ -530,7 +539,7 @@ const navList = [
         title: '加载进度',
         small: 'loading',
         desc: '',
-        type: 'extend',
+        type: 'Feedback',
         status: 'todo',
       },
       {
@@ -539,7 +548,7 @@ const navList = [
         title: '通知提醒框',
         small: 'notification',
         desc: '',
-        type: 'extend',
+        type: 'Feedback',
         status: 'todo',
       },
       {

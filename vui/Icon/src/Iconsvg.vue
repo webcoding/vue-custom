@@ -23,7 +23,7 @@ export default {
   name: 'IconSvg',
 
   props: {
-    prefixCls: PropTypes.string.def('iconsvg'),
+    prefixCls: PropTypes.string.def('icon-svg'),
     type: PropTypes.string.isRequired,
     spin: Boolean,
     // size: [Number, String],

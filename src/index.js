@@ -5,7 +5,6 @@ import Page from '../vui/Page'
 import Layout from '../vui/Layout'
 import Icon from '../vui/Icon'
 import Flex from '../vui/Flex'
-import Alert from '../vui/Alert'
 import BackTop from '../vui/BackTop'
 import Group from '../vui/Group'
 import Button from '../vui/Button'
@@ -25,6 +24,8 @@ import Field from '../vui/Field'
 // import Navbar from '../vui/Navbar'
 // import Tabbar from '../vui/Tabbar'
 import SearchBar from '../vui/SearchBar'
+import Alert from '../vui/Alert'
+import Spin from '../vui/Spin'
 // import Spinner from '../vui/Spinner'
 // import TabItem from '../vui/TabItem'
 // import TabContainerItem from '../vui/TabContainerItem'
@@ -58,7 +59,6 @@ const vui = {
   // vDebug,
   Page,
   Flex,
-  Alert,
   FlexItem: Flex.Item,
   Layout,
   Group,
@@ -76,6 +76,8 @@ const vui = {
   // Navbar,
   Field,
   SearchBar,
+  Alert,
+  Spin,
   // Spinner,
   // TabItem,
   // TabContainerItem,

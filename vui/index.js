@@ -7,6 +7,7 @@ export default [
   'Button',
   'Cell',
   'Alert',
+  'Spin',
   // 'Debug',
   'IndexList',
   'Group',

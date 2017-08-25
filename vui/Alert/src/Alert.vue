@@ -4,10 +4,10 @@
       <Icon v-if="showIcon" mode="svg" :type="iconType" :class="`${prefixCls}-icon`" />
       <span :class="`${prefixCls}-message`">{{ message }}</span>
       <span v-if="desc" :class="`${prefixCls}-desc`">{{ desc }}</span>
-      <closeIcon v-if="closable" :prefixCls="prefixCls" :handleClose="handleClose">
+      <a v-if="closable" :class="`${prefixCls}-close-icon`" @click="handleClose($event)">
         <template v-if="closeText">{{ closeText }}</template>
         <Icon v-else mode='svg' type='cross' />
-      </closeIcon>
+      </a>
     </div>
   </transition>
 </template>
@@ -16,6 +16,7 @@
 /**
  * Alert 警告提示
  * @module packages/Alert
+ * @group Feedback
  * @desc 警告提示，展现需要关注的信息。
  * @rules
  *   - 当某个页面需要向用户显示警告的信息时。
@@ -41,10 +42,10 @@ const typeMap = {
   warning: `warning-circle`,
   error: `cross-circle`,
 }
-var closeIcon = {
-  template: '<a @click="handleClose($event)" :class="`${prefixCls}-close-icon`"><slot></slot></a>',
-  props: ['prefixCls', 'handleClose'],
-}
+// var closeIcon = {
+//   template: '<a @click="handleClose($event)" :class="`${prefixCls}-close-icon`"><slot></slot></a>',
+//   props: ['prefixCls', 'handleClose'],
+// }
 export default {
   name: 'Alert',
 
@@ -75,7 +76,7 @@ export default {
   },
 
   components: {
-    closeIcon,
+    // closeIcon,
   },
 
   computed: {
@@ -94,13 +95,6 @@ export default {
       }
       return iconType
     },
-    // closeIcon() {
-    //   const closeIcon = this.closable ? (
-    //     `<a @click="handleClose($event)" class="${this.prefixCls}-close-icon">
-    //       {closeText || <Icon mode="svg" type="cross" />}
-    //     </a>`
-    //   ) : null
-    // },
     classes() {
       const {
         prefixCls,
