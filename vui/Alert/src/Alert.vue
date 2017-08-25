@@ -130,14 +130,14 @@ export default {
     },
   },
 
-  render(h) {
-    console.log('custom render')
-    // return this.closable ? (
-    //   <a onClick={this.handleClose} class={{ [`${this.prefixCls}-close-icon`]: true }}>
-    //     {this.closeText || <Icon mode='svg' type='cross' />}
-    //   </a>
-    // ) : null
-  },
+  // render(h) {
+  //   console.log('custom render')
+  //   // return this.closable ? (
+  //   //   <a onClick={this.handleClose} class={{ [`${this.prefixCls}-close-icon`]: true }}>
+  //   //     {this.closeText || <Icon mode='svg' type='cross' />}
+  //   //   </a>
+  //   // ) : null
+  // },
 }
 </script>
 

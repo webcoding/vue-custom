@@ -79,10 +79,8 @@ export default {
         reverse,
       } = this.$props
 
-      let { prefixCls } = this.$props
-      if (prefixCls === undefined) {
-        prefixCls = mode ? `icon-${mode}` : `icon-svg`
-      }
+      let { prefixCls = 'icon' } = this.$props
+      prefixCls = mode ? `${prefixCls}-${mode}` : `${prefixCls}-svg`
       // this.prefixCls = prefixCls
       return {
         // icon: true,
@@ -145,31 +143,32 @@ export default {
   render(h) {
     // const $default = this.$slots.default
     // const $data = $default.$data
-    // const { mode } = this.$props
     const { mode } = this.$props
     // const { mode, ...props } = this.$props
 
     let iconNode = null
-    // var componentTag
+    // 这里如何塞入 slot 呢
     switch (mode) {
       case 'font': {
+        // 通过{}实现块区域，隔离 const 变量
         const { classes, styles } = this
         iconNode = (
           <i class={ classes } style={ styles }></i>
         )
         break
       }
-      // case 'canvas':
-      //   componentTag = 'IconCanvas'
+      // case 'canvas': {
+      //   iconNode = 'IconCanvas'
       //   break
-      // case 'custom':
-      //   // 自己输入对应的样式
-      //   componentTag = 'IconCustom'
+      // }
+      // case 'custom': {
+      //   // 通过 css 实现的icon
+      //   iconNode = 'IconCustom'
       //   break
+      // }
       case 'svg':
       default: {
         const { classes, svgStyles, iconType } = this
-        // componentTag = 'IconSvg'
         iconNode = (
           <svg class={ classes } style={ svgStyles } title={ iconType } aria-hidden='true'>
             <use xlinkHref={ iconType }></use>
@@ -179,13 +178,6 @@ export default {
     }
 
     return iconNode
-    // return h(
-    //   `${componentTag}`,
-    //   {
-    //     props: props,
-    //   },
-    //   this.$slots.default
-    // )
   },
 }
 </script>
