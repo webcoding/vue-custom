@@ -14,18 +14,31 @@ module.exports = {
     extract: isProduction,
   }),
   postcss: [
+    // 以下依赖的插件，在项目中一个个加太复杂了
+    // 统一整理一个插件 postcss-tools 处理掉
+    // npm i colour-palette postcss-loader postcss-cssnext postcss-import postcss-nested postcss-nesting postcss-simple-vars postcss-at-rules-variables postcss-functions postcss-position postcss-plugin-px2rem postcss-position postcss-size colorguard stylelint postcss-write-svg --save-dev
     // require('autoprefixer')({
     //   browsers: ['last 3 versions']
     // }),
     // postcss-cssnext 已经包含了 autoprefixer
-    require('postcss-cssnext'),
-    require('postcss-nested'),
-    require('postcss-import'),
-    require('postcss-functions')({
-      functions: {
-        colorPalette: colourPalette,
-      },
-    }),
+
+    // require('postcss-cssnext'),
+    // require('postcss-import'),
+    // require('postcss-nested'),
+    // require('postcss-nesting'),
+    // require('postcss-simple-vars'),
+    // require('postcss-at-rules-variables'),
+    // require('postcss-functions')({
+    //   functions: {
+    //     colorPalette: colourPalette,
+    //   },
+    // }),
+    // require('postcss-position'),
+    // require('postcss-size'),
+    // require('colorguard'),
+    // require('stylelint'),
+    // require('postcss-write-svg'),
+
     // 直接将 px 值编译出处为 rem
     // 需要设置 html 标签 font-size: 100px;
     px2rem({
@@ -61,8 +74,8 @@ stylelint
 postcss-cssnext     //√ 支持最新 css 语法，如var() @apply等用法参见http://cssnext.io/
                     //（已包含autoprefixer模块）
 postcss-import      //√ 支持 @import
-postcss-nested      // 打开规则嵌套
-postcss-nesting     //√ 支持规则嵌套 & 以及 @nest
+postcss-nested      //√ 解包嵌套规则（如内层使用了@media,会正确解析）
+postcss-nesting     //√ 支持规则嵌套 & 以及 @nest（支持解析 a,b{c,d{...规则}}类型的嵌套）
 postcss-simple-vars //√ 简单定义 css 变量 $type: gray; $width: 100px; $prefix: vue-
 postcss-functions   //√ 可自定义函数，参见colorPalette的使用
 postcss-color-function        //√ 支持常用的颜色函数 lightness tint shade ...
@@ -95,6 +108,7 @@ postcss-media-minmax
 postcss-transform-shortcut
 postcss-alias     // 别名，支持自定义的简写属性
 doiuse            // 属性支持检测
+postcss-shape     // css绘制基本形状，rect、circle、triangle
 postcss-circle    // 纯CSS来创建形状
 postcss-triangle  |/
 postcss-center    // 垂直或水平居中
@@ -107,6 +121,10 @@ es-css-modules    // 输出 css modules
 postcss-modules   // 使用 css modules（比es-css-modules使用者更多）
 postcss-sprites   // 生成 icon 雪碧图
 cq-prolyfill      // 内容的媒体查询
+postcss-neat      // 一个语义化的流体网格系统
+
+
+
 ```使用示例
 
 // postcss-simple-vars 简单定义 css 变量
@@ -175,11 +193,20 @@ div {
     @util clearfix;
 }
 
+// post-nesting 混合嵌套以及 @nest 用法
+a, b {
+  color: red;
 
-// post-nesting => @nest
+  // 解析为四种组合
+  & c, & d {
+    color: white;
+  }
+}
+
 a {
   text-decoration: none;
 
+  // 提升变为 h1 a 样式
   @nest h1 & {
     color: blue;
 
@@ -189,7 +216,7 @@ a {
   }
 }
 
-// postcss-nested
+// postcss-nested 支持解析 @media
 .phone {
   &_title {
     width: 500px;
