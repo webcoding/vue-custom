@@ -1,4 +1,4 @@
 
-import Cell from './src/Cell'
+import vElement from './src'
 
-export default Cell
+export default vElement

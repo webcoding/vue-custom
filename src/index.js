@@ -5,6 +5,7 @@ import Page from '../vui/Page'
 import Layout from '../vui/Layout'
 import Icon from '../vui/Icon'
 import Flex from '../vui/Flex'
+import Grid from '../vui/Grid'
 import BackTop from '../vui/BackTop'
 import Group from '../vui/Group'
 import Button from '../vui/Button'
@@ -60,6 +61,9 @@ const vui = {
   Page,
   Flex,
   FlexItem: Flex.Item,
+  Grid,
+  Row: Grid.Row,
+  Col: Grid.Col,
   Layout,
   Group,
   Button,

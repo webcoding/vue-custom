@@ -2,7 +2,7 @@
 
 Vue custom element with (vue2 + vue-router + vuex + webpack3)
 
-```
+```bash
 .
 ├── vui  组件
 ├── vapi 接口
@@ -40,7 +40,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 构建时，服务应该以 dist 为根建立服务，并把启动服务的脚本设置到此目录
 
-```
+```bash
 .
 ├── build/                 # 构建本目录
 ├── demo/                  # 示例

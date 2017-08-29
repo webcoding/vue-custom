@@ -1,4 +1,4 @@
 
-import Button from './src/Button'
+import Buttom from './src/Button'
 
-export default Button
+export default Buttom

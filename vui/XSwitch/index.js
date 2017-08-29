@@ -1,4 +1,4 @@
 
-import XSwitch from './src/XSwitch'
+import XSwitch from './src'
 
 export default XSwitch

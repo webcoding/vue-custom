@@ -1,4 +1,4 @@
 
-import Spin from './src/Spin'
+import Spin from './src'
 
 export default Spin

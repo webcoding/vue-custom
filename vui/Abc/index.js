@@ -1,4 +1,4 @@
 
-import Abc from './src/Abc'
+import vElement from './src'
 
-export default Abc
+export default vElement

@@ -18,5 +18,6 @@ export default [
   'Field',
   'Tabs',
   'Flex',
+  'Grid',
   // 'XTag',
 ]
