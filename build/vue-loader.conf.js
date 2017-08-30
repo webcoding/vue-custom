@@ -3,26 +3,49 @@ var config = require('../config')
 var isProduction = process.env.NODE_ENV === 'production'
 var px2rem = require('postcss-plugin-px2rem')
 // var px2rem = require('postcss-pxtorem')s
-var colourPalette = require('colour-palette')
+// var colourPalette = require('colour-palette')
 // var nib = require('nib')
 
 module.exports = {
   loaders: utils.cssLoaders({
+    // 这里还可以配置更多的参数，用于 loader 的 options
     sourceMap: isProduction
       ? config.build.productionSourceMap
       : config.dev.cssSourceMap,
     extract: isProduction,
   }),
+  // stylus: [
+  //   require('poststylus'),
+  // ],
   postcss: [
     // 以下依赖的插件，在项目中一个个加太复杂了
     // 统一整理一个插件 postcss-tools 处理掉
+    // 现在可以在 .postcssrc.js 内配置使用的插件（postcss-load 会自动去读取）
     // npm i colour-palette postcss-loader postcss-cssnext postcss-import postcss-nested postcss-nesting postcss-simple-vars postcss-at-rules-variables postcss-functions postcss-position postcss-plugin-px2rem postcss-position postcss-size colorguard stylelint postcss-write-svg --save-dev
     // require('autoprefixer')({
     //   browsers: ['last 3 versions']
     // }),
     // postcss-cssnext 已经包含了 autoprefixer
 
+    // // 直接将 px 值编译出处为 rem
+    // // 需要设置 html 标签 font-size: 100px;
+    // px2rem({
+    //   rootValue: 100,
+    //   // unitPrecision: 5,
+    //   // propWhiteList: [],
+    //   // propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
+    //   // propList: ['*'],
+    //   // propBlackList: [],
+    //   // selectorBlackList: [],
+    //   // ignoreIdentifier: false,
+    //   // replace: true,
+    //   // mediaQuery: false,
+    //   minPixelValue: 0,
+    // }),
+    // require('autoprefixer'),
+
     // require('postcss-cssnext'),
+    // require('postcss-tools'),
     // require('postcss-import'),
     // require('postcss-nested'),
     // require('postcss-nesting'),
@@ -39,22 +62,6 @@ module.exports = {
     // require('stylelint'),
     // require('postcss-write-svg'),
 
-    // 直接将 px 值编译出处为 rem
-    // 需要设置 html 标签 font-size: 100px;
-    px2rem({
-      rootValue: 100,
-      // unitPrecision: 5,
-      // propWhiteList: [],
-      // propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
-      // propList: ['*'],
-      // propBlackList: [],
-      // selectorBlackList: [],
-      // ignoreIdentifier: false,
-      // replace: true,
-      // mediaQuery: false,
-      minPixelValue: 0,
-    }),
-
   ],
   // nib: nib(),
 }
@@ -62,6 +69,7 @@ module.exports = {
 /**
 
 // https://www.postcss.parts/
+// https://github.com/postcss/postcss#plugins
 
 // hot
 cssnext
@@ -71,6 +79,7 @@ rucksack
 stylelint
 
 //
+poststylus          // 让 stylus和 postcss 一起工作
 postcss-cssnext     //√ 支持最新 css 语法，如var() @apply等用法参见http://cssnext.io/
                     //（已包含autoprefixer模块）
 postcss-import      //√ 支持 @import
@@ -92,12 +101,17 @@ postcss-mixins      // 支持 @mixin 用法
 postcss-extend      // 支持@extend 用法
 postcss-position    //√ 指定定位的一行书写方式
 postcss-size        //√ 支持 size，同时设置宽高
+postcss-initial     //√ adds all: initial support, which resets all inherited styles.
+                    // supports initial keyword and all: initial to clean inherit styles.
 postcss-font-magician //√ 实现神奇的@font-face规则，更可控
 stylelint             //√ 样式检测
 postcss-write-svg     //√ 直接 css 中书写 svg
 colorguard            //√ 颜色警卫，对颜色相似性做实时检测
 lost                  //√ LostGrid css栅格布局系统 https://github.com/peterramsing/lost
-
+cq-prolyfill          //√ adds container query support, allowing styles
+                      // that respond to the width of the parent.
+postcss-autoreset     // is an alternative to using a global reset
+                      // that is better for isolatable components.
 postcss-color-short   // 缩写颜色代码 #23 => #232323
                       // rgba (0，0.5) => rgba (0，0，0，0.5)
 postcss-inline-svg    // css中加载 svg，引用为data:image/svg+xml;charset=utf-8,格式
@@ -119,8 +133,9 @@ postcss-pseudoelements  // 处理IE8伪类表示，仅支持一个冒号:，双�
 css-mqpacker      // 相同的媒体查询合并为一个
 es-css-modules    // 输出 css modules
 postcss-modules   // 使用 css modules（比es-css-modules使用者更多）
+// postcss-modules and react-css-modules automatically isolate selectors within components.
 postcss-sprites   // 生成 icon 雪碧图
-cq-prolyfill      // 内容的媒体查询
+
 postcss-neat      // 一个语义化的流体网格系统
 
 

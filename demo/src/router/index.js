@@ -26,10 +26,11 @@ const registerRoute = (config) => {
     nav.list.map((page) => {
       const path = capitalize(camelize(page.link))
       console.log(path)
-      // const path = 'Badge'
-      const isPackage = packages.indexOf(path) > -1
       // eslint-disable-line global-require
       if (page.status !== 'todo') {
+        // const path = 'Badge'
+        const isPackage = packages.indexOf(path) > -1
+        if (isPackage) return
         // console.log(page.link)
         routes.push({
           name: `demo/${page.link}`,
