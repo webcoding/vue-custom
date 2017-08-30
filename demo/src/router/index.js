@@ -30,7 +30,7 @@ const registerRoute = (config) => {
       if (page.status !== 'todo') {
         // const path = 'Badge'
         const isPackage = packages.indexOf(path) > -1
-        if (isPackage) return
+        // if (isPackage) return
         // console.log(page.link)
         routes.push({
           name: `demo/${page.link}`,

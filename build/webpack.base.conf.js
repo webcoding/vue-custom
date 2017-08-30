@@ -1,6 +1,6 @@
 var path = require('path')
 // var flowWebpackPlugin = require('flow-webpack-plugin')
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+// const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
@@ -91,7 +91,7 @@ module.exports = {
   },
   plugins: [
     // 不需要提取配置
-    new SpriteLoaderPlugin(),
+    // new SpriteLoaderPlugin(),
     // new flowWebpackPlugin(),
   ],
 }
