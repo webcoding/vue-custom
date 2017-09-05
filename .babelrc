@@ -24,7 +24,7 @@
     "transform-vue-jsx",  // 支持 vue 直接 render JSX 语法
     "transform-decorators-legacy", // vue-class-component
     "transform-class-properties",
-    "syntax-dynamic-import",
+    "syntax-dynamic-import", // 动态解析 import，实现路由懒加载
     "transform-runtime"
   ],
   "ignore": [

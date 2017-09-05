@@ -21,6 +21,9 @@
     "browser": true
   },
   "globals": {
+    "__DEV__": false,
+    "__PROD__": false,
+    "__DEBUG__": false,
     "window": false,
     "expect": true,
     "sinon": true,

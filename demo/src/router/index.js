@@ -5,55 +5,12 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 // route-level code splitting
-import Layout from './Layout'
-// import Zt from './ZT'
-import Demo from './Demo'
-import App from './App'
+import tplLayout from './tplLayout'
+// import tplZt from './tplZT'
 import Home from '@/views/Home'
 import Component from '@/views/Component'
 import Api from '@/views/API'
-import navList from '@/navList'
-console.log(navList)
-import packages from '@root/vui'
-import { camelize, capitalize } from '@root/shared/util'
-
-
-const List = () => System.import('@/views/List')
-// const createListView = id => () => import('../views/CreateListView').then(m => m.default(id))
-
-const registerRoute = (config) => {
-  const routes = []
-  config.map(nav =>
-    nav.list.map((page) => {
-      const path = capitalize(camelize(page.link))
-      console.log(path)
-      const isPackage = packages.indexOf(path) > -1
-      // eslint-disable-line global-require
-      if (page.status !== 'todo') {
-        // const path = 'Badge'
-        // var cc = isPackage && require(`@root/vui/${path}/demo/Basic`)
-        // console.log(cc)
-        // console.log(page.link)
-        routes.push({
-          name: `demo/${page.link}`,
-          path: `${page.link}`,
-          component: isPackage ? () => System.import(`@root/vui/${path}/demo/Basic`) : () => System.import(`@/views/${path}`),
-          // 这里使用 require，要加 default，好坑啊
-          // component: isPackage ? require(`@root/vui/${path}/demo/Basic`) : require(`@/views/${path}`),
-          meta: {
-            title: `${page.title} ${page.small}`,
-            desc: page.desc,
-          },
-        })
-      }
-      return false
-    })
-  )
-
-  return routes
-}
-
-const demoRoutes = registerRoute(navList)
+import demoRoutes from './demo'
 
 const isProd = process.env.NODE_ENV === 'prod'
 
@@ -65,14 +22,14 @@ export function createRouter () {
     routes: [
       {
         path: '/',
-        component: Layout,
+        component: tplLayout,
         children: [
           { path: '/', component: Home },
         ],
       },
       {
         path: '/app',
-        component: App,
+        component: () => import('./tplApp'),
         children: [
           { path: '/', component: Component, alias: 'component' },
           { path: '/api', component: Api },
@@ -80,9 +37,9 @@ export function createRouter () {
       },
       {
         path: '/demo',
-        component: Demo,
+        component: () => import('./tplDemo'),
         children: [
-          { path: '/', component: List },
+          { path: '/', component: () => import('@/views/List') },
           ...demoRoutes,
         ],
       },
