@@ -24,7 +24,7 @@ export default {
     // replace: Boolean,
     // activeClass: String
   },
-  render (h) {
+  render(h) {
     const $default = this.$slots.default
     const data = $default.data
 

@@ -4,7 +4,7 @@
       <h3>栅格系统 <small>grid</small></h3>
     </div>
     <div class="panel">
-      <Row>
+      <!-- <Row>
         <Col :span="12">col-12</Col>
         <Col :span="12">col-12</Col>
       </Row>
@@ -18,7 +18,7 @@
         <Col :span="6">col-6</Col>
         <Col :span="6">col-6</Col>
         <Col :span="6">col-6</Col>
-      </Row>
+      </Row> -->
     </div>
   </Page>
 </template>

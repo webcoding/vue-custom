@@ -15,6 +15,9 @@
     //     }
     //   }
     // ],
+    // babel对于 export default {} 支持不好
+    // 需要插件 babel-plugin-add-module-exports：
+    "add-module-exports",
     "syntax-flow", // 支持解析 flow
     // "transform-flow-strip-types",
     "syntax-jsx",  // 支持解析 jsx

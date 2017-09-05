@@ -27,7 +27,8 @@ const appName = inputPath || 'app'
 const project = {
   name: appName,
   dir: appName,
-  root: resolve(`${appPath}`),
+  root: resolve('/'),
+  appRoot: resolve(`${appPath}`),
   src: resolve(`${appPath}/src`),
   dist: resolve(`dist/${appName}`),
 }
@@ -40,11 +41,12 @@ console.log(project)
 var cookie;
 module.exports = {
   env: envConfig[env],
+  root: project.root,
   appName: project.name,
-  appRoot: project.root,
+  appRoot: project.appRoot,
   appSrc: project.src,
   index: 'index.html', // 引用文件，相对于 assetsRoot
-  template: project.root + '/index.html',
+  template: project.appRoot + '/index.html',
   entry: project.src,  // './src/index.js'
   alias: {
     // '@': resolve('src'),

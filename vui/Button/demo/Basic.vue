@@ -53,6 +53,22 @@
   </Page>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+    }
+  },
+  computed: {},
+  ready: function () {
+    console.log(111)
+  },
+  attached: function () {},
+  methods: {},
+  components: {},
+}
+</script>
+
 <style scope>
 .page-btn button{
   margin: 0 1em 1em 0;

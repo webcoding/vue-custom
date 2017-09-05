@@ -47,16 +47,35 @@ module.exports = {
         },
       },
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig,
-      },
-      {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         include: [resolve('src'), resolve('test')],
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: vueLoaderConfig,
+      },
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     'style-loader',
+      //     { loader: 'css-loader',
+      //       options: {
+      //         importLoaders: 1
+      //       }
+      //     },
+      //     { loader: 'postcss-loader',
+      //       options: {
+      //         config: {
+      //           path: resolve('./postcss.config.js'),
+      //         }
+      //       }
+      //     },
+      //   ],
+      // },
+
       // images from img/flags goes to flags-sprite.svg
       // 把 svgDirs 路径下的所有 svg 文件交给 svg-sprite-loader 插件处理
       {

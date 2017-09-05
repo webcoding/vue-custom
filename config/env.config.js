@@ -11,7 +11,7 @@ const qn = {
   prod: '',
   dev: '',
 }
-const prodEnv = {
+var prodEnv = {
   debug: false,
   port: 8001,
   name: 'prod',
@@ -25,9 +25,9 @@ const prodEnv = {
   qn: qn.prod,
 }
 
-function createEnv (env) {
+function createEnv(env) {
   if (env === 'prod') return prodEnv
-  return merge(prodEnv, {
+  return merge({}, prodEnv, {
     debug: true,
     name: env,
     NODE_ENV: `"${env}"`,

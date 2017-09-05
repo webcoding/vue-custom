@@ -53,7 +53,8 @@ export default {
     VContent,
   },
   computed: {},
-  ready: function () {
+  ready() {
+    debugger
     console.log(111)
   },
   attached: function () {},

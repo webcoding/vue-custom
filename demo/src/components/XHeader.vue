@@ -20,6 +20,7 @@ export default {
 </script>
 
 <style lang="stylus">
+
 .page-head
   position absolute
   z-index 100
@@ -29,4 +30,5 @@ export default {
   height 40px
   line-height 40px
   text-align center
+
 </style>

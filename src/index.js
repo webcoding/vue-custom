@@ -6,7 +6,7 @@ import Layout from '../vui/Layout'
 import Icon from '../vui/Icon'
 import Flex from '../vui/Flex'
 import Grid from '../vui/Grid'
-import BackTop from '../vui/BackTop'
+// import BackTop from '../vui/BackTop'
 import Group from '../vui/Group'
 import Button from '../vui/Button'
 // import Box from '../vui/Box'
@@ -62,8 +62,8 @@ const vui = {
   Flex,
   FlexItem: Flex.Item,
   Grid,
-  Row: Grid.Row,
-  Col: Grid.Col,
+  // Row: Grid.Row,
+  // Col: Grid.Col,
   Layout,
   Group,
   Button,
@@ -75,7 +75,7 @@ const vui = {
   XSwitch,
   Cell,
   // CellSwipe,
-  BackTop,
+  // BackTop,
   XHeader,
   // Navbar,
   Field,
