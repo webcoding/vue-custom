@@ -19,6 +19,7 @@ export default {
     prefixCls: PropTypes.string.def('divider'),
     content: String,
     size: String,
+    line: Number,
     color: String,
     bg: String,
     pad: String,
@@ -52,17 +53,18 @@ export default {
 
   render(h) {
     const { classes, styles } = this
-    const { prefixCls, content, pad } = this.$props
+    const { prefixCls, content, pad, line } = this.$props
     const $content = content || this.$slots.default
 
-    let leftPad = {}
-    let rightPad = {}
+    const leftPad = { transform: `scaleY(${line})` }
+    const rightPad = { transform: `scaleY(${line})` }
     if (pad) {
       // 间距 1、4为间隔线外间距 2、3为间隔线内间距
       const [pad1, pad2 = pad1, pad3 = pad2, pad4 = pad1] = pad.split(/\s*,\s*| +/)
-      console.log(pad)
-      leftPad = { marginLeft: `${pad1}px`, marginRight: `${pad2}px` }
-      rightPad = { marginLeft: `${pad3}px`, marginRight: `${pad4}px` }
+      leftPad.marginLeft = `${pad1}px`
+      leftPad.marginRight = `${pad2}px`
+      rightPad.marginLeft = `${pad3}px`
+      rightPad.marginRight = `${pad4}px`
     }
 
     return (<div class={ classes } style={ styles }>

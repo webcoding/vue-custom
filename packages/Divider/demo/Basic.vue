@@ -11,7 +11,7 @@
         <Divider>小小分割线</Divider>
       </div>
       <div class="box">
-        <Divider >自定义分割线</Divider>
+        <Divider :line=2 >自定义分割线</Divider>
       </div>
       <div class="box">
         <p>pad 控制四个位置的间隔距离</p>
