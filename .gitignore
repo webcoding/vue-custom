@@ -74,3 +74,4 @@ static
 # build
 styles.styl/
 backup*
+docs/

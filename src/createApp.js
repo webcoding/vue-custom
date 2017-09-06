@@ -1,7 +1,7 @@
 import Vue from 'vue'
 // import App from './App'
 import { createStore } from './store'
-import { createRouter } from './router'
+import { createRouter } from './routes'
 import { sync } from 'vuex-router-sync'
 // import titleMixin from './util/title'
 import * as filters from './util/filters'

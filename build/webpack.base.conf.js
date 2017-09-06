@@ -60,6 +60,18 @@ module.exports = {
         options: vueLoaderConfig,
       },
       // {
+      //   test: /\.md$/,
+      //   use: [
+      //     { loader: "html-loader" },
+      //     {
+      //       loader: "markdown-loader",
+      //       options: {
+      //         /* your options here */
+      //       }
+      //     }
+      //   ]
+      // },
+      // {
       //   test: /\.css$/,
       //   use: [
       //     'style-loader',

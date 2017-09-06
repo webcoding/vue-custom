@@ -68,6 +68,7 @@
     "inject-loader": "^3.0.1",
     "lodash": "^4.17.4",
     "lolex": "^2.1.2",
+    "markdown-loader": "^2.0.1",
     "mocha": "^3.5.0",
     "nightwatch": "^0.9.16",
     "opn": "^5.1.0",
