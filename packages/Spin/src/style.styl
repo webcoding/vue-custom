@@ -68,7 +68,7 @@ $spin-dot-size-lg = 32px;
   &-dot {
     position: relative;
     display: inline-block;
-    square($spin-dot-size);
+    size: $spin-dot-size;
     transform: rotate(45deg);
     animation: spinRotate 1.2s infinite linear;
     i {
@@ -108,17 +108,17 @@ $spin-dot-size-lg = 32px;
   // ------------------------------
   // small
   &&-sm &-dot {
-    square($spin-dot-size-sm);
+    size: $spin-dot-size-sm;
     i {
-      square(6px);
+      size: 6px;
     }
   }
 
   // large
   &&-lg &-dot {
-    square($spin-dot-size-lg);
+    size: $spin-dot-size-lg;
     i {
-      square(14px);
+      size: 14px;
     }
   }
 
