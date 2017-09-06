@@ -2,6 +2,7 @@
   <div id="app">
     <!-- <svg-icons></svg-icons> -->
     <router-view></router-view>
+    <QRcode style="position: fixed;top:50%;right: 10%;box-shadow: 0 0 2px rgba(0,0,0,0.5);"></QRcode>
   </div>
 </template>
 

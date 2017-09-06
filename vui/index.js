@@ -27,6 +27,7 @@ import Field from '@packages/Field'
 import SearchBar from '@packages/SearchBar'
 import Alert from '@packages/Alert'
 import Spin from '@packages/Spin'
+import QRcode from '@packages/QRcode'
 // import Spinner from '@packages/Spinner'
 // import TabItem from '@packages/TabItem'
 // import TabContainerItem from '@packages/TabContainerItem'
@@ -82,6 +83,7 @@ const packages = {
   SearchBar,
   Alert,
   Spin,
+  QRcode,
   // Spinner,
   // TabItem,
   // TabContainerItem,
