@@ -75,8 +75,8 @@ export default {
       } = this.$props
       return {
         fontSize: `${size}px`,
-        bg: !!bg,
         color: !!color,
+        backgroundColor: !!bg,
       }
     },
     iconType() {

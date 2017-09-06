@@ -20,5 +20,6 @@ export default [
   'Flex',
   'Grid',
   'QRcode',
+  'Divider',
   // 'XTag',
 ]

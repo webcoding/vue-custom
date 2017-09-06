@@ -71,6 +71,15 @@ const navList = [
         type: 'Layout',
         status: 'doing',
       },
+      {
+        icon: '',
+        link: 'divider',
+        title: '弹性布局',
+        small: 'divider',
+        desc: '',
+        type: 'Layout',
+        status: 'doing',
+      },
       // {
       //   icon: '',
       //   link: 'webp',

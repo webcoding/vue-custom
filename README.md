@@ -43,21 +43,21 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 ```bash
 .
 ├── build/                 # 构建本目录
-├── demo/                  # 示例
+├── src/                   # 项目 demo 示例
 ├── dist/                  # build 生成的生产环境下的项目
 ├── packages/          # 组件包
 │   ├── demo/              # 使用示例
 │   ├── src/               # 源码
 │   ├── test/              # 测试用例
 │   └── index.js           # 出口
-├── src/               # 源码目录（开发都在这里进行）
+├── vui/               # 源码目录（开发都在这里进行）
 │   ├── assets/            # 放置需要经由 Webpack 处理的静态文件
 │   ├── mixins/            # 混入
 │   ├── utils/             # 工具函数
 │   ├── styles/            # 样式
 │   └── index.js           # 组件汇总输出
 ├── static/              # 放置无需经由 Webpack 处理的静态文件
-|                          静态文件合并，不要放置令人混淆的多个目录结构
+|                        # 静态文件合并，不要放置令人混淆的多个目录结构
 ├── test/                # 主要的测试文件目录
 ├── .babelrc             # Babel 转码配置
 ├── .eslintrc            # ES 语法检查配置

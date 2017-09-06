@@ -66,12 +66,30 @@ export default {
         'disabled': disabled,
       }
     },
-    // styles() {
-    //   return [
-    //     this.color ? {color: this.color} : {},
-    //     this.bg ? {backgroundColor: this.bg} : {},
-    //   ]
-    // },
+    styles() {
+      const {
+        size,
+        color,
+        bg,
+      } = this.$props
+      var sizeStyle = {}
+      if (size) {
+        // var size = '280, 70'
+        // var size = '280 70'
+        // console.log(size.split(/\s*,\s*| +/))
+        const [width, height = width] = size.split(/\s*,\s*| +/)
+        sizeStyle = {
+          width: width, // svg 不需要单位
+          height: height,
+        }
+      }
+      return {
+        // fontSize: `${size}px`,
+        backgroundColor: !!bg,
+        color: !!color,
+        ...sizeStyle,
+      }
+    },
   },
 }
 </script>

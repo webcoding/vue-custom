@@ -28,6 +28,7 @@ import SearchBar from '@packages/SearchBar'
 import Alert from '@packages/Alert'
 import Spin from '@packages/Spin'
 import QRcode from '@packages/QRcode'
+import Divider from '@packages/Divider'
 // import Spinner from '@packages/Spinner'
 // import TabItem from '@packages/TabItem'
 // import TabContainerItem from '@packages/TabContainerItem'
@@ -84,6 +85,7 @@ const packages = {
   Alert,
   Spin,
   QRcode,
+  Divider,
   // Spinner,
   // TabItem,
   // TabContainerItem,
