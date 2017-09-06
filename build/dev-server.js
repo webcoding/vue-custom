@@ -68,7 +68,7 @@ app.use(hotMiddleware)
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 // app.use(staticPath, express.static('./static'))
-// '/assets', express.static('前面路径在系统中的绝对地址/Users/.../demo/src/assets')
+// app.use('/assets', express.static('前面路径在系统中的绝对地址/Users/.../demo/src/assets') )
 app.use(staticPath, express.static(config.dev.assetsPath))
 
 var uri = 'http://localhost:' + port
