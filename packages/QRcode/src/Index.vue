@@ -1,6 +1,6 @@
 <template>
-  <div :class="classes">
-    <div class="inner-box" v-if="show" @click="handleClick">
+  <div :class="classes" v-if="show">
+    <div class="inner-box" @click="handleClick">
       <img :src="imageUrl" :alt="alt" :title="imageUrl">
     </div>
   </div>
