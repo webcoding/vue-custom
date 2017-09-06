@@ -30,7 +30,7 @@
       "request": "launch",
       "name": "Launch Program",
       "env": {
-        "npm_config_path": "demo"
+        // "npm_config_path": "demo"
         // "NODE_ENV": "dev"
       },
       "program": "${workspaceRoot}/build/dev-server.js"

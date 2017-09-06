@@ -73,3 +73,4 @@ static
 # packages
 # build
 styles.styl/
+backup*

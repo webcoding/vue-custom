@@ -1,0 +1,23 @@
+
+export default [
+  // 'Abc',
+  'Icon',
+  'Layout',
+  'Badge',
+  'Button',
+  'Cell',
+  'Alert',
+  'Spin',
+  // 'Debug',
+  'IndexList',
+  'Group',
+  'Page',
+  'XHeader',
+  'SearchBar',
+  'XSwitch',
+  'Field',
+  'Tabs',
+  'Flex',
+  'Grid',
+  // 'XTag',
+]

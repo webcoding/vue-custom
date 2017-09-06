@@ -29,6 +29,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.vue', '.css'],
     alias: {
+      'styles': resolve('packages/styles'), // 样式引用没法用怎么回事
+      '@packages': resolve('./packages'),
       'vue$': 'vue/dist/vue.esm.js',
       '@root': resolve('./'),  // build 所在项目的根目录（整体项目根目录）
       '@': config.appSrc,      // 当前运行项目的 src 目录
