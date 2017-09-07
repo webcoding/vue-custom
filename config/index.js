@@ -20,7 +20,6 @@ const injectConst = {}
 for (const key in constMaps) {
   injectConst[key] = constMaps[key].indexOf(env) > -1
 }
-console.log(injectConst)
 /**
  * 一些配置
  * 环境变量 env: dev,prod,testing
@@ -52,6 +51,8 @@ const CDN = cdnConfig.create(appName)
 if (!useCdn) {
   CDN.plugins = []
 }
+
+console.log('项目相关配置：')
 console.log(project)
 
 var cookie
@@ -70,14 +71,14 @@ export default {
   alias: {
     // '@': resolve('src'),
   },
-  // 注入全局变量，用户判断
+  // 注入全局变量，用于条件判断
   injectConst: {
-    // 'NODE_ENV': env,
+    'process.env': {
+      NODE_ENV: JSON.stringify(env)
+    },
+    'NODE_ENV': env,
     '__DEBUG__': injectConst['__DEV__'] && !argv.no_debug,
     ...injectConst,
-    // __DEV__: injectConst['__DEV__'],
-    // __PROD__: injectConst['__PROD__'],
-    // __TEST__: injectConst['__TEST__'],
   },
   build: {
     env: envConfig['prod'],
