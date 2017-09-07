@@ -1,10 +1,22 @@
 var path = require('path')
+var argv = require('yargs').argv
+// import { argv } from 'yargs'
 
 const apiConfig = require('./api.config')
 const envConfig = require('./env.config')
 const cdnConfig = require('./cdn.config')
 // const targetConfig = require('./target.config')
-const env = process.env.NODE_ENV || 'prod'
+const env = process.env.NODE_ENV || 'dev'
+const constMaps = {
+  __DEV__: ['dev', 'development'],
+  __PROD__: ['prod', 'production'],
+  __TEST__: ['test', 'testing'],
+}
+const injectConst = {}
+for (let key in constMaps) {
+  injectConst[key] = constMaps[key].indexOf(env) > -1
+}
+
 /**
  * 一些配置
  * 环境变量 env: dev,prod,testing
@@ -46,14 +58,16 @@ module.exports = {
   appRoot: project.appRoot,
   appSrc: project.src,
   index: 'index.html', // 引用文件，相对于 assetsRoot
-  template: project.appRoot + '/index.html',
+  template: project.appRoot + '/public/index.html',  // 模板路径
   entry: project.src,  // './src/index.js'
   alias: {
     // '@': resolve('src'),
   },
+  // 注入全局变量，用户判断
   injectConst: {
-    isDev: '',
-    isHybrid: '',
+    'NODE_ENV': env,
+    '__DEBUG__': injectConst['__DEV__'] && !argv.no_debug,
+    ...injectConst,
   },
   build: {
     env: envConfig['prod'],

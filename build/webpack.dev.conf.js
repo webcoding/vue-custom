@@ -28,9 +28,10 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: config.index,
-      template: config.template,
+      filename: config.index,     // 写入文件名
+      template: config.template,  // 模板
       inject: true,
+      // minify: require('html-minifier'),
       serviceWorkerLoader: `<script>${fs.readFileSync(path.join(__dirname,
         './service-worker-dev.js'), 'utf-8')}</script>`
     }),
