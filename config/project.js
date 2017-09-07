@@ -1,7 +1,10 @@
-var path = require('path')
-var fs = require('fs')
+import path from 'path'
+import fs from 'fs'
+// var path = require('path')
+// var fs = require('fs')
 // see http://vuejs-templates.github.io/webpack for documentation.
-var qnConfig = require('./qn.config')
+import qnConfig from './qn.config'
+// var qnConfig = require('./qn.config')
 
 // 全相对于项目根目录，即执行命令的目录，也是package.json对应的目录
 // 此文件所在目录的上级(../${__dirname})，使用
@@ -118,4 +121,5 @@ console.log('')
 
 // console.log(project)
 
-module.exports = project
+// module.exports = project
+export default project

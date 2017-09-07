@@ -12,5 +12,5 @@ const API = {
   testing: 'beta.iqianggou.com',
 }
 
-// exports.API = API
-module.exports = API
+export default API
+

@@ -5,5 +5,5 @@ module.exports = {
   dest: 'dist/logger.js',
   format: 'umd',
   moduleName: 'createVuexLogger',
-  plugins: [buble()]
+  plugins: [buble()],
 }

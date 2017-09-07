@@ -1,6 +1,10 @@
-var path = require('path')
-var argv = require('yargs').argv
-// import { argv } from 'yargs'
+// var path = require('path')
+// var argv = require('yargs').argv
+import path from 'path'
+import _debug from 'debug'
+import { argv } from 'yargs'
+
+const debug = _debug('app:webpack:config')
 
 const apiConfig = require('./api.config')
 const envConfig = require('./env.config')
@@ -13,10 +17,10 @@ const constMaps = {
   __TEST__: ['test', 'testing'],
 }
 const injectConst = {}
-for (let key in constMaps) {
+for (const key in constMaps) {
   injectConst[key] = constMaps[key].indexOf(env) > -1
 }
-
+console.log(injectConst)
 /**
  * 一些配置
  * 环境变量 env: dev,prod,testing
@@ -44,14 +48,17 @@ const project = {
   src: resolve(`${appPath}/src`),
   dist: resolve(`dist/${appName}`),
 }
-const CDN = cdnConfig.create(appName);
-if(!useCdn){
-  CDN.plugins = [];
+const CDN = cdnConfig.create(appName)
+if (!useCdn) {
+  CDN.plugins = []
 }
 console.log(project)
 
-var cookie;
-module.exports = {
+var cookie
+
+debug('Create configuration.')
+// module.exports = {
+export default {
   env: envConfig[env],
   root: project.root,
   appName: project.name,
@@ -65,9 +72,12 @@ module.exports = {
   },
   // 注入全局变量，用户判断
   injectConst: {
-    'NODE_ENV': env,
+    // 'NODE_ENV': env,
     '__DEBUG__': injectConst['__DEV__'] && !argv.no_debug,
     ...injectConst,
+    // __DEV__: injectConst['__DEV__'],
+    // __PROD__: injectConst['__PROD__'],
+    // __TEST__: injectConst['__TEST__'],
   },
   build: {
     env: envConfig['prod'],

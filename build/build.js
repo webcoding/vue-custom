@@ -1,14 +1,14 @@
 require('./check-versions')()
 
-process.env.NODE_ENV = 'production'
+import ora from 'ora'
+import rm from 'rimraf'
+import path from 'path'
+import chalk from 'chalk'
+import webpack from 'webpack'
+import config from '../config'
+import webpackConfig from './webpack.prod.conf'
 
-var ora = require('ora')
-var rm = require('rimraf')
-var path = require('path')
-var chalk = require('chalk')
-var webpack = require('webpack')
-var config = require('../config')
-var webpackConfig = require('./webpack.prod.conf')
+process.env.NODE_ENV = 'production'
 
 var spinner = ora('building for production...')
 spinner.start()
@@ -23,7 +23,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       modules: false,
       children: false,
       chunks: false,
-      chunkModules: false
+      chunkModules: false,
     }) + '\n\n')
 
     console.log(chalk.cyan('  Build complete.\n'))

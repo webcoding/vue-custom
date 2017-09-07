@@ -18,12 +18,22 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Launch Start",
+      "program": "${workspaceRoot}/build/dev-server.js",
+      // "args": [],
+      "cwd": "${workspaceRoot}",
+      // "runtimeExecutable": "${workspaceRoot}/node_modules/babel-cli/bin/babel-node.js",
+      "runtimeExecutable": "babel-node",
+      // "runtimeExecutable": "nodemon",
+      "runtimeArgs": [
+        // "--presets",
+        // "stage-0"
+      ],
       "env": {
         // "npm_config_path": "demo"
         // "NODE_ENV": "dev"
       },
-      "program": "${workspaceRoot}/build/dev-server.js"
+      "sourceMaps": true
     }
   ]
 }

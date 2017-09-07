@@ -9,12 +9,12 @@ module.exports = {
   moduleName: 'Vuex',
   plugins: [
     replace({ __VERSION__: version }),
-    buble()
+    buble(),
   ],
   banner:
 `/**
  * vuex v${version}
  * (c) ${new Date().getFullYear()} Evan You
  * @license MIT
- */`
+ */`,
 }

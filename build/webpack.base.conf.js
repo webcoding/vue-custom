@@ -1,20 +1,29 @@
-var path = require('path')
-// var flowWebpackPlugin = require('flow-webpack-plugin')
-// const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-var utils = require('./utils')
-var config = require('../config')
-var vueLoaderConfig = require('./vue-loader.conf')
+// var path = require('path')
+// // var flowWebpackPlugin = require('flow-webpack-plugin')
+// // const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+// var utils = require('./utils')
+// var config = require('../config')
+// var vueLoaderConfig = require('./vue-loader.conf')
+import path from 'path'
+// import flowWebpackPlugin from 'flow-webpack-plugin'
+// import SpriteLoaderPlugin from 'svg-sprite-loader/plugin'
+import * as utils from './utils'
+import config from '../config'
+// console.log(config)
+import vueLoaderConfig from './vue-loader.conf'
 
 function resolve (dir) {
   // 相对于此文件所在目录
   return path.join(__dirname, '..', dir)
 }
 
-const svgDirs = [
-  // require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
-  // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 2. 自己私人的 svg 存放目录
-];
-module.exports = {
+// const svgDirs = [
+//   // require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
+//   // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 2. 自己私人的 svg 存放目录
+// ]
+// module.exports = {
+export default {
+  // ...config.injectConst,
   target: 'web',
   entry: {
     app: config.appSrc,
@@ -29,11 +38,11 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.vue', '.css'],
     alias: {
-      'styles': resolve('packages/styles'), // 样式引用没法用怎么回事
-      '@packages': resolve('./packages'),
       'vue$': 'vue/dist/vue.esm.js',
-      '@root': resolve('./'),  // build 所在项目的根目录（整体项目根目录）
       '@': config.appSrc,      // 当前运行项目的 src 目录
+      '@root': resolve('./'),  // build 所在项目的根目录（整体项目根目录）
+      '@packages': resolve('./packages'),
+      'styles': resolve('packages/styles'), // 样式引用没法用怎么回事
     },
   },
   module: {
@@ -98,7 +107,7 @@ module.exports = {
         // include: svgDirs,
         // include: path.resolve('./img/system'),
         options: {
-          runtimeCompat: true
+          runtimeCompat: true,
           // 不要提取成一个外部独立文件使用，这样与按需加载理念冲突
           // extract: true,
           // spriteFilename: 'svg-sprite.[hash:6].svg'
@@ -119,8 +128,8 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]'),
         },
-      }
-    ]
+      },
+    ],
   },
   plugins: [
     // 不需要提取配置

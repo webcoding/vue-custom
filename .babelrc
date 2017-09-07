@@ -6,6 +6,8 @@
     "flow",
     "flow-vue"
   ],
+  "sourceMaps": true,
+  "retainLines": true,
   "plugins": [
     // [
     //   "typecheck",

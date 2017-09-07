@@ -1,7 +1,8 @@
 
 // ENV
 
-var merge = require('webpack-merge')
+// var merge = require('webpack-merge')
+import merge from 'webpack-merge'
 // import { makeMap } from 'shared/util'
 // import { makeMap } from '../shared/util'
 
@@ -42,7 +43,8 @@ function createEnv(env) {
 //   new Error(inputEnv + '不是有效的环境变量，请选用' + evnList)
 // }
 
-module.exports = {
+// module.exports = {
+export default {
   dev: createEnv('dev'),
   testing: createEnv('testing'),
   prod: createEnv('prod'),

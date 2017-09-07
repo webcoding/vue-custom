@@ -1,34 +1,36 @@
-var QiniuPlugin = require('qiniu-webpack-plugin')
-var ASKey = require('./cdn.private')
+import  QiniuPlugin from 'qiniu-webpack-plugin'
+import ASKey from './cdn.private'
+
 var curASKey = ASKey['prod'] || {}
 
+// eslint no-multi-spaces 0
 // 七牛 CDN
 var cdnList = {
   cdn: {
-    bucket: 'xxx',  // your bucket name
-    domain: 'https://img.xxx.com/', //xxxx.xxx.xx.glb.clouddn.com
-    prefix: '',     // 路径前缀，如 zt/
-    path: '',       // 路径: [hash] 或 zt/lie
+    bucket: 'xxx', // your bucket name
+    domain: 'https://img.xxx.com/', // xxxx.xxx.xx.glb.clouddn.com
+    prefix: '', // 路径前缀，如 zt/
+    path: '', // 路径: [hash] 或 zt/lie
   },
 }
 
 // 这里配置 Plugin
-var qiniuPlugin = function(cdn){
+var qiniuPlugin = function (cdn) {
   return new QiniuPlugin({
     ACCESS_KEY: curASKey.ak,
     SECRET_KEY: curASKey.sk,
     bucket: cdn.bucket,
     prefix: cdn.key,
     path: cdn.path,
-  });
+  })
 }
 
 // cdn资源合一
 var cdnConfig = {
-  create: function(key) {
+  create: function (key) {
     var cdn = cdnList[key]
-    if(!cdn) {
-      key = 'cdn';
+    if (!cdn) {
+      key = 'cdn'
       cdn = cdnList[key]
       console.info('使用默认cdn')
     }
@@ -37,10 +39,10 @@ var cdnConfig = {
       plugins: [
         qiniuPlugin(key),
       ],
-    };
+    }
   },
 }
 
 // console.log(cdnConfig.get('cdn'))
-
-module.exports = cdnConfig
+export default cdnConfig
+// module.exports = cdnConfig
