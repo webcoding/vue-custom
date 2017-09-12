@@ -39,8 +39,8 @@ export default merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: config.index,     // 写入文件名
-      template: config.template,  // 模板
+      filename: config.index,     // 输出文件默认 index.html【注意：这里的根路径是module.exports.output.path】
+      template: config.template,  // 源模板文件
       inject: true,
       // minify: require('html-minifier'),
       serviceWorkerLoader: `<script>${fs.readFileSync(path.join(__dirname,

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-item">
+  <div :class="classes">
     <slot></slot>
   </div>
 </template>
@@ -16,11 +16,19 @@
  *   ...
  * </FlexItem>
  */
+import PropTypes from 'vue-types'
 export default {
   name: 'FlexItem',
-  props: [
-  ],
+  props: {
+    prefixCls: PropTypes.string.def('flex-item'),
+  },
   computed: {
+    classes() {
+      const { prefixCls } = this.$props
+      return {
+        [`${prefixCls}`]: true,
+      }
+    },
   },
 }
 </script>

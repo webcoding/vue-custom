@@ -5,6 +5,7 @@
       <p>布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。</p>
       <p>2009年，W3C提出了一种新的方案----Flex布局，可以简便、完整、响应式地实现各种页面布局。</p>
       <p>Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。</p>
+      <p>实现一遍这个示例作为练习 http://www.ruanyifeng.com/blog/2015/07/flex-examples.html</p>
       <p class="note">
         <b>注意</b> 设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</p>
     </div>
@@ -82,6 +83,110 @@
         <li>弹性自适应宽度</li>
       </ul>
     </Group>
+    <h4>Flex 布局示例</h4>
+    <p>http://www.ruanyifeng.com/blog/2015/07/flex-examples.html</p>
+    <Group title="骰子的布局">
+      <div class="first-face">
+        <span class="pip"></span>
+      </div>
+      <div class="second-face">
+        <span class="pip"></span>
+        <span class="pip"></span>
+      </div>
+      <div class="third-face">
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+      </div>
+      <div class="fourth-face">
+        <div class="column">
+          <span class="pip"></span>
+          <span class="pip"></span>
+        </div>
+        <div class="column">
+          <span class="pip"></span>
+          <span class="pip"></span>
+        </div>
+      </div>
+      <div class="fifth-face">
+        <div class="column">
+          <span class="pip"></span>
+          <span class="pip"></span>
+        </div>
+        <div class="column">
+          <span class="pip"></span>
+        </div>
+        <div class="column">
+          <span class="pip"></span>
+          <span class="pip"></span>
+        </div>
+      </div>
+      <div class="sixth-face">
+        <div class="column">
+          <span class="pip"></span>
+          <span class="pip"></span>
+          <span class="pip"></span>
+        </div>
+        <div class="column">
+          <span class="pip"></span>
+          <span class="pip"></span>
+          <span class="pip"></span>
+        </div>
+      </div>
+    </Group>
+    <Group title="Flex 网格布局">
+      <h4>最简单的网格布局，就是平均分布。</h4>
+      <div class="flex-grid">
+        <div class="flex-grid-cell">1/3</div>
+        <div class="flex-grid-cell">1/3</div>
+        <div class="flex-grid-cell">1/3</div>
+      </div>
+      <div class="flex-grid">
+        <div class="flex-grid-cell">1/4</div>
+        <div class="flex-grid-cell">1/4</div>
+        <div class="flex-grid-cell">1/4</div>
+        <div class="flex-grid-cell">1/4</div>
+      </div>
+      <h4>百分比布局：某个网格的宽度为固定的百分比，其余网格平均分配剩余的空间。</h4>
+      <div class="flex-grid">
+        <div class="flex-grid-cell u-1of2">1/2</div>
+        <div class="flex-grid-cell">auto</div>
+        <div class="flex-grid-cell">auto</div>
+      </div>
+      <div class="flex-grid">
+        <div class="flex-grid-cell">auto</div>
+        <div class="flex-grid-cell u-1of3">...</div>
+      </div>
+      <div class="flex-grid">
+        <div class="flex-grid-cell u-1of4">1/4</div>
+        <div class="flex-grid-cell">auto</div>
+        <div class="flex-grid-cell u-1of3">...</div>
+      </div>
+    </Group>
+    <Group title="圣杯布局（Holy Grail Layout）">
+      <p>圣杯布局（Holy Grail Layout）指的是一种最常见的网站布局。页面从上到下，分成三个部分：头部（header），躯干（body），尾部（footer）。其中躯干又水平分成三栏，从左到右为：导航、主栏、副栏。</p>
+      <body class="holy-grail">
+      <header>...</header>
+      <div class="holy-grail-body">
+        <main class="holy-grail-content">...</main>
+        <nav class="holy-grail-nav">...</nav>
+        <aside class="holy-grail-ads">...</aside>
+      </div>
+      <footer>...</footer>
+    </body>
+    </Group>
+    <Group title="输入框的布局">
+      <p>在输入框的前方添加提示，后方添加按钮。</p>
+    </Group>
+    <Group title="悬挂式布局">
+      <p>主栏的左侧或右侧，需要添加一个图片栏。</p>
+    </Group>
+    <Group title="固定的底栏">
+      <p>有时，页面内容太少，无法占满一屏的高度，底栏就会抬高到页面的中间。这时可以采用Flex布局，让底栏总是出现在页面的底部。</p>
+    </Group>
+    <Group title="流式布局">
+      <p>每行的项目数固定，会自动分行。</p>
+    </Group>
   </Page>
 </template>
 
@@ -139,4 +244,153 @@ export default {
   .small
     height 14px !important
     line-height 14px !important
+
+
+.first-face {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-face {
+  display: flex;
+  justify-content: space-between;
+}
+
+.second-face .pip:nth-of-type(2) {
+  align-self: flex-end;
+}
+
+.third-face {
+  display: flex;
+  justify-content: space-between;
+}
+
+.third-face .pip:nth-of-type(2) {
+  align-self: center;
+}
+
+.third-face .pip:nth-of-type(3) {
+  align-self: flex-end;
+}
+
+.fourth-face, .sixth-face {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fourth-face .column, .sixth-face .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fifth-face {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fifth-face .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fifth-face .column:nth-of-type(2) {
+  justify-content: center;
+}
+
+/* OTHER STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: center;
+  flex-wrap: wrap;
+  align-content: center;
+  font-family: 'Open Sans', sans-serif;
+
+  background: linear-gradient(top, #222, #333);
+}
+
+[class$="face"] {
+  margin: 16px;
+  padding: 4px;
+
+  background-color: #e7e7e7;
+  width: 104px;
+  height: 104px;
+  object-fit: contain;
+
+  box-shadow:
+    inset 0 5px white,
+    inset 0 -5px #bbb,
+    inset 5px 0 #d7d7d7,
+    inset -5px 0 #d7d7d7;
+
+  border-radius: 10%;
+}
+
+.pip {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin: 4px;
+
+  background-color: #333;
+  box-shadow: inset 0 3px #111, inset 0 -3px #555;
+}
+
+
+.holy-grail {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+header,
+footer {
+  flex: 1;
+}
+
+.holy-grail-body {
+  display: flex;
+  flex: 1;
+}
+
+.holy-grail-content {
+  flex: 1;
+}
+
+.holy-grail-nav, .holy-grail-ads {
+  /* 两个边栏的宽度设为12em */
+  flex: 0 0 12em;
+}
+
+.holy-grail-nav {
+  /* 导航放到最左边 */
+  order: -1;
+}
+
+@media (max-width: 768px) {
+  .holy-grail-body {
+    flex-direction: column;
+    flex: 1;
+  }
+  .holy-grail-nav,
+  .holy-grail-ads,
+  .holy-grail-content {
+    flex: auto;
+  }
+}
 </style>

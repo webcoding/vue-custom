@@ -1,9 +1,19 @@
 {
   "extends": "stylelint-config-recommended",
   "plugins": [
+    "stylelint-selector-bem-pattern",
     "stylelint-order"
   ],
   "rules": {
+    // https://github.com/simonsmith/stylelint-selector-bem-pattern
+    "plugin/selector-bem-pattern": {
+      "componentName": "[A-Z]+",
+      "componentSelectors": {
+        "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+        "combined": "^\\.combined-{componentName}-[a-z]+$"
+      },
+      "utilitySelectors": "^\\.util-[a-z]+$"
+    },
     "order/order": [
       [
         "custom-properties",

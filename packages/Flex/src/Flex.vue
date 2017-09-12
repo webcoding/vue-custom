@@ -16,10 +16,11 @@
  *   ...
  * </Flex>
  */
+import PropTypes from 'vue-types'
 export default {
   name: 'Flex',
   props: {
-    prefixCls: String,
+    prefixCls: PropTypes.string.def('flex'),
     direction: String,
     wrap: String,
     justify: String,
@@ -34,7 +35,7 @@ export default {
     //   ]
     // },
     classes() {
-      const { direction, wrap, justify, align, alignContent, prefixCls = 'flex' } = this.$props
+      const { prefixCls, direction, wrap, justify, align, alignContent } = this.$props
       return {
         // [prefixCls as string]: true,
         // [className as string]: className,

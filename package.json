@@ -14,6 +14,8 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "postcss-bem-linter": "^3.0.0",
+    "stylelint-selector-bem-pattern": "^2.0.0",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0",
     "vuex": "^2.4.0",
