@@ -1,5 +1,6 @@
 // var path = require('path')
 // var argv = require('yargs').argv
+import fs from 'fs'
 import path from 'path'
 import _debug from 'debug'
 import { argv } from 'yargs'
@@ -53,8 +54,13 @@ if (!useCdn) {
 }
 
 console.log('项目相关配置：')
-// 必须要检验模板的存在性
-console.log(project)
+// 必须要检验模板的存在性（不然报编译错误，但没有具体错误信息）
+const templatePath = project.appRoot + '/public/index.html'
+fs.exists(templatePath, function(exists){
+  if(!exists){
+    console.error("\n\n ！！！错误：项目模板文件不存在")
+  }
+})
 
 var cookie
 
@@ -67,7 +73,7 @@ export default {
   appRoot: project.appRoot,
   appSrc: project.src,
   index: 'index.html', // 引用文件，相对于 assetsRoot
-  template: project.appRoot + '/public/index.html',  // 模板路径
+  template: templatePath,  // 模板路径
   entry: project.src,  // './src/index.js'
   alias: {
     // '@': resolve('src'),

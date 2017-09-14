@@ -19,7 +19,7 @@ const registerRoute = (config) => {
         // console.log(cc)
         // console.log(page.link)
         // isPackage ? require(`@root/packages/${path}/demo/Basic`).default : require(`@/views/${path}`),
-        // 这里使用 require，要加 default，好坑啊
+        // 这里使用 require，要加 default，好坑啊(require 已经是老方法了，新的用 import)
         const component = isPackage ? () => import(`@root/packages/${path}/demo/Basic`) : () => import(`@/views/${path}`)
         routes.push({
           name: `demo/${page.link}`,

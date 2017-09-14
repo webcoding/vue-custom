@@ -41,10 +41,10 @@ export default {
     extensions: ['.js', '.json', '.vue', '.css'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
+      'styles': resolve('packages/styles'), // 样式引用没法用怎么回事
       '@': config.appSrc,      // 当前运行项目的 src 目录
       '@root': resolve('./'),  // build 所在项目的根目录（整体项目根目录）
       '@packages': resolve('./packages'),
-      'styles': resolve('packages/styles'), // 样式引用没法用怎么回事
     },
   },
   module: {
