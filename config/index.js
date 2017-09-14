@@ -53,6 +53,7 @@ if (!useCdn) {
 }
 
 console.log('项目相关配置：')
+// 必须要检验模板的存在性
 console.log(project)
 
 var cookie

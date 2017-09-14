@@ -1,5 +1,6 @@
 {
   "presets": [
+    // 为了避免 import x from 'foo' 被 babel 转换为 require，我们需要在 .babelrc 的 presets 配置中标明 "modules": false：
     ["env", { "modules": false }],
     "es2015",
     "stage-0",
@@ -26,7 +27,7 @@
     "transform-vue-jsx",  // 支持 vue 直接 render JSX 语法
     "transform-decorators-legacy", // vue-class-component
     "transform-class-properties",
-    "syntax-dynamic-import", // 动态解析 import，实现路由懒加载
+    "syntax-dynamic-import", // 动态解析 import()，实现路由懒加载
     "transform-runtime"
   ],
   "ignore": [

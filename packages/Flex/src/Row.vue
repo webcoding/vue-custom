@@ -53,7 +53,7 @@ export default {
       } = this.$props
 
       return {
-        [`${prefixCls}`]: !type,
+        [`flex-${prefixCls}`]: !type,
         [`grid-${prefixCls}-${type}`]: !!type,
         [`${prefixCls}-${type}`]: !!type,
         [`is-justify-${justify}`]: type && justify,

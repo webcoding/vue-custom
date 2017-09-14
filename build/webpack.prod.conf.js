@@ -50,6 +50,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
+        // 如果打开了 UglifyJsPlugin 的 warning 功能，就可以在构建结果中看到代码清除警告。
         warnings: false,
       },
       sourceMap: true,

@@ -28,7 +28,7 @@ export default {
   name: 'Col',
 
   props: {
-    prefixCls: PropTypes.string.def('col'),
+    prefixCls: PropTypes.string.def('flex-col'),
     tag: PropTypes.string.def('div'),
     span: PropTypes.number.def(24),
     order: Number,
@@ -50,68 +50,98 @@ export default {
       }
       return parent ? parent.gutter : 0
     },
-    classes() {
-      const $props = this.$props
-      const {
-        prefixCls,
-        span,
-        order,
-        offset,
-        push,
-        pull,
-      } = this.$props
+    // classes() {
+    //   const $props = this.$props
+    //   const {
+    //     prefixCls,
+    //     span,
+    //     order,
+    //     offset,
+    //     push,
+    //     pull,
+    //   } = this.$props
 
-      let sizeClassObj = {}
+    //   const classList = []
+    //   const offsets = ['span', 'offset', 'pull', 'push']
+    //   offsets.forEach(prop => {
+    //     if ($props[prop]) {
+    //       classList.push(
+    //         prop !== 'span' ? `${prefixCls}-${prop}-${$props[prop]}` : `${prefixCls}-${$props[prop]}`
+    //       )
+    //     }
+    //   })
 
-      const sizes = ['xs', 'sm', 'md', 'lg', 'xl']
-      sizes.forEach(size => {
-        let sizeProps = {}
-        if (typeof $props[size] === 'number') {
-          sizeProps.span = $props[size]
-        } else if (typeof $props[size] === 'object') {
-          sizeProps = $props[size] || {}
-        }
+    //   let sizeClassObj = {}
 
-        sizeClassObj = {
-          ...sizeClassObj,
-          [`${prefixCls}-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
-          [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order || sizeProps.order === 0,
-          [`${prefixCls}-${size}-offset-${sizeProps.offset}`]: sizeProps.offset || sizeProps.offset === 0,
-          [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
-          [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
-        }
-      })
+    //   const sizes = ['xs', 'sm', 'md', 'lg', 'xl']
+    //   sizes.forEach(size => {
+    //     let sizeProps = {}
+    //     if (typeof $props[size] === 'number') {
+    //       sizeProps.span = $props[size]
+    //     } else if (typeof $props[size] === 'object') {
+    //       sizeProps = $props[size] || {}
+    //     }
 
-      return {
-        [`${prefixCls}-${span}`]: span !== undefined,
-        [`${prefixCls}-order-${order}`]: order,
-        [`${prefixCls}-offset-${offset}`]: offset,
-        [`${prefixCls}-push-${push}`]: push,
-        [`${prefixCls}-pull-${pull}`]: pull,
-        ...sizeClassObj,
-      }
-    },
-    styles() {
-      const {
-        gutter,
-      } = this
-      const style = {}
-      if (gutter > 0) {
-        style.paddingLeft = `${gutter / 2}px`
-        style.paddingRight = style.paddingLeft
-      }
-      return style
-    },
+    //     sizeClassObj = {
+    //       ...sizeClassObj,
+    //       [`${prefixCls}-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
+    //       [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order || sizeProps.order === 0,
+    //       [`${prefixCls}-${size}-offset-${sizeProps.offset}`]: sizeProps.offset || sizeProps.offset === 0,
+    //       [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
+    //       [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
+    //     }
+    //   })
+
+    //   return {
+    //     [`${prefixCls}-${span}`]: span !== undefined,
+    //     [`${prefixCls}-order-${order}`]: order,
+    //     [`${prefixCls}-offset-${offset}`]: offset,
+    //     [`${prefixCls}-push-${push}`]: push,
+    //     [`${prefixCls}-pull-${pull}`]: pull,
+    //     ...sizeClassObj,
+    //   }
+    // },
   },
 
   render(h) {
     const {
+      prefixCls,
       tag,
     } = this.$props
-    const { classes, styles } = this
+    const {
+      gutter,
+    } = this
+
+    const classList = []
+
+    const styles = {}
+    if (gutter > 0) {
+      styles.paddingLeft = `${gutter / 2}px`
+      styles.paddingRight = styles.paddingLeft
+    }
+
+    ;['span', 'offset', 'pull', 'push'].forEach(prop => {
+      if (this[prop]) {
+        classList.push(
+          prop !== 'span' ? `${prefixCls}-${prop}-${this[prop]}` : `${prefixCls}-${this[prop]}`
+        )
+      }
+    })
+    ;['xs', 'sm', 'md', 'lg'].forEach(size => {
+      if (typeof this[size] === 'number') {
+        classList.push(`${prefixCls}-${size}-${this[size]}`)
+      } else if (typeof this[size] === 'object') {
+        const props = this[size]
+        Object.keys(props).forEach(prop => {
+          classList.push(
+            prop !== 'span' ? `${prefixCls}-${size}-${prop}-${props[prop]}` : `${prefixCls}-${size}-${props[prop]}`
+          )
+        })
+      }
+    })
 
     return h(tag, {
-      class: classes,
+      class: [`${prefixCls}`, classList],
       style: styles,
     }, this.$slots.default)
   },

@@ -10,6 +10,26 @@
         <b>注意</b> 设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</p>
     </div>
     <Group padded>
+      <Row>
+        <Col :span="24"><PlaceHolder /></Col>
+      </Row>
+      <Row>
+        <Col :span="12"><PlaceHolder /></Col>
+        <Col :span="12"><PlaceHolder /></Col>
+      </Row>
+      <Row>
+        <Col :span="8"><PlaceHolder /></Col>
+        <Col :span="8"><PlaceHolder /></Col>
+        <Col :span="8"><PlaceHolder /></Col>
+      </Row>
+      <Row>
+        <Col :span="6"><PlaceHolder /></Col>
+        <Col :span="6"><PlaceHolder /></Col>
+        <Col :span="6"><PlaceHolder /></Col>
+        <Col :span="6"><PlaceHolder /></Col>
+      </Row>
+    </Group>
+    <Group padded>
       <Flex>
         <FlexItem><PlaceHolder /></FlexItem>
         <FlexItem><PlaceHolder /></FlexItem>
@@ -86,6 +106,7 @@
     <h4>Flex 布局示例</h4>
     <p>http://www.ruanyifeng.com/blog/2015/07/flex-examples.html</p>
     <Group title="骰子的布局">
+      <p>由此示例启发，应该使用简单控制，定子元素相对位置即可，首先父级划分网格，子集选择网格显示</p>
       <div class="first-face">
         <span class="pip"></span>
       </div>
@@ -132,6 +153,30 @@
           <span class="pip"></span>
           <span class="pip"></span>
         </div>
+      </div>
+      <div class="sixth-face">
+        <div class="column">
+          <span class="pip"></span>
+          <span class="pip"></span>
+          <span class="pip"></span>
+        </div>
+        <div class="column">
+          <span class="pip"></span>
+        </div>
+        <div class="column">
+          <span class="pip"></span>
+          <span class="pip"></span>
+        </div>
+      </div>
+      <div class="third-face">
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
       </div>
     </Group>
     <Group title="Flex 网格布局">
@@ -227,8 +272,7 @@ export default {
 </script>
 
 <style lang="stylus" scope>
-.page-flex .flex
-  margin-bottom 10px
+.page-flex
   .placeholder
     background-color #ebebef
     color #bbb
@@ -237,13 +281,16 @@ export default {
     line-height 30px
     width 100%
 
-  .inline
-    margin 8px 8px 8px 0
-    width 80px !important
+  .flex
+    margin-bottom 10px
 
-  .small
-    height 14px !important
-    line-height 14px !important
+    .inline
+      margin 8px 8px 8px 0
+      width 80px !important
+
+    .small
+      height 14px !important
+      line-height 14px !important
 
 
 .first-face {
@@ -308,18 +355,6 @@ export default {
 
 html, body {
   height: 100%;
-}
-
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: center;
-  flex-wrap: wrap;
-  align-content: center;
-  font-family: 'Open Sans', sans-serif;
-
-  background: linear-gradient(top, #222, #333);
 }
 
 [class$="face"] {

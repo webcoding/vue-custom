@@ -28,6 +28,24 @@ export default {
   }),
   // https://vue-loader.vuejs.org/zh-cn/features/postcss.html
   postcss: [
+    // @use postcss-reverse-media;
+    // @use postcss-extend;
+    // @use postcss-mixins;
+    // @use postcss-apply;
+    // @use postcss-triangle;
+    // @use postcss-color-function;
+    // @use postcss-flexbox;
+    // @use lost;
+    // @use postcss-nested;
+    // @use postcss-for;
+    // @use postcss-each;
+    // @use postcss-conditionals;
+    // @use postcss-media-minmax;
+    // @use postcss-custom-media;
+    // @use postcss-discard-comments;
+    // @use postcss-simple-vars;
+    // @use postcss-cssnext;
+
     // options: {
     //   // processors: [
     //   //   require('postcss-strip-inline-comments'),
@@ -37,6 +55,17 @@ export default {
     // },
     // plugins: [
     // require('poststylus'),
+    // require('postcss-use')({
+    //   resolveFromFile: true,
+    //   modules: [
+    //     'cssnext',
+    //     'nested',
+    //     // 'simple-vars',
+    //     'for',
+    //     'position',
+    //     'size',
+    //   ],
+    // }),
     // require('postcss-strip-inline-comments'),
     // require('postcss-scss'),
 
@@ -64,7 +93,13 @@ export default {
 
     // require('autoprefixer'),
 
-    // require('postcss-cssnext'),
+    // require('postcss-simple-vars'), // 和下面这个不能同时用
+    // require('postcss-advanced-variables'),
+    // require('precss'),
+    // require('postcss-calc'),
+    // require('postcss-for'),
+    require('postcss-position'),
+    require('postcss-size'),
     // require('postcss-tools'),
     // require('postcss-import')({
     //   plugins: [
@@ -91,8 +126,6 @@ export default {
     //     colorPalette: colourPalette,
     //   },
     // }),
-    require('postcss-position'),
-    require('postcss-size'),
     // require('stylelint'),
     // require('postcss-write-svg'),
     // require('postcss-tools'),
@@ -101,10 +134,10 @@ export default {
     // // require('saladcss-partial-import'),
     // // require('precss'),
 
-    //   require('postcss-mixins'),
-    //   require('postcss-advanced-variables'),
-    //   require('postcss-custom-media'),
-    //   require('postcss-at-rules-variables'),
+      // require('postcss-mixins'),
+    // require('postcss-advanced-variables'),
+    // require('postcss-custom-media'),
+    // require('postcss-at-rules-variables'),
     //   // postcss-custom-properties    //
     //   // postcss-each                 // @each
     //   // postcss-for                  // @for
@@ -140,10 +173,15 @@ export default {
       // mediaQuery: false,
       minPixelValue: 0,
     }),
+    // require('cssnano')({
+    //   preset: 'default',
+    // }),
     // // require('pixrem'),
     // require('postcss-neat'),
     // require('colorguard'),
-    // require('postcss-reporter'),,
+    // require('postcss-reporter'),
+
+    // require('postcss-cssnext'),
   ],
   // },
 }
