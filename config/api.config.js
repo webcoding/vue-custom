@@ -4,12 +4,10 @@
  */
 
 const API = {
-  dev: 'dev.iqianggou.com',
-  beta: 'beta.iqianggou.com',
-  alpha: 'alpha.iqianggou.com',
-  staging: 'staging.iqianggou.com',
-  prod: 'openapi.iqianggou.com',
-  testing: 'beta.iqianggou.com',
+  dev: 'http://m.devapi.haoshiqi.net',
+  beta: 'http://m.betaapi.haoshiqi.net',
+  prod: 'http://m.api.haoshiqi.net',
+  testing: 'http://m.betaapi.haoshiqi.net',
 }
 
 export default API

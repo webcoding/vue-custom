@@ -25,11 +25,11 @@
     "__PROD__": false,
     "__DEBUG__": false,
     "window": false,
-    "expect": true,
-    "sinon": true,
+    "expect": false,
+    "sinon": false,
     "Blob": false,
     "URL": false,
-    "__WEEX__": true
+    "__WEEX__": false
   },
   // check if imports actually resolve
   "settings": {
