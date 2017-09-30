@@ -4,7 +4,7 @@
  */
 
 const API = {
-  dev: 'http://m.devapi.haoshiqi.net',
+  dev: 'http://m.api.haoshiqi.net',
   beta: 'http://m.betaapi.haoshiqi.net',
   prod: 'http://m.api.haoshiqi.net',
   testing: 'http://m.betaapi.haoshiqi.net',

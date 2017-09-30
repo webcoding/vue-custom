@@ -220,3 +220,7 @@ export default Object.assign(packages, {
   install,
   version: version,
 })
+
+// 只有具备"可转换为数值型的length属性"并且同时具备"索引属性"的对象才可以正确被slice函数处理(返回或者说转换为预期数组)，这种类型的对象经过查阅果然有一种专属称谓--Array-like Object。
+// var arr = Array.prototype.slice.call({ 'length': 5 })
+// console.log(arr)
