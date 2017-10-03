@@ -10,6 +10,7 @@
   "sourceMaps": true,
   "retainLines": true,
   "plugins": [
+    ["import", { "libraryName": "vue-custom", "style": true }],
     // [
     //   "typecheck",
     //   {
