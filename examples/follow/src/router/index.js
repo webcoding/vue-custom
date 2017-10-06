@@ -2,22 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // import store from '../store/'
 
-
 import index from '../views/index'
-import { router as viewRouter } from '../views/config'
-import { router as masterRouter } from '../views/master/config'
-import { router as alipayRouter } from '../views/alipay/config'
-// import page from '../views/page'
-// import zt from '../views/zt'
-// import err404 from '../components/404'
+import follow from '../views/follow'
+import zt from '../views/zt'
+import err404 from '../components/404'
+// import score from '../pages/score'
+// import profile from '../pages/profile'
 
 Vue.use(Router)
-
-const routes = [
-  ...viewRouter,
-  ...masterRouter,
-  ...alipayRouter,
-]
 
 const router = new Router({
   mode: 'history',
@@ -25,8 +17,9 @@ const router = new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     { path: '/', alias: '/index', name: 'index', component: index },
-    ...routes,
-    { path: '/*', name: 'index', redirect: { name: 'index' }},  // 默认跳转到首页
+    { path: '/follow', name: 'follow', component: follow },
+    { path: '/zt', name: 'zt', component: zt },
+    { path: '/*', name: '404', component: err404 },
     // { path: '/score', name: 'score', component: score },
     // {
     //   path: '/item',
@@ -56,8 +49,7 @@ const loginPath = '/login'
 // 权限检测
 router.beforeEach((to, from, next) => {
   const { meta, path } = to
-  const { requiresAuth = false, title = '' } = meta
-
+  const { requiresAuth = false } = meta
 
   // if (to.matched.some(record => record.meta.requiresAuth)) {
   if (requiresAuth && !auth.loggedIn() && path !== loginPath) {
@@ -68,15 +60,6 @@ router.beforeEach((to, from, next) => {
       query: { redirect: to.fullPath },
     })
   }
-  // 更新 TDK
-  document.title = title
-  // hack: 在微信等webview中无法修改document.title的情况
-  // let $iframe = $('<iframe src="/isLive.action" style="display:none;"></iframe>');
-  // $iframe.on('load',function() {
-  //   setTimeout(function() {
-  //     $iframe.off('load').remove();
-  //   }, 0);
-  // }).appendTo($body);
 
   // 确保一定要调用 next()
   return next()

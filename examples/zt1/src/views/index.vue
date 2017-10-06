@@ -17,7 +17,7 @@
 <script>
 
 import device from '../utils/device'
-import * as api from '../services/api'
+import * as api from '../services'
 // import XHeader from '@packages/XHeader'
 import list from '../components/list'
 
