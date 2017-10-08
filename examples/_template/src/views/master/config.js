@@ -5,13 +5,13 @@ function lazyLoad(page) {
 
 export const router = [
   {
-    path: '/alipay',
+    path: '/master',
     component: lazyLoad('_tpl'),
     children: [
       {
         path: '/',
-        name: 'alipay',
-        alias: '/index',
+        name: 'master',
+        // alias: '/index',
         meta: {
           title: '支付宝首页',
         },
@@ -19,7 +19,7 @@ export const router = [
       },
       {
         path: '/page',
-        name: 'page',
+        // name: 'page',
         meta: {
           title: '主站页面',
         },
@@ -27,13 +27,13 @@ export const router = [
       },
       {
         path: '/zt',
-        name: 'zt',
+        // name: 'zt',
         meta: {
           title: '主站专题',
         },
         component: lazyLoad('zt'),
       },
-      { path: '/*', name: 'index', redirect: { name: 'index' }},
+      // { path: '/*', name: 'index', redirect: { name: 'index' }},
     ],
   },
 ]

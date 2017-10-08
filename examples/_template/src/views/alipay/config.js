@@ -11,7 +11,7 @@ export const router = [
       {
         path: '/',
         name: 'alipay',
-        alias: '/index',
+        // alias: '/index',
         meta: {
           title: '支付宝首页',
         },
@@ -19,7 +19,6 @@ export const router = [
       },
       {
         path: '/page',
-        name: 'page',
         meta: {
           title: '支付宝页面',
         },
@@ -27,13 +26,12 @@ export const router = [
       },
       {
         path: '/zt',
-        name: 'zt',
         meta: {
           title: '支付宝专题',
         },
         component: lazyLoad('zt'),
       },
-      { path: '/*', name: 'index', redirect: { name: 'index' }},
+      // { path: '/*', name: 'index', redirect: { name: 'index' }},
     ],
   },
 ]

@@ -25,7 +25,7 @@ const router = new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     ...routes,
-    { path: '/*', name: 'index', redirect: { name: 'index' }},  // 默认跳转到首页
+    { path: '/*', name: '404', redirect: { name: 'index' }},  // 默认跳转到首页
     // { path: '/score', name: 'score', component: score },
     // {
     //   path: '/item',
