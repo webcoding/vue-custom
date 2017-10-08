@@ -1,5 +1,5 @@
 <template>
-  <div class="tpl-master">
+  <div class="tpl-default">
     <router-view></router-view>
   </div>
 </template>

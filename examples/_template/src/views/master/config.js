@@ -18,7 +18,7 @@ export const router = [
         component: lazyLoad('index'),
       },
       {
-        path: '/page',
+        path: 'page',
         // name: 'page',
         meta: {
           title: '主站页面',
@@ -26,7 +26,7 @@ export const router = [
         component: lazyLoad('page'),
       },
       {
-        path: '/zt',
+        path: 'zt',
         // name: 'zt',
         meta: {
           title: '主站专题',

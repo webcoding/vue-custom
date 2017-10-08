@@ -3,7 +3,7 @@ import Router from 'vue-router'
 // import store from '../store/'
 
 
-import index from '../views/index'
+// import index from '../views/index'
 import { router as viewRouter } from '../views/config'
 import { router as masterRouter } from '../views/master/config'
 import { router as alipayRouter } from '../views/alipay/config'
@@ -20,12 +20,12 @@ const routes = [
 ]
 
 const router = new Router({
-  mode: 'history',
+  mode: 'hash',
   base: '',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     ...routes,
-    { path: '/*', name: '404', redirect: { name: 'index' }},  // 默认跳转到首页
+    // { path: '/*', name: '404', redirect: { name: 'index' }},  // 默认跳转到首页
     // { path: '/score', name: 'score', component: score },
     // {
     //   path: '/item',
@@ -56,6 +56,7 @@ const loginPath = '/login'
 router.beforeEach((to, from, next) => {
   const { meta, path } = to
   const { requiresAuth = false, title = '' } = meta
+  console.log(meta, path)
 
 
   // if (to.matched.some(record => record.meta.requiresAuth)) {

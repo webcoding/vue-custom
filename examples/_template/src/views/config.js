@@ -13,12 +13,15 @@ export const router = [
     children: [
       {
         path: '/',
-        alias: '/index',
+        alias: 'index',
         name: 'index',
+        meta: {
+          title: '首页',
+        },
         component: lazyLoad('index'),
       },
       {
-        path: '/page',
+        path: 'page',
         name: 'page',
         meta: {
           title: '一般页面',
@@ -26,13 +29,14 @@ export const router = [
         component: lazyLoad('page'),
       },
       {
-        path: '/zt',
+        path: 'zt',
         name: 'zt',
         meta: {
           title: '专题页面',
         },
         component: lazyLoad('zt'),
       },
+      { path: '*', redirect: { name: 'index' }},
     ],
   },
 ]

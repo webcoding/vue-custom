@@ -10,28 +10,29 @@ export const router = [
     children: [
       {
         path: '/',
+        alias: '/index',
         name: 'alipay',
-        // alias: '/index',
         meta: {
           title: '支付宝首页',
         },
         component: lazyLoad('index'),
       },
       {
-        path: '/page',
+        path: 'page',
+        name: 'alipay-page',
         meta: {
           title: '支付宝页面',
         },
         component: lazyLoad('page'),
       },
       {
-        path: '/zt',
+        path: 'zt',
         meta: {
           title: '支付宝专题',
         },
         component: lazyLoad('zt'),
       },
-      // { path: '/*', name: 'index', redirect: { name: 'index' }},
+      { path: '*', redirect: { name: 'alipay' }},
     ],
   },
 ]
