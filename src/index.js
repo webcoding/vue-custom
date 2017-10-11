@@ -9,7 +9,6 @@ import ProgressBar from './components/ProgressBar.vue'
 import util from './util'
 import * as filters from './util/filters'
 import vueUI from '../vui'
-// import '@root/shared/rem'
 
 // mixin for handling uitl
 Vue.mixin(util)

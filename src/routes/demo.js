@@ -1,7 +1,8 @@
+import { camelCase, upperFirst } from 'lodash'
 import navList from '@/navList'
 console.log(navList)
 import packages from '@packages/'
-import { camelize, capitalize } from '@root/shared/util'
+// import { camelize, capitalize } from '@/util/utils'
 
 // const createListView = id => () => import('../views/CreateListView').then(m => m.default(id))
 
@@ -9,7 +10,11 @@ const registerRoute = (config) => {
   const routes = []
   config.map(nav =>
     nav.list.map((page) => {
-      const path = capitalize(camelize(page.link))
+      if (page.link === 'x-switch') {
+        debugger
+      }
+      // const path = capitalize(camelize(page.link))
+      const path = upperFirst(camelCase(page.link))
       console.log(path)
       const isPackage = packages.indexOf(path) > -1
       // eslint-disable-line global-require

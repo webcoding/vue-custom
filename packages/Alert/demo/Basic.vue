@@ -77,9 +77,9 @@ export default {
     onClose(e, el) {
       console.log(e, 'I was closed.')
       setTimeout(function () {
-        console.log('关闭后再 show，来多体验感受下交互')
+        console.log('关闭后再 show，多次操作、体验感受下交互流畅度')
         el.closing = true
-      }, 2000)
+      }, 3000)
     },
 
   },

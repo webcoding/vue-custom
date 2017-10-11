@@ -17,7 +17,7 @@
  *   ...
  * </Avatar>
  */
-// import vProps from '@root/shared/util'
+import PropTypes from 'vue-types'
 export default {
   name: 'Avatar',
   props: {

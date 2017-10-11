@@ -3,7 +3,6 @@
 
 import merge from 'webpack-merge'
 // import { makeMap } from 'shared/util'
-// import { makeMap } from '$/shared/util'
 
 // const evnList = 'dev,testing,prod'
 // const isRightEnv = makeMap(evnList)
