@@ -55,7 +55,7 @@ if (!useCdn) {
 
 console.log('项目相关配置：')
 // 必须要检验模板的存在性（不然报编译错误，但没有具体错误信息）
-const templatePath = project.appRoot + '/public/index.html'
+const templatePath = project.src + '/index.tpl'
 fs.exists(templatePath, function(exists){
   if(!exists){
     console.error("\n\n ！！！错误：项目模板文件不存在")

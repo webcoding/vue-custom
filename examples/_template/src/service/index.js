@@ -1,4 +1,4 @@
-import _request from '../utils/request'
+import _request from '../util/request'
 import { merge } from 'lodash'
 import queryString from 'query-string'
 

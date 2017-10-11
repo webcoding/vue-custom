@@ -81,7 +81,7 @@ if (isSpecial) {
   // 比对 specials 下专题目录，检测参数是否正确
   var projectList = fs.readdirSync(ztFolder).reduce((entries, dir) => {
     const fullDir = path.join(ztFolder, dir)
-    const entry = path.join(fullDir, 'src/main.js')
+    const entry = path.join(fullDir, 'src/index.js')
     if (fs.statSync(fullDir).isDirectory() && fs.existsSync(entry)) {
       entries[ztDir + dir] = [entry]
     }
