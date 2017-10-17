@@ -1,12 +1,3 @@
-// var fs = require('fs')
-// var path = require('path')
-// var utils = require('./utils')
-// var webpack = require('webpack')
-// var config = require('../config')
-// var merge = require('webpack-merge')
-// var baseWebpackConfig = require('./webpack.base.conf')
-// var HtmlWebpackPlugin = require('html-webpack-plugin')
-// var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 import fs from 'fs'
 import path from 'path'
 import * as utils from './utils'
@@ -15,7 +6,7 @@ import config from '../config'
 import merge from 'webpack-merge'
 import baseWebpackConfig from './webpack.base.conf'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
+// import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -46,6 +37,6 @@ export default merge(baseWebpackConfig, {
       serviceWorkerLoader: `<script>${fs.readFileSync(path.join(__dirname,
         './service-worker-dev.js'), 'utf-8')}</script>`,
     }),
-    new FriendlyErrorsPlugin(),
+    // new FriendlyErrorsPlugin(),
   ],
 })

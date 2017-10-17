@@ -10,9 +10,6 @@ const registerRoute = (config) => {
   const routes = []
   config.map(nav =>
     nav.list.map((page) => {
-      if (page.link === 'x-switch') {
-        debugger
-      }
       // const path = capitalize(camelize(page.link))
       const path = upperFirst(camelCase(page.link))
       console.log(path)

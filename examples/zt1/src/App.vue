@@ -69,7 +69,7 @@ export default {
 </script>
 
 <style lang="stylus">
-$link-color= #252525;
+$link-color = #252525;
 
 a {
   color: $link-color;

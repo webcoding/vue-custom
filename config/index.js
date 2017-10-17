@@ -54,6 +54,7 @@ if (!useCdn) {
 }
 
 console.log('项目相关配置：')
+console.log(JSON.stringify(project, null, 2))
 // 必须要检验模板的存在性（不然报编译错误，但没有具体错误信息）
 const templatePath = project.src + '/index.tpl'
 fs.exists(templatePath, function(exists){

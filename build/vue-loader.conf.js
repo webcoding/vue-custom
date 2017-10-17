@@ -26,6 +26,12 @@ export default {
       : config.dev.cssSourceMap,
     extract: isProduction,
   }),
+  // transformToRequire: {
+  //   video: 'src',
+  //   source: 'src',
+  //   img: 'src',
+  //   image: 'xlink:href'
+  // },
   // https://vue-loader.vuejs.org/zh-cn/features/postcss.html
   postcss: [
     // @use postcss-reverse-media;
@@ -96,10 +102,13 @@ export default {
     // require('postcss-simple-vars'), // 和下面这个不能同时用
     // require('postcss-advanced-variables'),
     // require('precss'),
-    // require('postcss-calc'),
     // require('postcss-for'),
+    require('postcss-easy-import')({
+      extensions: ['styl', 'pcss', 'css'],
+    }),
     require('postcss-position'),
     require('postcss-size'),
+    // require('postcss-calc'),
     // require('postcss-tools'),
     // require('postcss-import')({
     //   plugins: [
@@ -115,9 +124,9 @@ export default {
     // require('postcss-safe-parser'),
     // require('postcss-simple-vars')({
     //   variables: function () {
-    //     // var fn = resolve('vui/styles/fn')
+    //     // var fn = resolve('vui/style/fn')
     //     // console.log(fn)
-    //     return resolve('vui/styles/fn.pcss');
+    //     return resolve('vui/style/fn.pcss');
     //   },
     // }),
     // require('postcss-at-rules-variables'),

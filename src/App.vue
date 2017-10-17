@@ -25,8 +25,10 @@ export default {
 // 测试注释，这里写双斜杠注释没问题
 // 目前 postcss 代码高亮有问题
 // 全部使用 postcss 解析，有问题，切回 stylus，使用 postcss 作为增强
-// @import "styles/index";
-@import "../packages/styles/index";
+// @import "style/index";
+@import "../packages/style/index";
+@import "./style/var";
+@import "./style/global";
 
 .page
   width: 100%

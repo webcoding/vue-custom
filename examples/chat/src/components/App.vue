@@ -1,4 +1,4 @@
-<style src="../styles/chat.css"></style>
+<style src="../style/chat.css"></style>
 <style>
 body {
   font-size: 16px;

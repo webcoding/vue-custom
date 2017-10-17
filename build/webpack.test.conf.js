@@ -9,7 +9,7 @@ import webpack from 'webpack'
 import merge from 'webpack-merge'
 import * as utils from './utils'
 import baseConfig from './webpack.base.conf'
-import envConfig from '../env.config'
+import envConfig from '../config/env.config'
 
 var webpackConfig = merge(baseConfig, {
   // use inline sourcemap for karma-sourcemap-loader

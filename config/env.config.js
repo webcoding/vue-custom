@@ -6,10 +6,6 @@ import merge from 'webpack-merge'
 
 // const evnList = 'dev,testing,prod'
 // const isRightEnv = makeMap(evnList)
-const qn = {
-  prod: '',
-  dev: '',
-}
 var prodEnv = {
   debug: false,
   port: 8001,
@@ -21,7 +17,6 @@ var prodEnv = {
     twitter: '',
     github: '',
   },
-  qn: qn.prod,
 }
 
 function createEnv(env) {
@@ -31,7 +26,6 @@ function createEnv(env) {
     name: env,
     NODE_ENV: `"${env}"`,
     routerMode: 'hash',
-    qn: qn.dev,
   })
 }
 

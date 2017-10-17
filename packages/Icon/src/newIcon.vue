@@ -19,7 +19,6 @@
  * <Icon mode="custom" type="String" />
  */
 import PropTypes from 'vue-types'
-const warnMsg = 'Icon $props.type is invalid, have you set svg-sprite-loader correctly? see https://github.com/kisenka/svg-sprite-loader'
 export default {
   name: 'Icon',
 
@@ -82,6 +81,8 @@ export default {
     iconType() {
       const { mode, type } = this.$props
       if (mode !== 'svg') return
+
+      const warnMsg = `Icon ${type} is invalid, have you set svg-sprite-loader correctly? see https://github.com/kisenka/svg-sprite-loader`
       if (!type || typeof type !== 'string') {
         console.error(warnMsg)
         return null

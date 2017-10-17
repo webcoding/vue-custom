@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import "../../styles/fn";
+@import "../../style/fn";
 /* @import "./style"; */
 
 </style>

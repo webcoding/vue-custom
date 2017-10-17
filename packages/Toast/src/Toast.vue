@@ -1,5 +1,21 @@
 <template>
+  <transition name="van-toast-fade">
+    <div class="van-toast-wrapper" v-show="visible">
+      <div :class="['van-toast', 'van-toast--' + displayStyle]">
+        <!-- text only -->
+        <div v-if="displayStyle === 'text'" class="van-toast__text">{{ message }}</div>
+        <div v-if="displayStyle === 'html'" class="van-toast__text" v-html="message" />
 
+        <!-- with icon -->
+        <template v-if="displayStyle === 'default'">
+          <van-loading v-if="type === 'loading'" color="white" />
+          <van-icon v-else class="van-toast__icon" :name="type" />
+          <div v-if="message" class="van-toast__text">{{ message }}</div>
+        </template>
+      </div>
+      <div class="van-toast__overlay" v-if="forbidClick" />
+    </div>
+  </transition>
 </template>
 
 <script>

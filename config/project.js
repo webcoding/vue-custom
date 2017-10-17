@@ -3,8 +3,8 @@ import fs from 'fs'
 // var path = require('path')
 // var fs = require('fs')
 // see http://vuejs-templates.github.io/webpack for documentation.
-import qnConfig from './qn.config'
-// var qnConfig = require('./qn.config')
+import cdnConfig from './cdn.config'
+// var cdnConfig = require('./qn.config')
 
 // 全相对于项目根目录，即执行命令的目录，也是package.json对应的目录
 // 此文件所在目录的上级(../${__dirname})，使用
@@ -39,7 +39,7 @@ appName = appName.replace(ztDirReg, '')
 
 var devQn = appName
 var port
-var isSingle = !!qnConfig[appName]
+var isSingle = !!cdnConfig[appName]
 switch (appName) {
   case 'devnode':
     devQn = 'dev'
@@ -62,7 +62,7 @@ var project = {
   name: appName,
   dir: appName,
   dist: buildDist + appName,
-  qn: qnConfig[devQn] || qnConfig.cdn,
+  qn: cdnConfig[devQn] || cdnConfig.cdn,
   isSingle: isSingle, // 独立项目配置
 }
 
@@ -72,7 +72,7 @@ if (isSpecial) {
     name: appName,
     dir: ztDir + appName,
     dist: buildDist + ztDir + appName,
-    qn: qnConfig.zt,
+    qn: cdnConfig.zt,
   }
 
   // 专题文件夹绝对路径

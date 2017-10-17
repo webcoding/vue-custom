@@ -25,6 +25,7 @@
     "__PROD__": false,
     "__DEBUG__": false,
     "window": false,
+    "navigator": false,
     "expect": false,
     "sinon": false,
     "Blob": false,

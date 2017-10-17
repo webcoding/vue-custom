@@ -6,7 +6,6 @@ cache:
 yarn: true
 branches:
   only:
-  - master
   - dev
 install:
 - |

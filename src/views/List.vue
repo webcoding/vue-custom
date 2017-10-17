@@ -5,9 +5,9 @@
       <p>移动端组件库</p>
     </Group>
     <div class="group" v-for="group in navs" :key="group.link">
-      <div class="group-header" v-text="`${group.title} ${group.small}`"></div>
+      <div class="group-header" v-text="`${group.name} ${group.title}`"></div>
       <div class="list">
-        <Cell v-for="item in group.list" :to="`/demo/${item.link}`" :title="`${item.title} ${item.small}`" is-link :key="item.link">
+        <Cell v-for="item in group.list" :to="`/demo/${item.link}`" :title="`${item.name} ${item.title}`" is-link :key="item.link">
           <i solt="media" v-if="item.icon" :class="['iconfont', `icon-${item.icon}`]"></i>
           <Badge :status="item.status" :text="item.status"></Badge>
         </Cell>

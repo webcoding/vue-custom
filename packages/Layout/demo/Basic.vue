@@ -1,7 +1,7 @@
 <template>
   <Page class="page-layout">
     <div class="page-header">
-      <h3>基础布局 <small>Layout</small></h3>
+      <h3>Layout <small>基础布局</small></h3>
     </div>
     <Layout>
       <VHeader>Header</VHeader>

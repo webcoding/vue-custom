@@ -42,7 +42,7 @@ export default {
 @import "./style";
 
 .transition-box
-  position absolute
+  // position absolute
   z-index 0
   width 100%
   height 100%

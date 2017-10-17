@@ -1,17 +1,17 @@
 <template>
   <Page class="page-demo">
     <div class="page-header">
-      <h3>分割器/分割线 <small>Divider</small></h3>
+      <h3>分割线 <small>Divider</small></h3>
     </div>
     <div class="content">
       <div class="box">
-        <Divider content="小小分割线"></Divider>
+        <Divider content="分割线"></Divider>
       </div>
       <div class="box">
-        <Divider>小小分割线</Divider>
+        <Divider>分割线</Divider>
       </div>
       <div class="box">
-        <Divider :line=2 >自定义分割线</Divider>
+        <Divider :line='2' >自定义粗细</Divider>
       </div>
       <div class="box">
         <p>pad 控制四个位置的间隔距离</p>

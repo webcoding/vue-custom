@@ -43,7 +43,7 @@
         <Cell title="社交中的群消息通知" desc="当用户只需知道大致有内容更新时，应该使用红点型">
           <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
           <Badge slot="badge" v-show="isShow" text="3" dot />
-          <span><XSwitch v-model="isShow"></XSwitch></span>
+          <span><KitSwitch v-model="isShow"></KitSwitch></span>
         </Cell>
         <Cell title="社交中的一对一的消息通知" desc="当用户有必要知晓每条更新时，应该使用数字型">
           <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>

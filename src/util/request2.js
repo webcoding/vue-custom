@@ -1,6 +1,6 @@
 // https://github.com/github/fetch
+require('es6-promise').polyfill()
 import 'whatwg-fetch'
-import Promise from 'nd-promise'
 import qs from 'querystring'
 import isPlainObj from 'is-plain-obj'
 

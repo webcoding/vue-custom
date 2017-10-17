@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style lang="stylus" scope>
-// @import "../../styles/fn";
+// @import "../../style/fn";
 
 // 使用 iconfont 字体，可覆盖自定义
 </style>

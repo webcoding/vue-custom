@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="stylus" scope>
-@import "../../styles/fn";
+@import "../../style/fn";
 
 .icons {
   overflow: hidden;

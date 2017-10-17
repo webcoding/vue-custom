@@ -27,7 +27,7 @@ export default {
 
 <style lang="stylus">
 // 改动的项目基础样式
-// @import './styles/base';
+// @import './style/base';
 * {
   box-sizing: inherit;
 }

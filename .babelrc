@@ -22,11 +22,11 @@
     // babel对于 export default {} 支持不好
     // 需要插件 babel-plugin-add-module-exports：
     "add-module-exports",
-    "syntax-flow", // 支持解析 flow
+    // "syntax-flow", // 支持解析 flow
     // "transform-flow-strip-types",
     "syntax-jsx",  // 支持解析 jsx
     "transform-vue-jsx",  // 支持 vue 直接 render JSX 语法
-    "transform-decorators-legacy", // vue-class-component
+    // "transform-decorators-legacy", // vue-class-component
     "transform-class-properties",
     "syntax-dynamic-import", // 动态解析 import()，实现路由懒加载
     "transform-runtime"
@@ -39,7 +39,7 @@
   "env": {
     "test": {
       "presets": ["env", "stage-0"],
-      "plugins": [ "istanbul" ]
+      "plugins": [ "istanbul" ] // 用于测试
     }
   }
 }

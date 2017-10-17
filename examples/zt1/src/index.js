@@ -4,8 +4,8 @@ import Vue from 'vue'
 import './utils/init'
 import App from './App'
 // import store from './store/'
-import router from './routes'
-import * as filters from './filters'
+import router from './router'
+import * as filters from './filter'
 
 // // register global utility filters.
 Object.keys(filters).forEach(key => {

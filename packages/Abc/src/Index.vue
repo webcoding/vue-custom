@@ -25,6 +25,7 @@ export default {
       Number,
     ]),
     max: PropTypes.number.def(99),
+    show: PropTypes.bool,
     dot: Boolean,
     hidden: Boolean,
     color: String,

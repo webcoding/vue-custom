@@ -1,5 +1,5 @@
 <script>
-import TabBar from './tab-bar.vue'
+import TabBar from './TabBar.vue'
 
 function noop() {}
 

@@ -19,7 +19,7 @@ function resolve (dir) {
 }
 
 console.log('注入全局变量：')
-console.log(config.injectConst)
+console.log(JSON.stringify(config.injectConst, null, 2))
 // const svgDirs = [
 //   // require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
 //   // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 2. 自己私人的 svg 存放目录
@@ -38,10 +38,10 @@ export default {
       : config.dev.assetsPublicPath,
   },
   resolve: {
-    extensions: ['.js', '.json', '.vue', '.css'],
+    extensions: ['.js', '.json', '.vue', '.css', '.md'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'styles': resolve('packages/styles'), // 样式引用没法用怎么回事
+      // 'style': resolve('packages/style'), // 样式引用没法用怎么回事
       '@': config.appSrc,      // 当前运行项目的 src 目录
       '@root': resolve('./'),  // build 所在项目的根目录（整体项目根目录）
       '@packages': resolve('./packages'),
@@ -60,15 +60,31 @@ export default {
         },
       },
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: vueLoaderConfig,
+      },
+      {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         include: [resolve('src'), resolve('test')],
       },
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig,
+        test: /\.md/,
+        loader: 'vue-markdown-loader',
+        options: {
+          preventExtract: true,
+          use: [
+            [require('markdown-it-container'), 'demo']
+          ], preprocess(MarkdownIt, source) {
+            const styleRegexp = /<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/i;
+            const scriptRegexp = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/i;
+            MarkdownIt.renderer.rules.table_open = () =>
+              '<table class="kit-doc-table">';
+            return source.replace(styleRegexp, '').replace(scriptRegexp, '');
+          }
+        }
       },
       // {
       //   test: /\.md$/,
@@ -122,6 +138,14 @@ export default {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]'),
         },
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: utils.assetsPath('media/[name].[hash:7].[ext]')
+        }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,

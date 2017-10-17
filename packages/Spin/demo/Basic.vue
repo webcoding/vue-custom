@@ -31,14 +31,22 @@
         />
       </Spin>
       <div style="margin-top: 16px;">
-        Loading State: <XSwitch v-model="spinning"></XSwitch>
+        Loading State: <KitSwitch v-model="spinning"></KitSwitch>
       </div>
     </Group>
   </Page>
 </template>
 
 <script>
+import Spin from '../../Spin'
+import Switch from '../../Switch'
+import Alert from '../../Alert'
 export default {
+  components: {
+    [Spin.name]: Spin,
+    [Alert.name]: Alert,
+    [Switch.name]: Switch,
+  },
   data: function () {
     return {
       spinning: false,
@@ -50,7 +58,6 @@ export default {
   },
   attached: function () {},
   methods: {},
-  components: {},
 }
 </script>
 

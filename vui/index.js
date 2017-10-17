@@ -20,7 +20,7 @@ import XHeader from '@packages/XHeader'
 // import TreeItem from '@packages/TreeItem'
 
 // import Header from '@packages/Header'
-import XSwitch from '@packages/XSwitch'
+import Switch from '@packages/Switch'
 import Field from '@packages/Field'
 // import Navbar from '@packages/Navbar'
 // import Tabbar from '@packages/Tabbar'
@@ -74,7 +74,7 @@ const packages = {
   IconSvg: Icon.Svg,
   IconCustom: Icon.Custom,
   Badge,
-  XSwitch,
+  Switch,
   Cell,
   // CellSwipe,
   // BackTop,
@@ -183,10 +183,12 @@ const install = function (Vue, opts = {}) {
 
   Object.keys(packages).forEach((key) => {
     // var name = key.replace(/(\w)/, (v) => v.toUpperCase()) //首字母大写
-    Vue.component(key, packages[key])
+    // Vue.component(key, packages[key])
+    const item = packages[key]
+    Vue.component(item.name, item)
   })
-  // packages.map(item => {
-  //   Vue.component(item.name, item)
+  // packages.map(Component => {
+  //   Vue.component(Component.name, Component)
   // })
 
   // Vue.use(Loading.directive)
@@ -216,7 +218,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 };
 
 var version = '1.0.0'
-export default Object.assign(packages, {
+export default Object.assign({}, packages, {
   install,
   version: version,
 })

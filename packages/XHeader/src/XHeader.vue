@@ -95,7 +95,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import "../../styles/fn";
+@import "../../style/fn";
 /* @modifier 角色  @descendent 下级元素  @when 状态 */
 /* 如果使用扩展，就要支持并写 @modifier left,@modifier right{} */
 .x-header {
