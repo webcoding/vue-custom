@@ -4,32 +4,32 @@
       <h3>加载中 <small>Spin</small></h3>
     </div>
     <Group padded>
-      <Spin size="sm" style="margin-right: 10px;" />
-      <Spin style="margin-right: 10px;" />
-      <Spin size="lg" />
+      <KitSpin size="sm" style="margin-right: 10px;" />
+      <KitSpin style="margin-right: 10px;" />
+      <KitSpin size="lg" />
     </Group>
     <Group padded>
       <div class="example">
-        <Spin />
+        <KitSpin />
       </div>
     </Group>
     <Group padded>
-      <Spin tip="Loading...">
-        <Alert
+      <KitSpin tip="Loading...">
+        <KitAlert
           message="Alert message title"
           desc="Further details about the context of this alert."
           type="info"
         />
-      </Spin>
+      </KitSpin>
     </Group>
     <Group padded>
-      <Spin tip="Loading..." :spinning="spinning">
-        <Alert
+      <KitSpin tip="Loading..." :spinning="spinning">
+        <KitAlert
           message="Alert message title"
           desc="Further details about the context of this alert."
           type="info"
         />
-      </Spin>
+      </KitSpin>
       <div style="margin-top: 16px;">
         Loading State: <KitSwitch v-model="spinning"></KitSwitch>
       </div>

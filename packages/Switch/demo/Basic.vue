@@ -33,12 +33,12 @@
     </Group>
 
     <Group>
-      <Cell :title="'禁用选项 ' + value7">
+      <KitCell :title="'禁用选项 ' + value7">
         <KitSwitch disabled v-model="value7" @change="handleChange"></KitSwitch>
-      </Cell>
-      <Cell :title="'选项 ' + value8">
+      </KitCell>
+      <KitCell :title="'选项 ' + value8">
         <KitSwitch v-model="value8" @change="handleChange"></KitSwitch>
-      </Cell>
+      </KitCell>
     </Group>
 
     <Group class="help" padded>
@@ -49,8 +49,15 @@
 </template>
 
 <script>
+import Cell from '../../Cell'
+import Switch from '../../Switch'
 export default {
   name: 'page-switch',
+
+  components: {
+    [Cell.name]: Cell,
+    [Switch.name]: Switch,
+  },
 
   data() {
     return {
@@ -73,7 +80,7 @@ export default {
 }
 </script>
 
-<style  lang="stylus" scope>
+<style lang="stylus" scope>
 .page-part .switch{
   margin-bottom: 8px;
 }

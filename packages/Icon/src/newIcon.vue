@@ -20,7 +20,7 @@
  */
 import PropTypes from 'vue-types'
 export default {
-  name: 'Icon',
+  name: 'KitIcon',
 
   props: {
     prefixCls: String,

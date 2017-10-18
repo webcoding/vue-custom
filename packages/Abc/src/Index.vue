@@ -16,10 +16,10 @@
  */
 import PropTypes from 'vue-types'
 export default {
-  name: 'Abc',
+  name: 'KitAbc',
 
   props: {
-    prefixCls: PropTypes.string.def('abc'),
+    prefixCls: PropTypes.string.def('kit-'),
     text: PropTypes.oneOfType([
       String,
       Number,

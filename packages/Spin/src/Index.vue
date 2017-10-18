@@ -18,7 +18,7 @@
  */
 import PropTypes from 'vue-types'
 export default {
-  name: 'Spin',
+  name: 'KitSpin',
   props: {
     prefixCls: PropTypes.string.def('spin'),
     tip: String,

@@ -22,14 +22,14 @@
       </span>
       <div class="icons">
         <span class="icon" v-for="item in svgIcons" :key="item">
-          <Icon mode="svg" :type="item" />
+          <KitIcon mode="svg" :type="item" />
           <span class="icon-text">{{item}}</span>
         </span>
       </div>
       <h2>iconfont</h2>
       <div class="icons">
         <span class="icon" v-for="item in fontIcons" :key="item">
-          <Icon mode="font" :type="item">{{item}}</Icon>
+          <KitIcon mode="font" :type="item">{{item}}</KitIcon>
           <span class="icon-text">{{item}}</span>
         </span>
       </div>
@@ -38,8 +38,12 @@
 </template>
 
 <script>
+import Icon from '../../Icon'
 import { systemIcons, customIcons } from './data'
 export default {
+  components: {
+    [Icon.name]: Icon,
+  },
   data() {
     return {
       fontIcons: systemIcons,

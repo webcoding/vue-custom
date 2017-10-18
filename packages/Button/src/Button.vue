@@ -5,7 +5,7 @@
     :disabled="disabled"
     @click="handleClick"
     >
-    <Icon v-if="iconType" :type="iconType" />
+    <KitIcon v-if="iconType" :type="iconType" />
     <span class="btn-text"><slot></slot></span>
   </button>
 </template>
@@ -34,8 +34,13 @@
  * <Button type="primary" size="large">按钮</Button>
  */
 import PropTypes from 'vue-types'
+import Icon from '../../Icon'
 export default {
-  name: 'Button',
+  name: 'KitButton',
+
+  components: {
+    [Icon.name]: Icon,
+  },
 
   props: {
     prefixCls: PropTypes.string.def('btn'),

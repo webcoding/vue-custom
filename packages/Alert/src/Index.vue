@@ -1,12 +1,12 @@
 <template>
   <transition :name="`${prefixCls}-slide-up`">
     <div v-show="closing" :class="classes" :style="styles">
-      <Icon v-if="showIcon" mode="svg" :type="iconType" :class="`${prefixCls}-icon`" />
+      <KitIcon v-if="showIcon" mode="svg" :type="iconType" :class="`${prefixCls}-icon`" />
       <span :class="`${prefixCls}-message`">{{ message }}</span>
       <span v-if="desc" :class="`${prefixCls}-desc`">{{ desc }}</span>
       <a v-if="closable" :class="`${prefixCls}-close-icon`" @click="handleClose($event)">
         <template v-if="closeText">{{ closeText }}</template>
-        <Icon v-else mode='svg' type='cross' />
+        <KitIcon v-else mode='svg' type='cross' />
       </a>
     </div>
   </transition>
@@ -35,6 +35,7 @@
  * <Alert message="Warning" type="warning" showIcon />
  */
 import PropTypes from 'vue-types'
+import Icon from '../../Icon'
 function noop() { }
 const typeMap = {
   info: `info-circle`,
@@ -47,7 +48,11 @@ const typeMap = {
 //   props: ['prefixCls', 'handleClose'],
 // }
 export default {
-  name: 'Alert',
+  name: 'KitAlert',
+
+  components: {
+    [Icon.name]: Icon,
+  },
 
   props: {
     prefixCls: PropTypes.string.def('alert'),
@@ -73,10 +78,6 @@ export default {
       closing: true,
       closed: false,
     }
-  },
-
-  components: {
-    // closeIcon,
   },
 
   computed: {

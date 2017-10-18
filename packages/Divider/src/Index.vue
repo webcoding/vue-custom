@@ -13,16 +13,16 @@
  */
 import PropTypes from 'vue-types'
 export default {
-  name: 'Divider',
+  name: 'KitDivider',
 
   props: {
     prefixCls: PropTypes.string.def('divider'),
     content: String,
     size: String,
     line: Number,
+    lineColor: String,
     color: String,
-    bg: String,
-    pad: String,
+    padding: String,
   },
 
   computed: {
@@ -37,39 +37,39 @@ export default {
         [`${prefixCls}-${type}`]: type,
       }
     },
-    styles() {
-      const {
-        size,
-        color,
-        bg,
-      } = this.$props
-      return {
-        fontSize: `${size}px`,
-        backgroundColor: !!bg,
-        color: !!color,
-      }
-    },
   },
 
   render(h) {
-    const { classes, styles } = this
-    const { prefixCls, content, pad, line } = this.$props
+    const { classes } = this
+    const {
+      prefixCls,
+      content,
+      lineColor,
+      color,
+      padding,
+      line,
+      size,
+    } = this.$props
     const $content = content || this.$slots.default
 
-    const leftPad = { transform: `scaleY(${line})` }
-    const rightPad = { transform: `scaleY(${line})` }
-    if (pad) {
+    const lineStyle = {
+      transform: `scaleY(${line})`,
+      backgroundColor: lineColor,
+    }
+    const leftPad = { ...lineStyle }
+    const rightPad = { ...lineStyle }
+    if (padding) {
       // 间距 1、4为间隔线外间距 2、3为间隔线内间距
-      const [pad1, pad2 = pad1, pad3 = pad2, pad4 = pad1] = pad.split(/\s*,\s*| +/)
+      const [pad1, pad2 = pad1, pad3 = pad2, pad4 = pad1] = padding.split(/\s*,\s*| +/)
       leftPad.marginLeft = `${pad1}px`
       leftPad.marginRight = `${pad2}px`
       rightPad.marginLeft = `${pad3}px`
       rightPad.marginRight = `${pad4}px`
     }
 
-    return (<div class={ classes } style={ styles }>
+    return (<div class={ classes } >
       <div class={ `${prefixCls}-left` } style={ leftPad }></div>
-      <div class={ `${prefixCls}-center`}>{ $content }</div>
+      <div class={ `${prefixCls}-center`} style={{ fontSize: `${size}px`, color: `${color}` }}>{ $content }</div>
       <div class={ `${prefixCls}-right` } style={ rightPad }></div>
     </div>)
   },

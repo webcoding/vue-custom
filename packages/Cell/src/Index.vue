@@ -4,7 +4,7 @@
 <!-- TODO: 还需要控制 Cell 的大小间距 8/16-->
 
 <template>
-  <XTag :class="classes" :href="href" :tag="tag">
+  <KitElement :class="classes" :href="href" :tag="tag">
     <!-- <span class="cell-mask" v-if="isLink"></span> -->
     <div class="cell-wrapper" :class="{ 'cell-link' : isLink }" >
       <div class="cell-media">
@@ -36,17 +36,13 @@
       </slot>
     </div>
     -->
-  </XTag>
+  </KitElement>
 </template>
 
 <script>
 // if (process.env.NODE_ENV === 'component') {
 //   require('mint-ui/packages/font/style.css');
 // }
-
-function cleanPath(path) {
-  return path.replace(/\/\//g, '/')
-}
 
 /**
  * Cell
@@ -68,8 +64,16 @@ function cleanPath(path) {
  *   <div slot="value">描述文字啊哈</div>
  * </Cell>
 **/
+import XElement from '../../XElement'
+function cleanPath(path) {
+  return path.replace(/\/\//g, '/')
+}
 export default {
-  name: 'Cell',
+  name: 'KitCell',
+
+  components: {
+    [XElement.name]: XElement,
+  },
 
   props: {
     to: String,

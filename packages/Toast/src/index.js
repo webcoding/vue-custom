@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VueToast from './Toast'
+import vToast from './Toast'
 
 let instance
 
@@ -15,7 +15,7 @@ const defaultOptions = {
 
 const createInstance = () => {
   if (!instance) {
-    const ToastConstructor = Vue.extend(VueToast)
+    const ToastConstructor = Vue.extend(vToast)
     instance = new ToastConstructor({
       el: document.createElement('div'),
     })

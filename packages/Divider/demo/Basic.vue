@@ -5,34 +5,36 @@
     </div>
     <div class="content">
       <div class="box">
-        <Divider content="分割线"></Divider>
+        <KitDivider content="分割线"></KitDivider>
       </div>
       <div class="box">
-        <Divider>分割线</Divider>
+        <KitDivider
+          :line='3'
+          lineColor="green"
+          color="blue"
+          size="16"
+        >自定义</KitDivider>
       </div>
       <div class="box">
-        <Divider :line='2' >自定义粗细</Divider>
-      </div>
-      <div class="box">
-        <p>pad 控制四个位置的间隔距离</p>
-        <Divider pad="20">pad="20"</Divider>
-        <Divider pad="20,1">pad="20,1"</Divider>
-        <Divider pad="10,30">pad="10,30"</Divider>
-        <Divider pad="20,10,5,50">pad="20,10,5,50"</Divider>
+        <p>padding 控制四个位置的间隔距离</p>
+        <KitDivider padding="20">padding="20"</KitDivider>
+        <KitDivider padding="20,1">padding="20,1"</KitDivider>
+        <KitDivider padding="10,30">padding="10,30"</KitDivider>
+        <KitDivider padding="20,10,5,50">padding="20,10,5,50"</KitDivider>
       </div>
     </div>
   </Page>
 </template>
 
 <script>
-import Divider from '../'
+import Divider from '../../Divider'
 export default {
+  components: {
+    [Divider.name]: Divider,
+  },
   data: function () {
     return {
     }
-  },
-  components: {
-    Divider,
   },
   computed: {},
   ready: function () {
@@ -50,10 +52,6 @@ export default {
   }
   .box {
     margin-bottom: 16px;
-
-    &:nth-child(2){
-      background: gray
-    }
   }
 }
 </style>

@@ -38,7 +38,7 @@
 
 import PropTypes from 'vue-types'
 export default {
-  name: 'Badge',
+  name: 'KitBadge',
 
   props: {
     prefixCls: PropTypes.string.def('badge'),

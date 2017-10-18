@@ -1,19 +1,19 @@
 <template>
-  <transition name="van-toast-fade">
-    <div class="van-toast-wrapper" v-show="visible">
-      <div :class="['van-toast', 'van-toast--' + displayStyle]">
+  <transition :name="`${prefixCls}toast-fade`">
+    <div :class="`${prefixCls}toast-wrapper`" v-show="visible">
+      <div :class="[`${prefixCls}toast`, `${prefixCls}toast--${displayStyle}`]">
         <!-- text only -->
-        <div v-if="displayStyle === 'text'" class="van-toast__text">{{ message }}</div>
-        <div v-if="displayStyle === 'html'" class="van-toast__text" v-html="message" />
+        <div v-if="displayStyle === 'text'" :class="`${prefixCls}toast__text`">{{ message }}</div>
+        <div v-if="displayStyle === 'html'" :class="`${prefixCls}toast__text`" v-html="message" />
 
         <!-- with icon -->
         <template v-if="displayStyle === 'default'">
-          <van-loading v-if="type === 'loading'" color="white" />
-          <van-icon v-else class="van-toast__icon" :name="type" />
-          <div v-if="message" class="van-toast__text">{{ message }}</div>
+          <kit-loading v-if="type === 'loading'" color="white" />
+          <kit-icon v-else :class="`${prefixCls}toast__icon`" :name="type" />
+          <div v-if="message" :class="`${prefixCls}toast__text`">{{ message }}</div>
         </template>
       </div>
-      <div class="van-toast__overlay" v-if="forbidClick" />
+      <div class="${prefixCls}toast__overlay" v-if="forbidClick" />
     </div>
   </transition>
 </template>
@@ -39,8 +39,10 @@
  * @example
  * <Toast>...</Toast>
  */
+import PropTypes from 'vue-types'
+
 export default {
-  name: 'Toast',
+  name: 'KitToast',
   props: {
     // tag: {
     //   type: String,

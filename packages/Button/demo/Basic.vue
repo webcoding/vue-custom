@@ -6,55 +6,59 @@
     </div>
     <Group padded title="普通按钮">
       <h4>默认</h4>
-      <Button type="primary">主按钮</Button>
-      <Button>默认</Button>
-      <!-- <Button type="ghost">空心按钮</Button> -->
-      <Button type="dashed">虚线按钮</Button>
-      <Button type="danger">Danger</Button>
-      <!-- <Button hollow>镂空</Button> -->
+      <KitButton type="primary">主按钮</KitButton>
+      <KitButton>默认</KitButton>
+      <!-- <KitButton type="ghost">空心按钮</KitButton> -->
+      <KitButton type="dashed">虚线按钮</KitButton>
+      <KitButton type="danger">Danger</KitButton>
+      <!-- <KitButton hollow>镂空</KitButton> -->
 
       <p>要避免并列过多操作让用户选择，在不得不并列多个操作时，需区分操作主次，减轻用户的选择难度。</p>
-      <Button type="primary" size="lg" block>主要操作</Button>
-      <Button block size="lg">次要操作</Button>
+      <KitButton type="primary" size="lg" block>主要操作</KitButton>
+      <KitButton block size="lg">次要操作</KitButton>
 
       <h4>尺寸大小 xs sm md lg</h4>
-      <Button size="xs">xs按钮</Button>
-      <Button size="sm">sm按钮</Button>
-      <Button>默认</Button>
-      <Button size="md">md按钮</Button>
-      <Button size="lg">lg按钮</Button>
+      <KitButton size="xs">xs按钮</KitButton>
+      <KitButton size="sm">sm按钮</KitButton>
+      <KitButton>默认</KitButton>
+      <KitButton size="md">md按钮</KitButton>
+      <KitButton size="lg">lg按钮</KitButton>
       <h4>块级按钮</h4>
 
       <h4>形状 shape="circle"</h4>
-      <Button shape="square">默认方角</Button>
-      <Button shape="radius">小圆角</Button>
-      <Button shape="circle">大圆角</Button>
-      <Button shape="round">大圆角</Button>
+      <KitButton shape="square">默认方角</KitButton>
+      <KitButton shape="radius">小圆角</KitButton>
+      <KitButton shape="circle">大圆角</KitButton>
+      <KitButton shape="round">大圆角</KitButton>
       <h4>功能 nativeType="button/reset/submit/menu"</h4>
-      <Button>BUTTON</Button>
-      <Button nativeType="reset">RESET</Button>
-      <Button nativeType="submit">SUBMIT</Button>
-      <Button nativeType="menu">MENU</Button>
+      <KitButton>BUTTON</KitButton>
+      <KitButton nativeType="reset">RESET</KitButton>
+      <KitButton nativeType="submit">SUBMIT</KitButton>
+      <KitButton nativeType="menu">MENU</KitButton>
 
     </Group>
     <Group padded title="带图标的按钮">
-      <Button icon="cross">按钮</Button>
-      <Button icon="search" shape="circle"></Button>
-      <Button icon="search">搜索</Button>
-      <Button icon="plus">按钮</Button>
-      <Button icon="loading">按钮</Button>
+      <KitButton icon="cross">按钮</KitButton>
+      <KitButton icon="search" shape="circle"></KitButton>
+      <KitButton icon="search">搜索</KitButton>
+      <KitButton icon="plus">按钮</KitButton>
+      <KitButton icon="loading">按钮</KitButton>
     </Group>
     <Group padded title="带数字的按钮">
 
     </Group>
     <Group padded title="加载中的按钮">
-      <Button loading>加载中...</Button>
+      <KitButton loading>加载中...</KitButton>
     </Group>
   </Page>
 </template>
 
 <script>
+import Button from '../../Button'
 export default {
+  components: {
+    [Button.name]: Button,
+  },
   data() {
     return {
     }
@@ -65,7 +69,6 @@ export default {
   },
   attached: function () {},
   methods: {},
-  components: {},
 }
 </script>
 

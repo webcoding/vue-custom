@@ -1,19 +1,19 @@
 <script>
 /**
- * XTag
- * @module packages/XTag
+ * Element
+ * @module packages/Element
  * @desc 用于生成指定的 html 标签容器
  * @param {string} [tag] - 指定html标签
  * @help 参看 router-link
  * @help https://github.com/vuejs/vue-router/blob/dev/src/components/link.js
  *
  * @example
- * <XTag tag="div">
+ * <KitElement tag="div">
  *   ...
- * </XTag>
+ * </KitElement>
  */
 export default {
-  name: 'XTag',
+  name: 'KitElement',
   props: {
     tag: {
       type: String,
