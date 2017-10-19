@@ -5,7 +5,7 @@ import Page from '@packages/Page'
 import Layout from '@packages/Layout'
 import Icon from '@packages/Icon'
 import Flex from '@packages/Flex'
-import Grid from '@packages/Grid'
+// import Grid from '@packages/Grid'
 // import BackTop from '@packages/BackTop'
 import Group from '@packages/Group'
 import Button from '@packages/Button'
@@ -21,10 +21,10 @@ import XHeader from '@packages/XHeader'
 
 // import Header from '@packages/Header'
 import Switch from '@packages/Switch'
-import Field from '@packages/Field'
+// import Field from '@packages/Field'
 // import Navbar from '@packages/Navbar'
 // import Tabbar from '@packages/Tabbar'
-import SearchBar from '@packages/SearchBar'
+// import SearchBar from '@packages/SearchBar'
 import Alert from '@packages/Alert'
 import Spin from '@packages/Spin'
 import QRcode from '@packages/QRcode'
@@ -65,7 +65,7 @@ const packages = {
   FlexItem: Flex.Item,
   Row: Flex.Row,
   Col: Flex.Col,
-  Grid,
+  // Grid,
   Layout,
   Group,
   Button,
@@ -80,8 +80,8 @@ const packages = {
   // BackTop,
   XHeader,
   // Navbar,
-  Field,
-  SearchBar,
+  // Field,
+  // SearchBar,
   Alert,
   Spin,
   QRcode,

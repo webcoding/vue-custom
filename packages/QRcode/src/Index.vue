@@ -28,6 +28,7 @@ export default {
     type: PropTypes.string.def('url'),
     content: String,
     alt: PropTypes.string.def('本地调试'),
+    size: [String, Number],
     onClick: Function,
   },
 
@@ -40,7 +41,8 @@ export default {
 
   computed: {
     imageUrl() {
-      const qrcodeBase = `http://pan.baidu.com/share/qrcode?w=150&h=150&${this.type}=`
+      const [width = 150, height = width] = this.size.split(/\s*,\s*| +/)
+      const qrcodeBase = `http://pan.baidu.com/share/qrcode?w=${width}&h=${height}&${this.type}=`
       return qrcodeBase + encodeURIComponent(this.content || this.imgUrl)
     },
     classes() {

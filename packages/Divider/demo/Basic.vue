@@ -16,11 +16,11 @@
         >自定义</KitDivider>
       </div>
       <div class="box">
-        <p>padding 控制四个位置的间隔距离</p>
-        <KitDivider padding="20">padding="20"</KitDivider>
-        <KitDivider padding="20,1">padding="20,1"</KitDivider>
-        <KitDivider padding="10,30">padding="10,30"</KitDivider>
-        <KitDivider padding="20,10,5,50">padding="20,10,5,50"</KitDivider>
+        <p>gap 控制四个位置的间隔距离</p>
+        <KitDivider gap="20">gap="20"</KitDivider>
+        <KitDivider gap="20,1">gap="20,1"</KitDivider>
+        <KitDivider gap="10,30">gap="10,30"</KitDivider>
+        <KitDivider gap="20,10,5,50">gap="20,10,5,50"</KitDivider>
       </div>
     </div>
   </Page>

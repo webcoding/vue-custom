@@ -12,13 +12,11 @@
  *   ...
  * </KitElement>
  */
+import PropTypes from 'vue-types'
 export default {
   name: 'KitElement',
   props: {
-    tag: {
-      type: String,
-      default: 'div',
-    },
+    tag: PropTypes.string.def('div'),
     // exact: Boolean,
     // append: Boolean,
     // replace: Boolean,

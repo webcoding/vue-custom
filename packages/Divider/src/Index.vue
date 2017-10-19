@@ -22,7 +22,7 @@ export default {
     line: Number,
     lineColor: String,
     color: String,
-    padding: String,
+    gap: String,
   },
 
   computed: {
@@ -46,7 +46,7 @@ export default {
       content,
       lineColor,
       color,
-      padding,
+      gap,
       line,
       size,
     } = this.$props
@@ -58,9 +58,9 @@ export default {
     }
     const leftPad = { ...lineStyle }
     const rightPad = { ...lineStyle }
-    if (padding) {
+    if (gap) {
       // 间距 1、4为间隔线外间距 2、3为间隔线内间距
-      const [pad1, pad2 = pad1, pad3 = pad2, pad4 = pad1] = padding.split(/\s*,\s*| +/)
+      const [pad1, pad2 = pad1, pad3 = pad2, pad4 = pad1] = gap.split(/\s*,\s*| +/)
       leftPad.marginLeft = `${pad1}px`
       leftPad.marginRight = `${pad2}px`
       rightPad.marginLeft = `${pad3}px`

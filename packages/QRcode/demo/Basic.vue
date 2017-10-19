@@ -9,7 +9,11 @@
 </template>
 
 <script>
+import QRCode from '../../QRCode'
 export default {
+  components: {
+    [QRCode.name]: QRCode,
+  },
   data: function () {
     return {
     }
@@ -20,7 +24,6 @@ export default {
   },
   attached: function () {},
   methods: {},
-  components: {},
 }
 </script>
 
