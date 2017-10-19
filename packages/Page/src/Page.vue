@@ -1,5 +1,5 @@
 <template>
-  <section class="transition-box page">
+  <section class="transition-box">
     <slot></slot>
   </section>
 </template>

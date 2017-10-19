@@ -8,8 +8,8 @@
 
 <script>
 /**
- * QRcode 二维码
- * @module packages/QRcode
+ * QrCode 二维码
+ * @module packages/QrCode
  * @desc 默认显示当前页面 URL
  * @rules
  *   如需要可以引用外部模块自己生成二维码，目前使用外部链接自动生成二维码
@@ -17,11 +17,11 @@
  * @param {string} [content] - 二维码内容
  *
  * @example
- * <QRcode>xxx</QRcode>
+ * <QrCode>xxx</QrCode>
  */
 import PropTypes from 'vue-types'
 export default {
-  name: 'QRcode',
+  name: 'QrCode',
 
   props: {
     prefixCls: PropTypes.string.def('qrcode'),

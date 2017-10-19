@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import QRCode from '../../QRCode'
+import QrCode from '../../QrCode'
 export default {
   components: {
-    [QRCode.name]: QRCode,
+    [QrCode.name]: QrCode,
   },
   data: function () {
     return {

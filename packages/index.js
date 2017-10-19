@@ -19,6 +19,10 @@ require.context(directory, useSubdirectories, regExp)
 // }, {})
 
 
+// const srcContext = require.context('./', true, /^\.\/(?!main(\.js)?$)/)
+// srcContext.keys().forEach(srcContext)
+
+
 export default [
   // 'Abc',
   'Icon',
@@ -39,7 +43,7 @@ export default [
   // 'Tabs',
   'Flex',
   // 'Grid',
-  'QRcode',
+  'QrCode',
   'Divider',
   // 'XTag',
 ]

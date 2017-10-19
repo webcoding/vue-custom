@@ -1,5 +1,5 @@
 
-import XTag from '@packages/XTag'
+// import XTag from '@packages/XTag'
 // import vDebug from '@packages/Debug'
 import Page from '@packages/Page'
 import Layout from '@packages/Layout'
@@ -27,7 +27,7 @@ import Switch from '@packages/Switch'
 // import SearchBar from '@packages/SearchBar'
 import Alert from '@packages/Alert'
 import Spin from '@packages/Spin'
-import QRcode from '@packages/QRcode'
+import QrCode from '@packages/QrCode'
 import Divider from '@packages/Divider'
 // import Spinner from '@packages/Spinner'
 // import TabItem from '@packages/TabItem'
@@ -58,7 +58,7 @@ import Divider from '@packages/Divider'
 
 const packages = {
   // Header,
-  XTag,
+  // XTag,
   // vDebug,
   Page,
   Flex,
@@ -84,7 +84,7 @@ const packages = {
   // SearchBar,
   Alert,
   Spin,
-  QRcode,
+  QrCode,
   Divider,
   // Spinner,
   // TabItem,

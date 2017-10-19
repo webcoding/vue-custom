@@ -82,10 +82,12 @@
 // TODO: 貌似 99+ 中的 + 号有点未垂直居中
 import Badge from '../../Badge'
 import Cell from '../../Cell'
+import Switch from '../../Switch'
 export default {
   components: {
     [Badge.name]: Badge,
     [Cell.name]: Cell,
+    [Switch.name]: Switch,
   },
   data() {
     return {
