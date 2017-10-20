@@ -1,49 +1,35 @@
 /*
-使用 webpack 的 require.context 实现路由“去中心化”管理
+使用 webpack 的 require.context 实现“去中心化”管理
 require.context(directory, useSubdirectories, regExp)
   require.context 有三个参数：
   directory：说明需要检索的目录
   useSubdirectories：是否检索子目录
   regExp: 匹配文件的正则表达式
 **/
-// const modules = require.context('./', false, /\.vue$/)
 
-/*
-  将目录中所有组件名称转成首字母大写的驼峰表达式，然后全部导出。
-  例如c-button => CButton，c-group-cell＝>CGroupCell
-*/
+// require.context 不能使用太新的语法，不支持会报错
+const modules = require.context('./', true, /^(?!(_|\.md|style))\.\/([A-Z]+([a-zA-Z])+){1}\/$/)
 
-// export default modules.keys().reduce((module, key) => {
-//   module[key.replace(/-[a-z]/g, $1 => $1.split('-')[1].toUpperCase()).replace(/(^\.\/)|(.vue)$/g, '').replace(/^c/, $1 => $1.toUpperCase())] = modules(key)
-//   return module
-// }, {})
-
-
-// const srcContext = require.context('./', true, /^\.\/(?!main(\.js)?$)/)
-// srcContext.keys().forEach(srcContext)
+// At build-time cache will be populated with all required modules.
+// 返回对象
+export default modules.keys().reduce((module, key) => {
+  // export default 语法导出不友好，特殊处理
+  module[key.replace('.', '').replace('/', '')] = modules(key).default
+  return module
+}, {})
 
 
-export default [
-  // 'Abc',
-  'Icon',
-  'Layout',
-  'Badge',
-  'Button',
-  'Cell',
-  'Alert',
-  'Spin',
-  // 'Debug',
-  // 'IndexList',
-  'Group',
-  'Page',
-  'XHeader',
-  // 'SearchBar',
-  'Switch',
-  'Field',
-  // 'Tabs',
-  'Flex',
-  // 'Grid',
-  'QrCode',
-  'Divider',
-  // 'XTag',
-]
+// // At build-time cache will be populated with all required modules.
+// function importAll (r) {
+//   /* eslint no-return-assign: 0 */
+//   // debugger
+//   console.log(r.keys())
+//   return r.keys().forEach(function (module) {
+//     const key = module.replace('./', '')
+//     return cache[key] = r(module).default
+//   })
+// }
+// require.context 不能使用太新的语法，不支持会报错
+
+// 返回数组
+// export default importAll(modules)

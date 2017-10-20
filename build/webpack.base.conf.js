@@ -27,6 +27,7 @@ console.log(JSON.stringify(config.injectConst, null, 2))
 // module.exports = {
 export default {
   target: 'web',
+  // context: __dirname + "/app",
   entry: {
     app: config.appSrc,
   },
@@ -38,6 +39,7 @@ export default {
       : config.dev.assetsPublicPath,
   },
   resolve: {
+    // root: config.appSrc,
     extensions: ['.js', '.json', '.vue', '.css', '.md'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
