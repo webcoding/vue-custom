@@ -67,10 +67,11 @@
         return this.scrollTop > 60
       },
       simulatorStyle() {
-        const height = Math.min(556, this.windowHeight - 222)
+        // const height = Math.min(556, this.windowHeight - 222)
+        const height = this.windowHeight - 222
         console.log(height)
         return {
-          // height: height + 'px',
+          height: height + 'px',
         }
       },
     },
@@ -107,7 +108,7 @@
   background: #f2f2f4;
   box-sizing: border-box;
   right: $kit-doc-padding;
-  bottom: $kit-doc-padding;
+  // bottom: $kit-doc-padding;
   width: $kit-doc-simulator-width;
   min-width: $kit-doc-simulator-width;
   top: $kit-doc-padding + $kit-doc-header-top-height;
