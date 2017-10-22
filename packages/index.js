@@ -20,6 +20,7 @@ export default modules.keys().reduce((module, key) => {
 
 
 // // At build-time cache will be populated with all required modules.
+// const cache = {}
 // function importAll (r) {
 //   /* eslint no-return-assign: 0 */
 //   // debugger

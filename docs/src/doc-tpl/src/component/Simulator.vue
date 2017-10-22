@@ -13,80 +13,87 @@
 </template>
 
 <script>
-const icons = {
-  forward: `<svg width="1em" height="1em" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M173.2 468l573.7 0c0.1 0 0.2-0.2 0.1-0.2l-216.4-208c-17.5-16.8-18.1-44.7-1.2-62.2 16.8-17.5 44.7-18.1 62.2-1.2l294.7 283.2c8.6 8.3 13.5 19.8 13.5 31.7 0 12-4.9 23.4-13.5 31.7L590 827.7c-8.5 8.2-19.5 12.3-30.5 12.3-11.6 0-23.1-4.5-31.7-13.5-16.8-17.5-16.3-45.4 1.2-62.2l216.4-208c0.1-0.1 0-0.2-0.1-0.2L172.2 556.1c-23.4 0-42.5-18.3-43.9-41.3C126.8 489.2 147.7 468 173.2 468z"></path></svg>`,
-  back: `<svg width="1em" height="1em" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M854.8 468 281.1 468c-0.1 0-0.2-0.2-0.1-0.2l216.4-208c17.5-16.8 18.1-44.7 1.2-62.2-16.8-17.5-44.7-18.1-62.2-1.2L141.8 479.5c-8.6 8.3-13.5 19.8-13.5 31.7 0 12 4.9 23.4 13.5 31.7l296.2 284.7c8.5 8.2 19.5 12.3 30.5 12.3 11.6 0 23.1-4.5 31.7-13.5 16.8-17.5 16.3-45.4-1.2-62.2l-216.4-208c-0.1-0.1 0-0.2 0.1-0.2l573.1 0c23.4 0 42.5-18.3 43.9-41.3C901.2 489.2 880.3 468 854.8 468z"></path></svg>`,
-  demo: `<svg width="1em" height="1em" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="m16.3 15l-6.3 6.3 6.3 6.2 2.5-2.5-3.8-3.7 3.8-3.8-2.5-2.5z m5 2.5l3.7 3.8-3.7 3.7 2.5 2.5 6.2-6.2-6.2-6.3-2.5 2.5z m6.2-15h-22.5v35h30v-27.5l-7.5-7.5z m5 32.5h-25v-30h17.5l7.5 7.5v22.5z"></path></svg>`,
-}
-export default {
-  name: 'doc-simulator',
+  const icons = {
+    forward: `<svg width="1em" height="1em" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M173.2 468l573.7 0c0.1 0 0.2-0.2 0.1-0.2l-216.4-208c-17.5-16.8-18.1-44.7-1.2-62.2 16.8-17.5 44.7-18.1 62.2-1.2l294.7 283.2c8.6 8.3 13.5 19.8 13.5 31.7 0 12-4.9 23.4-13.5 31.7L590 827.7c-8.5 8.2-19.5 12.3-30.5 12.3-11.6 0-23.1-4.5-31.7-13.5-16.8-17.5-16.3-45.4 1.2-62.2l216.4-208c0.1-0.1 0-0.2-0.1-0.2L172.2 556.1c-23.4 0-42.5-18.3-43.9-41.3C126.8 489.2 147.7 468 173.2 468z"></path></svg>`,
+    back: `<svg width="1em" height="1em" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M854.8 468 281.1 468c-0.1 0-0.2-0.2-0.1-0.2l216.4-208c17.5-16.8 18.1-44.7 1.2-62.2-16.8-17.5-44.7-18.1-62.2-1.2L141.8 479.5c-8.6 8.3-13.5 19.8-13.5 31.7 0 12 4.9 23.4 13.5 31.7l296.2 284.7c8.5 8.2 19.5 12.3 30.5 12.3 11.6 0 23.1-4.5 31.7-13.5 16.8-17.5 16.3-45.4-1.2-62.2l-216.4-208c-0.1-0.1 0-0.2 0.1-0.2l573.1 0c23.4 0 42.5-18.3 43.9-41.3C901.2 489.2 880.3 468 854.8 468z"></path></svg>`,
+    demo: `<svg width="1em" height="1em" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="m16.3 15l-6.3 6.3 6.3 6.2 2.5-2.5-3.8-3.7 3.8-3.8-2.5-2.5z m5 2.5l3.7 3.8-3.7 3.7 2.5 2.5 6.2-6.2-6.2-6.3-2.5 2.5z m6.2-15h-22.5v35h30v-27.5l-7.5-7.5z m5 32.5h-25v-30h17.5l7.5 7.5v22.5z"></path></svg>`,
+  }
+  export default {
+    name: 'doc-simulator',
 
-  props: {
-    src: String,
-  },
+    props: {
+      src: String,
+    },
 
-  data() {
-    return {
-      icons: icons,
-      scrollTop: window.scrollY,
-      iframeHostName: '',
-      windowHeight: window.innerHeight,
-    }
-  },
+    data() {
+      return {
+        icons: icons,
+        scrollTop: window.scrollY,
+        iframeHostName: '',
+        windowHeight: window.innerHeight,
+      }
+    },
 
-  mounted() {
-    window.addEventListener('scroll', () => {
-      this.scrollTop = window.scrollY
-    })
-    window.addEventListener('resize', () => {
-      this.windowHeight = window.innerHeight
-    })
+    mounted() {
+      window.addEventListener('scroll', () => {
+        this.scrollTop = window.scrollY
+      })
+      window.addEventListener('resize', () => {
+        this.windowHeight = window.innerHeight
+      })
 
-    const { iframe } = this.$refs
-    if (iframe) {
-      if (iframe.contentDocument.readyState === 'complete') {
-        setTimeout(this.onSrcChanged, 0)
-      } else {
-        iframe.onload = () => {
-          this.onSrcChanged()
+      const {
+        iframe
+      } = this.$refs
+      if (iframe) {
+        if (iframe.contentDocument.readyState === 'complete') {
+          setTimeout(this.onSrcChanged, 0)
+        } else {
+          iframe.onload = () => {
+            this.onSrcChanged()
+          }
         }
       }
-    }
-  },
+    },
 
-  watch: {
-    src() {
-      this.onSrcChanged()
+    watch: {
+      src() {
+        this.onSrcChanged()
+      },
     },
-  },
 
-  computed: {
-    isFixed() {
-      return this.scrollTop > 60
+    computed: {
+      isFixed() {
+        return this.scrollTop > 60
+      },
+      simulatorStyle() {
+        const height = Math.min(556, this.windowHeight - 222)
+        console.log(height)
+        return {
+          // height: height + 'px',
+        }
+      },
     },
-    simulatorStyle() {
-      const height = Math.min(556, this.windowHeight - 222)
-      return {
-        height: height + 'px',
-      }
-    },
-  },
 
-  methods: {
-    reloadIframe() {
-      const { iframe } = this.$refs
-      if (iframe && iframe.contentWindow) {
-        iframe.contentWindow.location.reload()
-      }
+    methods: {
+      reloadIframe() {
+        const {
+          iframe,
+        } = this.$refs
+        if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.location.reload()
+        }
+      },
+      onSrcChanged() {
+        const {
+          iframe,
+        } = this.$refs
+        if (iframe && iframe.contentWindow) {
+          this.iframeHostName = iframe.contentWindow.location.host || location.host
+        }
+      },
     },
-    onSrcChanged() {
-      const { iframe } = this.$refs
-      if (iframe && iframe.contentWindow) {
-        this.iframeHostName = iframe.contentWindow.location.host || location.host
-      }
-    },
-  },
-}
+  }
 </script>
 
 <style lang="stylus">
@@ -100,6 +107,7 @@ export default {
   background: #f2f2f4;
   box-sizing: border-box;
   right: $kit-doc-padding;
+  bottom: $kit-doc-padding;
   width: $kit-doc-simulator-width;
   min-width: $kit-doc-simulator-width;
   top: $kit-doc-padding + $kit-doc-header-top-height;
@@ -122,6 +130,7 @@ export default {
 
   iframe {
     width: 100%;
+    height: 100%;
     display: block;
   }
 
