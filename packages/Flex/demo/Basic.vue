@@ -4,24 +4,24 @@
       <h3>Flex 布局 <small>Flex</small></h3>
     </div>
     <Group padded>
-      <Row>
-        <Col :span="24"><PlaceHolder /></Col>
-      </Row>
-      <Row>
-        <Col :span="12"><PlaceHolder /></Col>
-        <Col :span="12"><PlaceHolder /></Col>
-      </Row>
-      <Row>
-        <Col :span="8"><PlaceHolder /></Col>
-        <Col :span="8"><PlaceHolder /></Col>
-        <Col :span="8"><PlaceHolder /></Col>
-      </Row>
-      <Row>
-        <Col :span="6"><PlaceHolder /></Col>
-        <Col :span="6"><PlaceHolder /></Col>
-        <Col :span="6"><PlaceHolder /></Col>
-        <Col :span="6"><PlaceHolder /></Col>
-      </Row>
+      <KitRow>
+        <KitCol :span="24"><PlaceHolder /></KitCol>
+      </KitRow>
+      <KitRow>
+        <KitCol :span="12"><PlaceHolder /></KitCol>
+        <KitCol :span="12"><PlaceHolder /></KitCol>
+      </KitRow>
+      <KitRow>
+        <KitCol :span="8"><PlaceHolder /></KitCol>
+        <KitCol :span="8"><PlaceHolder /></KitCol>
+        <KitCol :span="8"><PlaceHolder /></KitCol>
+      </KitRow>
+      <KitRow>
+        <KitCol :span="6"><PlaceHolder /></KitCol>
+        <KitCol :span="6"><PlaceHolder /></KitCol>
+        <KitCol :span="6"><PlaceHolder /></KitCol>
+        <KitCol :span="6"><PlaceHolder /></KitCol>
+      </KitRow>
     </Group>
     <Group padded>
       <Flex>
@@ -231,6 +231,7 @@
 
 <script>
 import Vue from 'vue'
+import { Row, Col, FlexItem } from '../../Flex'
 Vue.component('WhiteSpace', {
   template: '<div style="height: 10px;"></div>',
 })
@@ -250,11 +251,14 @@ Vue.component('PlaceHolder', {
   },
 })
 export default {
+  components: {
+    [Row.name]: Row,
+    [Col.name]: Col,
+    [FlexItem.name]: FlexItem,
+  },
   data: function () {
     return {
     }
-  },
-  components: {
   },
   computed: {},
   ready: function () {

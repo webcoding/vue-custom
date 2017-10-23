@@ -9,12 +9,14 @@ require.context(directory, useSubdirectories, regExp)
 
 // require.context 不能使用太新的语法，不支持会报错
 const modules = require.context('./', true, /^(?!(_|\.md|style))\.\/([A-Z]+([a-zA-Z])+){1}\/$/)
-
+const components = []
 // At build-time cache will be populated with all required modules.
 // 返回对象
 export default modules.keys().reduce((module, key) => {
   // export default 语法导出不友好，特殊处理
-  module[key.replace('.', '').replace('/', '')] = modules(key).default
+  const componentName = key.replace('.', '').replace('/', '')
+  components.push(components)
+  module[componentName] = modules(key).default
   return module
 }, {})
 

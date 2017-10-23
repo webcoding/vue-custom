@@ -19,13 +19,13 @@
  * @param {number} [pull] - 栅格向左移动格数
  *
  * @example
- * <Row >
- *   <Col>...</Col>
- * </Row>
+ * <KitRow >
+ *   <KitCol>...</KitCol>
+ * </KitRow>
  */
 import PropTypes from 'vue-types'
 export default {
-  name: 'Col',
+  name: 'KitCol',
 
   props: {
     prefixCls: PropTypes.string.def('flex-col'),

@@ -26,15 +26,17 @@ const registerRoute = (list) => {
       // const isPackage = packages.indexOf(path) > -1
       // eslint-disable-line global-require
       // const component = isPackage ? () => import(`@root/packages/${path}/readme.md`) : isComming
-      routes.push({
-        name: `component/${page.path}`,
-        path: `${page.path}`,
-        component: () => import(`@root/packages/${path}/readme.md`),
-        meta: {
-          title: page.title,
-          desc: page.desc,
-        },
-      })
+      if (item.status !== 'todo') {
+        routes.push({
+          name: `component/${page.path}`,
+          path: `${page.path}`,
+          component: () => import(`@root/packages/${path}/readme.md`),
+          meta: {
+            title: page.title,
+            desc: page.desc,
+          },
+        })
+      }
       return false
     })
   )

@@ -14,13 +14,13 @@
  * @param {number} [justify] - flex 布局下的水平排列方式：start end center space-around space-between
  *
  * @example
- * <Row >
- *   <Col>...</Col>
- * </Row>
+ * <KitRow >
+ *   <KitCol>...</KitCol>
+ * </KitRow>
  */
 import PropTypes from 'vue-types'
 export default {
-  name: 'Row',
+  name: 'KitRow',
 
   props: {
     prefixCls: PropTypes.string.def('row'),
