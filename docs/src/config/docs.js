@@ -558,6 +558,7 @@ export default {
       '意见反馈': 'https://github.com/webcoding/vue-custom/issues',
     },
   },
+  navBase: '/component',
   nav: [
     {
       title: '开发指南',

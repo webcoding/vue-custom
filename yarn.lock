@@ -4391,6 +4391,16 @@ kind-of@^5.0.0, kind-of@^5.0.2:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-5.1.0.tgz#729c91e2d857b7a419a1f9aa65685c4c33f5845d"
 
+kit-doc@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/kit-doc/-/kit-doc-1.0.1.tgz#44d2c24b9754ad0353b6c4235e09fc1d9913f23f"
+  dependencies:
+    lodash "^4.17.4"
+    vue "^2.5.2"
+    vue-router "^3.0.1"
+    vuex "^3.0.0"
+    vuex-router-sync "^5.0.0"
+
 known-css-properties@^0.4.0:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.4.1.tgz#baaaf704e5f8a5f10e0e221212aae3ea738ea372"

@@ -3,7 +3,9 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-import KitDoc from './doc-tpl/src/install'
+// import KitDoc from './doc-tpl/src/install'
+import KitDoc from 'kit-doc'
+console.log(KitDoc)
 // debugger
 import vueUI from '../../vui'
 Vue.use(KitDoc)
