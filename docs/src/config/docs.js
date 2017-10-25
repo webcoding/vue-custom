@@ -85,7 +85,7 @@ export const components = [
         path: 'divider',
         title: 'divider 分割线',
         desc: '',
-        status: 'doing',
+        status: 'done',
       },
       {
         icon: '',
