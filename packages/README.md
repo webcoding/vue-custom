@@ -10,7 +10,8 @@ packages
 │   ├── demo/           # 使用示例(后期改为 md 格式，方便生成示例文档)
 │   ├── src/            # 源码
 │   ├── test/           # 测试用例
-│   └── index.js        # 出口
+│   ├── index.js        # 出口
+│   └── readme.md       # 文档说明
 │
 ├── xxx...
 │
